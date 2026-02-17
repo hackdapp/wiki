@@ -1,0 +1,236 @@
+---
+title: 2026-02-17 - 推特简报
+description: Claude Code 生态、Obsidian 工作流与视频生成实战
+---
+
+本周整理的 X 书签中，有大量关于 Claude Code 生态和 AI 内容创作工作流的实战分享，也有不少可直接使用的工具和资源。以下是经过筛选后值得关注的主题。
+
+---
+
+## 1. Claude Code 生态：从插件到系统化教程
+
+Claude Code 的周边生态正在快速成熟，从官方推荐的 Skills 到完整的中文教程，已有足够的资源支撑开发者上手。
+
+### 核心要点
+
+Anthropic 官方推荐了 8 个覆盖开发全流程的插件，总安装量超过 18 万。这些插件解决了前端设计、代码审查、GitHub 集成、安全检测等常见需求。对于想系统学习的人，Geek Lite 提供了一套 10 章、10.4 万字的中文教程，包含 70+ 代码示例和 120 个 FAQ。如果你是产品经理，GitHub 上还有一个 4-6 小时的交互式课程，专门讲解如何用 Claude Code 处理 PRD、数据分析和竞品分析。
+
+**为什么值得看**：Claude Code 不只是「更好的终端」，而是一套可以重构开发/产品工作流的基础设施。这些资源提供了从入门到实战的完整路径，避免自己摸索走弯路。
+
+### 原文引用
+
+> [1] [Claude Code 8 个官方推荐插件](https://youmind.com/materials/019c6a6b-3120-7c06-aaf3-730f06c0883b)
+
+> [2] [Claude Code 中文教程 - 直播教学版](https://youmind.com/materials/019c6a6b-1ec2-7ea5-ad27-eaac080f06b9)
+
+> [3] [Claude Code PM Course - 产品经理专项课程](https://youmind.com/materials/019c6a6a-b426-75d4-a9e6-3de50d60231c)
+
+---
+
+## 2. Obsidian + Claude Code：内容创作工厂的完整搭建指南
+
+这是本周最密集的信息区——多条推文围绕同一主题：如何用 Obsidian + Claude Code 构建本地优先的内容生产流水线。
+
+### 核心要点
+
+核心思路是将 Obsidian 作为「内容容器」，Claude Code 作为「智能引擎」，通过自定义 Skills 实现从选题、写作到发布的自动化。
+
+**关键工具链**：
+
+- **Claudian 插件**：让 Claude Code 直接在 Obsidian 编辑器里运行，无需切换终端
+
+- **Terminal 插件**：在 Obsidian 里直接开终端
+
+- **自定义 Skills**：作者分享了 16 个自用的 Skills，包括「文章智能配图」（自动分析文章结构并生成匹配风格的插图）、「一键发布到 X」（用真实 Chrome 浏览器自动化发布）、「网页转 Markdown」（素材收集利器）
+
+- [**CLAUDE.md**](http://CLAUDE.md)：系统的灵魂文件，编码了你的身份定义、工作流模板、Skills 使用手册，让 AI 真正理解你的工作方式
+
+**实战效果**：从听完一期播客到发布一篇带配图的深度 X Article，整个流程约 30 分钟，以前需要一个下午。
+
+**为什么值得看**：这不仅是一套工具配置，而是一种「AI 时代个人知识管理」的方法论。相比飞书、Notion，这套方案的数据完全本地保存，不受平台导出限制，且能通过 [CLAUDE.md](http://CLAUDE.md) 形成可复用的个人创作系统。
+
+### 原文引用
+
+> [4] [Obsidian + Claude Code 工作流概述](https://youmind.com/materials/019c6a6a-8486-781c-bc66-dc6cdac310f6)
+
+> [5] [Obsidian + Claude Code 小白入门教程（含插件安装、Skill 配置、自动发布）](https://youmind.com/materials/019c6a6a-71fc-7475-92cb-e8f91d2e3d18)
+
+> [6] [如何基于 Obsidian 和 Claude 打造 AI 时代超级大脑（含 16 个 Skills 详解）](https://youmind.com/materials/019c6a6a-7075-75c5-aeea-19481e5587ba)
+
+---
+
+## 3. Seedance 2.0：视频生成提示词与工作流
+
+国产视频生成模型 Seedance 2.0 正在获得创作者关注，本周有两条推文提供了可直接使用的提示词技巧。
+
+### 核心要点
+
+Seedance 2.0 对「动作描述」和「运镜」识别很强，提示词的核心结构是：**主体 + 动作 + 场景 + 光影 + 镜头语言 + 风格 + 画质 + 约束**。
+
+**关键技巧**：
+
+- 动作要写「慢」、写「连续」：用「缓慢转身、轻轻抬手、脚步轻移」替代「跳舞、走路」
+
+- 运镜要写「稳」：直接写「缓慢推镜、轻微环绕、平稳跟拍」
+
+- 必须加「约束词」防变形：「五官清晰、面部稳定、不扭曲、人体结构正常」
+
+- 避雷：不写复杂多人互动、剧烈运动、模糊词（如「好看」）
+
+**进阶工作流**：Kimi K2.5 + Seedance 2 的组合——让 Kimi 生成包含图像和提示词的 Excel 故事板，直接用于 Seedance。例如输入「我想创作心理惊悚片淋浴谋杀场景的衍生作品，提供故事板分解」，Kimi 会输出完整分镜 + 提示词 + 预览图。
+
+### 原文引用
+
+> [7] [Seedance 2.0 提示词技巧（从基础到高阶）](https://youmind.com/materials/019c6a6a-7123-7627-b6c9-1b44e29e5765)
+
+> [8] [Kimi K2.5 + Seedance 2 故事板工作流](https://youmind.com/materials/019c6a6a-a087-7011-b15b-8f6317a261ef)
+
+---
+
+## 4. AI 视频商单工具：NemoVideo
+
+针对电商视频商单场景，NemoVideo 提供了一套「自动拆解爆款 → 重组逻辑 → 生成脚本 → 智能仿剪」的完整工作流。
+
+### 核心要点
+
+对于需要大批量生产产品视频的创作者（如电商客户每天需要 3 条 TikTok 引流视频），NemoVideo 的灵感系统可以直接输入链接或场景，搜罗全网相关爆款视频作为参考，然后按脚本自动剪辑。官方即将接入 Seedance 2.0。
+
+**实测效果**：80% 有素材的情况下，做一条 30 秒产品场景视频只需几分钟；如需 AI 生成补全素材，用时稍长。
+
+**为什么值得看**：视频商单的最大痛点是「效率低、投入产出比低」。这个工具把「拆解爆款逻辑」这一核心能力自动化了，适合接批量商单的创作者。
+
+### 原文引用
+
+> [9] [NemoVideo 爆款视频仿剪工具实测](https://youmind.com/materials/019c6a6a-b4d7-7f6c-8bde-ab7844a24767)
+
+---
+
+## 5. X 创作者收益：从认证到收款的实操手册
+
+一篇基于 2026 年 2 月最新政策的 X 创作者收益开通指南，整合了上百位创作者的真实案例（成功的、失败的、被卡住的）。
+
+### 核心要点
+
+**开通条件**：账号 ≥ 3 个月、粉丝 ≥ 500、近 3 个月推文印象数 ≥ 500 万、Premium 订阅。
+
+**核心流程**：
+
+1. **身份认证**：大陆用户可走 Stripe 通道（非 Persona），用身份证几分钟通过。关键是手机系统语言、X App 语言改为英文，连美国节点
+
+2. **收款配置**：推荐 Wise 港币账户（支持大陆身份证注册）或香港银行卡绑定 Stripe
+
+3. **税务表格**：填写 W-8BEN，选「非美国税务居民」，可将预扣税从 30% 降到 10%
+
+**致命细节**（来自真实踩坑）：
+
+- 姓名不一致：X 认证、Stripe、Wise 三个平台的英文名必须完全一致
+
+- Stripe 地区必须选 Hong Kong，不要选美国
+
+- 银行账户信息完全按 Wise/港卡提供的填写，不要管示例的 9 位限制
+
+- Wise 首次收款后留存 24-48 小时再提现，避免风控
+
+**收益规则**：累计达到 $30 自动发放，每两周一次（通常 17 号、31 号），Stripe → 港卡/Wise 需 2-7 个工作日。
+
+### 原文引用
+
+> [10] [2026 年 X 创作者收益完全指南（含详细截图和避坑清单）](https://youmind.com/materials/019c6a6b-1fc3-7035-b1cb-8f4d90b0b111)
+
+---
+
+## 6. AI 一人公司的可复刻工作流
+
+一个 97 年小伙的案例：职高毕业，开一人公司，靠 AI 5 个月上线 120+ App，90% 有人付费。
+
+### 核心要点
+
+**工作流三步走**：
+
+1. **找缺口**：让 AI 扫描全球各行业公开数据，找「有人需要但没人做」的应用缺口（如美国建筑行业工具、西班牙耗水监测 App）
+
+2. **快验证**：把需求转成功能清单，交给 AI 写代码，第二天验收上架，单款成本几百块
+
+3. **快迭代**：不行就关掉换下一个，每天花不到 1 小时
+
+**关键洞察**：AI 时代个人能力边界被极大拓宽，「基本功打底 + 发现需求的眼光 + 马上去干的行动力」比「专注一个方向」更重要。
+
+**另一个案例**：中专毕业的创作者用 Notion AI + Jasper + Runway 做动漫短剧，Notion AI 梳理世界观，Jasper 优化台词，Runway 生成分镜，自己只负责改节奏和审核。
+
+### 原文引用
+
+> [11] [杭州 97 年小伙 AI 一人公司案例](https://youmind.com/materials/019c6a6b-0b27-7140-a86d-6917c2f79e84)
+
+> [12] [AI 动漫短剧工具组合案例](https://youmind.com/materials/019c6a6a-8359-7f73-8780-a761f215ff9a)
+
+---
+
+## 7. 实用工具与资源合集
+
+### yt-dlp：视频批量下载与整理
+
+一条推文分享了用 yt-dlp 将近 1900 个视频的 YouTube playlist 一次性整理成 CSV（含视频名称、频道、URL）。GitHub 地址：[yt-dlp/yt-dlp](https://github.com/yt-dlp/yt-dlp)
+
+> [13] [yt-dlp 视频批量下载工具](https://youmind.com/materials/019c6a6b-2004-749b-8b21-c0f0b9a97281)
+
+### Nano Banana Pro 提示词仓库
+
+GitHub 上 703 个免费提示词，完成度已调成熟，支持 16 种语言，附 12 个精选玩法（引用卡生成、手绘风格转换、水彩地图等）。地址：[awesome-nano-banana-pro-prompts](https://github.com/YouMind-OpenLab/awesome-nano-banana-pro-prompts)
+
+> [14] [Nano Banana Pro 提示词仓库](https://youmind.com/materials/019c6a6a-96f0-70ec-b208-380e1b823f59)
+
+### Karpathy RSS Pack
+
+@karpathy 大佬推荐的 RSS 信源被打包成一个 RSS Pack，可结合 YouMind 定时任务 + Skill 每日自动生成信息简报。
+
+> [15] [Karpathy RSS Pack](https://youmind.com/materials/019c6a6a-c7d8-71d2-83dc-bfdc4fdd3206)
+
+### Hestia：轻量级个人导航页
+
+无需数据库和后端，完全基于浏览器运行，数据存在 localStorage，支持 Docker 一键启动。内置时钟、天气、日历、Markdown 笔记、服务器监控等组件，动画效果丝滑。
+
+> [16] [Hestia 轻量级个人导航页](https://youmind.com/materials/019c6a6a-b207-7c28-83f1-10c7c130df06)
+
+### md2wechat:Markdown 转公众号排版
+
+v1.10.0 新增 38 个 API 主题（Minimal、Focus、Elegant、Bold 系列），集成 Google Gemini 和 OpenRouter 作为图片提供商。主题画廊：[md2wechat.app/theme-gallery](https://md2wechat.app/theme-gallery)
+
+> [17] [md2wechat Markdown 转公众号工具](https://youmind.com/materials/019c6a6a-e31e-748d-b9f0-49112cbc6872)
+
+---
+
+## 引用列表
+
+[1: Claude Code 8 个官方推荐插件](https://youmind.com/materials/019c6a6b-3120-7c06-aaf3-730f06c0883b)
+
+[2: Claude Code 中文教程 - 直播教学版](https://youmind.com/materials/019c6a6b-1ec2-7ea5-ad27-eaac080f06b9)
+
+[3: Claude Code PM Course - 产品经理专项课程](https://youmind.com/materials/019c6a6a-b426-75d4-a9e6-3de50d60231c)
+
+[4: Obsidian + Claude Code 工作流概述](https://youmind.com/materials/019c6a6a-8486-781c-bc66-dc6cdac310f6)
+
+[5: Obsidian + Claude Code 小白入门教程](https://youmind.com/materials/019c6a6a-71fc-7475-92cb-e8f91d2e3d18)
+
+[6: 如何基于 Obsidian 和 Claude 打造 AI 时代超级大脑](https://youmind.com/materials/019c6a6a-7075-75c5-aeea-19481e5587ba)
+
+[7: Seedance 2.0 提示词技巧](https://youmind.com/materials/019c6a6a-7123-7627-b6c9-1b44e29e5765)
+
+[8: Kimi K2.5 + Seedance 2 故事板工作流](https://youmind.com/materials/019c6a6a-a087-7011-b15b-8f6317a261ef)
+
+[9: NemoVideo 爆款视频仿剪工具实测](https://youmind.com/materials/019c6a6a-b4d7-7f6c-8bde-ab7844a24767)
+
+[10: 2026 年 X 创作者收益完全指南](https://youmind.com/materials/019c6a6b-1fc3-7035-b1cb-8f4d90b0b111)
+
+[11: 杭州 97 年小伙 AI 一人公司案例](https://youmind.com/materials/019c6a6b-0b27-7140-a86d-6917c2f79e84)
+
+[12: AI 动漫短剧工具组合案例](https://youmind.com/materials/019c6a6a-8359-7f73-8780-a761f215ff9a)
+
+[13: yt-dlp 视频批量下载工具](https://youmind.com/materials/019c6a6b-2004-749b-8b21-c0f0b9a97281)
+
+[14: Nano Banana Pro 提示词仓库](https://youmind.com/materials/019c6a6a-96f0-70ec-b208-380e1b823f59)
+
+[15: Karpathy RSS Pack](https://youmind.com/materials/019c6a6a-c7d8-71d2-83dc-bfdc4fdd3206)
+
+[16: Hestia 轻量级个人导航页](https://youmind.com/materials/019c6a6a-b207-7c28-83f1-10c7c130df06)
+
+[17: md2wechat Markdown 转公众号工具](https://youmind.com/materials/019c6a6a-e31e-748d-b9f0-49112cbc6872)

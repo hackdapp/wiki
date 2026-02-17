@@ -1,0 +1,72 @@
+---
+title: 2026-02-10 - 推特简报
+description: API 密钥管理工具 shipkey 发布与 NotebookLM 自动化
+---
+
+## API 密钥管理工具：shipkey 开源发布
+
+### 简要背景
+
+开发者郭宇发布了第六个 vibe 产品 shipkey，现已开源。这是一个专门解决 API 密钥管理混乱问题的命令行工具，帮助开发团队实现密钥的自动化管理和同步。
+
+### 核心要点
+
+- **解决痛点**：
+    - 换电脑时 .env 文件丢失
+    - 新成员入职花半天找密钥
+    - GitHub/Cloudflare/本地三处 secrets 不同步
+    - 创建 Token 时不知道该勾选哪些权限
+- **核心功能**：
+    - `shipkey setup`：自动扫描项目文件（.env、GitHub Workflows、wrangler.toml、package.json）
+    - **智能识别**：按服务商分组（Cloudflare、Stripe、AWS 等）
+    - **代码推断权限**：自动检测所需 Token 权限（如 wrangler 用 KV→提示勾选相应权限）
+    - **浏览器交互向导**：逐步引导配置每个密钥
+    - **一键保存**：存入 1Password 并写入本地 .env.local
+- **便捷操作**：
+    - `shipkey pull`：从 1Password 恢复所有密钥，数秒完成
+    - `shipkey sync`：一键同步到 GitHub Actions / Cloudflare Workers
+- **安全特性**：
+    - 纯本地运行，密钥不经过任何第三方服务器
+    - 基于 1Password CLI，生物识别解锁
+    - 支持 monorepo，递归扫描所有子项目
+- **资源链接**：
+    - 官网：https://shipkey.dev
+    - GitHub：https://github.com/chekusu/shipkey
+
+> [1] [shipkey 开源 - API 密钥管理工具 - 郭宇](https://youmind.com/materials/019c47da-4ea5-73fe-bb55-6c7bfacb8729)
+
+---
+
+## NotebookLM 自动化：书籍一键转 AI 知识库
+
+### 简要背景
+
+针对 NotebookLM 用户手动下载 PDF+上传的繁琐流程，开发了 Claude Skill 自动化工具，实现从书籍链接到 AI 知识库的一键转换。
+
+### 核心要点
+
+- **自动化流程**：
+    - 自动下载 PDF/EPUB 格式
+    - 一键新建 NotebookLM 笔记本
+    - 自动上传文件到 NotebookLM
+    - Claude 对话式“阅读”整本书，问答带引用来源
+- **目标用户**：
+    - **学术党**：快速构建研究资料库
+    - **自学者**：将书籍转化为可交互知识库
+    - **深度阅读者**：提高书籍处理效率
+- **使用提醒**：
+    - 仅用于合法免费资源，遵守版权法规
+    - 开发者表示会根据反馈决定是否开源
+- **技术优势**：
+    - 基于 Gemini 的零幻觉回答
+    - 保留原文引用来源
+    - 支持生成播客、思维导图等多种输出形式
+
+> [2] [NotebookLM 自动化 Claude Skill - AI 奶爸](https://youmind.com/materials/019c47da-4e96-7128-952d-5074278dd226)
+
+---
+
+### 引用列表
+
+1. [shipkey 开源 - API 密钥管理工具 - 郭宇](https://youmind.com/materials/019c47da-4ea5-73fe-bb55-6c7bfacb8729)
+2. [NotebookLM 自动化 Claude Skill - AI 奶爸](https://youmind.com/materials/019c47da-4e96-7128-952d-5074278dd226)
