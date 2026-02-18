@@ -10,15 +10,12 @@ export default function Layout({ children }: { children: React.ReactNode }) {
     <DocsLayout 
       tree={source.getPageTree()} 
       {...baseOptions()}
-      // Use sidebar options to inject custom search
       sidebar={{
         enabled: true,
         collapsible: true,
-        components: {
-            SearchDialog       // custom search dialog component
-        }
       }}
     >
+        <SearchDialog trigger={undefined} open={undefined} onOpenChange={undefined} />
       {children}
     </DocsLayout>
   );
