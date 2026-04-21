@@ -1,0 +1,167 @@
+---
+title: "虚拟电厂 — 技术架构详解"
+---
+
+# 技术架构详解
+
+VPP 运营平台的四层架构设计、核心模块、数据接口与通信协议标准。上级页面：[vpp-overview](./)。
+
+## 四层整体架构
+
+```
+┌──────────────────────────────────────────────┐
+│              VPP 运营平台                      │
+├──────────┬──────────┬──────────┬──────────────┤
+│ 数据采集层 │ 数据处理层 │ 业务应用层 │ 决策支持层    │
+├──────────┼──────────┼──────────┼──────────────┤
+│ 智能电表   │ 数据清洗  │ 资源管理   │ 调度优化      │
+│ SCADA     │ 数据存储  │ 市场交易   │ 风险控制      │
+│ 终端设备   │ 数据分析  │ 结算考核   │ 决策分析      │
+└──────────┴──────────┴──────────┴──────────────┘
+```
+
+## 云-管-边-端 四层拓扑
+
+```
+电力调度中心 / 负荷管理系统
+         │ IEC 104 / IEC 61850-8-2
+         ▼
+   VPP 云平台（全局优化·市场竞价·多资源协同调度）
+         │ MQTT / OPC UA
+         ▼
+   边缘计算网关（协议转换·本地闭环控制·断网自治）
+         │ Modbus / BACnet
+         ▼
+   终端设备（电表·空调·充电桩·储能PCS·光伏逆变器）
+```
+
+## 四大核心模块
+
+### 1. 资源聚合模块
+
+- 分布式资源建模（光伏、储能、充电桩、工业负荷）
+- 可调容量评估与动态更新
+- 响应特性分析（响应时间、爬坡速率、持续能力）
+
+```
+class ResourceAggregator:
+    add_resource(id, type, capacity, response_time)
+    update_capacity() → total / available
+    filter_by_response_time(required_time) → eligible[]
+```
+
+### 2. 市场交易模块
+
+- 报价策略优化（基于价格预测 + 风险偏好）
+- 出清结果分析与偏差追踪
+- 结算管理（日清月结）
+
+```
+class MarketTrader:
+    submit_bid(time_block, quantity, price) → bid
+    calculate_optimal_bid(forecast_price, forecast_load) → {price, qty}
+    get_clearing_results(market_type, date) → results
+```
+
+### 3. 调度控制模块
+
+- 指令接收与分解（调度中心 → VPP → 终端）
+- 实时监控与偏差控制
+- 断网自治（边缘网关本地闭环）
+
+```
+class DispatchController:
+    receive_dispatch_command(command) → execute()
+    allocate_resources(command) → allocation{}
+    send_control_commands(allocation) → results
+```
+
+### 4. 结算考核模块
+
+- 基线计算（历史同期法 / 加权平均法 / 模型预测法）
+- 响应量核算（削峰/填谷/调频）
+- 费用结算与信用评分
+
+```
+class SettlementEngine:
+    calculate_baseline(user_id, period) → baseline
+    calculate_response(user_id, period, actual) → response
+    calculate_settlement(user_id, response, clearing_price) → amount
+```
+
+## 通信协议标准
+
+| 层级 | 协议 | 用途 | 延迟要求 |
+|------|------|------|---------|
+| 调度 ↔ VPP | IEC 60870-5-104 / IEC 61850-8-2 | 实时控制指令 | ≤ 4s (AGC) |
+| VPP ↔ 边缘 | MQTT / CoAP / OPC UA | IoT 数据传输 | ≤ 15s |
+| 边缘 ↔ 终端 | Modbus TCP/RTU / BACnet | 工控协议 | ≤ 1s |
+| VPP ↔ 交易 | Webservice / RESTful API | 市场申报与结算 | 日度 |
+
+## 数据接口规范
+
+### 电网调度接口
+
+```json
+// 调度指令格式
+{
+  "dispatch_id": "DP20240101001",
+  "vpp_id": "VPP_GD_001",
+  "response_type": "peak_shaving",
+  "target_power": -50.0,
+  "start_time": "2024-01-01T10:00:00Z",
+  "end_time": "2024-01-01T12:00:00Z",
+  "ramp_rate": 5.0
+}
+```
+
+### 终端设备接口
+
+- **MQTT**：`devices/{id}/control` (下发) / `devices/{id}/data` (上报)
+- **Modbus TCP**：寄存器读写，支持 holding registers (0x03) 和 write single (0x06)
+
+### 数据质量指标
+
+| 指标 | 要求 | 计算公式 |
+|------|------|---------|
+| 完整性 | ≥ 99% | 实际点数 / 应有点数 |
+| 准确性 | ≥ 99% | 1 - \|测量值 - 真值\| / 真值 |
+| 时效性 | ≤ 5 min | 到达时间 - 产生时间 |
+| 通信可靠性 | ≥ 99.9% | 成功次数 / 总次数 |
+| 丢包率 | ≤ 0.1% | 丢失包数 / 总包数 |
+
+## 核心算法
+
+### 基线计算三种方法
+
+| 方法 | 公式 | 适用场景 |
+|------|------|---------|
+| 历史同期法 | Baseline = ΣP_hist,i(t) / N | 日常结算，简单可靠 |
+| 加权平均法 | Baseline = Σ[w_i × P_hist,i(t)] | 近期数据优先 |
+| 模型预测法 | P = f(温度,湿度,星期,节假日,生产计划) | 复杂场景，精度高 |
+
+### 报价优化算法
+
+```
+expected_profit = forecast_price - marginal_cost
+risk_adjustment = risk_factor × capacity
+optimal_price = forecast_price × (1 + expected_profit - risk_adjustment)
+```
+
+### 资源调度算法
+
+按响应速度排序，优先分配快速响应资源（储能 > 可控负荷 > 充电桩），直到满足目标功率。
+
+## 安全与合规
+
+- **数据加密**：AES-EAX 端到端加密
+- **访问控制**：Token 认证 + 权限矩阵
+- **合规检查**：准入资质、报价合规、响应合规三层校验
+- **网络安全**：N-1 校核、电压稳定（±5%~±7%）、谐波 THD ≤ 5%（GB/T 14549）
+
+## 相关页面
+
+- [vpp-overview](./) — 虚拟电厂总览
+- [vpp-ancillary-services](./ancillary-services) — 辅助服务与调度交互
+- [vpp-spot-market](./spot-market) — 现货市场三品种
+- [vpp-demand-response](./demand-response) — 需求响应市场

@@ -1,3 +1,11 @@
 {
-  "title": "前沿技术"
+  "title": "前沿技术",
+  "pages": [
+    "index",
+    "virtual-power-plant",
+    "ai-llm",
+    "web3-blockchain",
+    "architecture",
+    "dev-sec-ops"
+  ]
 }

@@ -1,0 +1,18 @@
+{
+  "title": "虚拟电厂 (VPP)",
+  "pages": [
+    "index",
+    "business-model",
+    "policy",
+    "dispatch",
+    "market-clearing",
+    "security-check",
+    "violation-handling",
+    "baseline-calc",
+    "performance-assessment",
+    "spot-market",
+    "demand-response",
+    "ancillary-services",
+    "tech-architecture"
+  ]
+}
