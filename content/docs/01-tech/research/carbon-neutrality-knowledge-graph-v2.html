@@ -1026,6 +1026,84 @@
         </tbody>
       </table>
 
+      <!-- Trading Boundary -->
+      <div class="section-title">碳资产交易边界 TRADING BOUNDARY</div>
+      <div class="trading-boundary-section" style="margin-bottom: 40px; padding: 24px; border: 2px solid #f59e0b; background: linear-gradient(135deg, #fffbeb 0%, #fef3c7 100%);">
+        <div style="font-size: 14px; font-weight: 600; margin-bottom: 16px; color: #92400e;">⚖️ 可交易 vs 不可交易 vs 受限 — 核心边界速查</div>
+        <table class="chain-table" style="font-size: 12px;">
+          <thead>
+            <tr>
+              <th style="width:18%">类别</th>
+              <th style="width:22%">可交易资产</th>
+              <th style="width:22%">不可交易/禁止</th>
+              <th style="width:22%">受限/需资质</th>
+              <th style="width:16%">规范依据</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>强制碳市场</strong></td>
+              <td>全国碳排放配额(CEA) — 发电/钢铁/水泥/铝</td>
+              <td>非控排企业不可参与配额分配；个人不可直接交易配额</td>
+              <td>交易主体需开户（重点排放单位+机构）；配额不可跨期结转（部分试点允许）</td>
+              <td>《碳排放权交易管理暂行条例》(2024)</td>
+            </tr>
+            <tr>
+              <td><strong>自愿减排(CCER)</strong></td>
+              <td>CCER核证减排量 — 造林碳汇/海上风电/光热/红树林</td>
+              <td>未备案项目不可交易；CCER不可用于碳期货（当前）</td>
+              <td>项目需审定+核证+登记；抵消比例≤5%配额清缴；方法学限定</td>
+              <td>《温室气体自愿减排交易管理办法》(2023)</td>
+            </tr>
+            <tr>
+              <td><strong>地方碳普惠</strong></td>
+              <td>PHCER/地方碳积分 — 广东/北京/深圳等</td>
+              <td>碳普惠积分<strong>不可金融化</strong>（禁止代币化/证券化/炒作）</td>
+              <td>仅限本地流通；兑换范围受限（公交/消费券/碳抵消）</td>
+              <td>地方碳普惠管理办法</td>
+            </tr>
+            <tr>
+              <td><strong>绿证(GEC)</strong></td>
+              <td>绿色电力证书 — 风光生物质等</td>
+              <td>绿证与CCER<strong>不可重复获益</strong>（环境权益唯一性）</td>
+              <td>国际互认受限（I-REC/Green-e未完全互认）；需建档立卡</td>
+              <td>《绿色电力证书全覆盖通知》(2024)</td>
+            </tr>
+            <tr>
+              <td><strong>国际VCM</strong></td>
+              <td>VCS/GS碳信用 — 自愿碳市场跨境交易</td>
+              <td>国际碳信用<strong>不可直接用于全国碳市场履约</strong></td>
+              <td>需符合CDM/CCER方法学；跨境结算受外汇管制</td>
+              <td>巴黎协定Article 6 / 外汇管理条例</td>
+            </tr>
+            <tr>
+              <td><strong>区块链/Token</strong></td>
+              <td>链上碳信用<strong>仅限国际</strong>（Toucan/Carbonmark）</td>
+              <td><strong>境内禁止碳资产Token化/金融化</strong>（碳积分代币、碳NFT炒作均属违规）</td>
+              <td>联盟链碳存证合规；公链碳Token仅限海外业务</td>
+              <td>央行等十部门《关于进一步防范和处置虚拟货币交易炒作风险的通知》</td>
+            </tr>
+            <tr>
+              <td><strong>碳数据服务</strong></td>
+              <td>碳核算SaaS、碳足迹报告、数据API</td>
+              <td>碳排放数据<strong>不可伪造/篡改</strong>（最高罚500万+禁入）</td>
+              <td>第三方核查机构需CNCA认可资质；MRV数据需可追溯</td>
+              <td>《碳排放权交易管理暂行条例》第21-23条</td>
+            </tr>
+            <tr>
+              <td><strong>碳金融</strong></td>
+              <td>碳质押/回购/托管/债券（持牌机构）</td>
+              <td>碳期货/期权<strong>尚未推出</strong>（广期所筹备中）</td>
+              <td>碳基金需金融牌照；碳ABS需交易所备案；个人不可参与碳期货</td>
+              <td>证监会/央行绿色金融指引</td>
+            </tr>
+          </tbody>
+        </table>
+        <div style="margin-top: 16px; padding: 12px; background: #fff; border-left: 3px solid #f59e0b; font-size: 11px; color: #78350f; line-height: 1.6;">
+          <strong>核心原则：</strong>① 强制配额仅限控排企业间流通；② 自愿减排量受方法学+抵消比例双重限制；③ 碳普惠积分禁止金融化是红线；④ 境内碳资产Token化属违规；⑤ 碳数据造假面临行政处罚+刑事责任。
+        </div>
+      </div>
+
       <!-- Risk Matrix -->
       <div class="section-title">风险矩阵 RISK MATRIX</div>
       <div class="risk-matrix">
@@ -1073,7 +1151,7 @@
 
       <!-- Footer -->
       <div class="footer">
-        <div class="footer-left">Generated: 2026-04-25 | Source: 公开政策文件/行业报告/学术研究综合整理</div>
+        <div class="footer-left">Generated: 2026-04-25 | Updated: 2026-04-25 | Source: 公开政策文件/行业报告/学术研究综合整理</div>
         <div>hackdapp knowledge base | wiki.hackdapp.com</div>
       </div>
     </div>
