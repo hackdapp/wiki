@@ -1,0 +1,870 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>双碳政策全景知识图谱 | Dual-Carbon Policy Knowledge Graph 2026</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --c-bg: #f8fafc;
+      --c-canvas: #ffffff;
+      --c-border: #cbd5e1;
+      --c-text-main: #0f172a;
+      --c-text-sub: #64748b;
+      --c-accent: #dc2626;
+      --c-green: #15803d;
+      --c-blue: #0369a1;
+      --c-purple: #7c3aed;
+      --c-orange: #b45309;
+      --c-teal: #0f766e;
+      --c-pink: #be123c;
+      --font-ui: 'Inter', sans-serif;
+      --font-mono: 'JetBrains Mono', monospace;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: var(--font-ui);
+      background: var(--c-bg);
+      padding: 40px 20px;
+      min-height: 100vh;
+      color: var(--c-text-main);
+    }
+
+    .diagram-container { max-width: 1600px; margin: 0 auto; }
+
+    .diagram-canvas {
+      background: var(--c-canvas);
+      border: 1px solid var(--c-border);
+      padding: 32px;
+    }
+
+    .diagram-header {
+      border-bottom: 2px solid var(--c-border);
+      padding-bottom: 20px;
+      margin-bottom: 32px;
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 16px;
+      align-items: end;
+    }
+
+    .diagram-title { font-size: 22px; font-weight: 700; margin-bottom: 6px; }
+    .diagram-subtitle {
+      font-size: 11px; font-weight: 500; color: var(--c-text-sub);
+      text-transform: uppercase; letter-spacing: 0.08em;
+    }
+
+    .header-meta {
+      text-align: right;
+      font-family: var(--font-mono);
+      font-size: 11px;
+      color: var(--c-text-sub);
+      line-height: 1.8;
+    }
+
+    /* Core hero node */
+    .hero-node {
+      border: 2px solid var(--c-text-main);
+      padding: 20px 28px;
+      margin-bottom: 28px;
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 20px;
+      align-items: center;
+    }
+
+    .hero-node h2 { font-size: 20px; font-weight: 700; margin-bottom: 6px; }
+    .hero-node p { font-size: 12px; color: var(--c-text-sub); line-height: 1.7; max-width: 800px; }
+    .hero-node .date-badge {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      background: var(--c-text-main);
+      color: var(--c-canvas);
+      padding: 4px 10px;
+      white-space: nowrap;
+    }
+
+    /* Six-dimension grid */
+    .six-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 20px;
+      margin-bottom: 24px;
+    }
+
+    .dim-card {
+      border: 1px solid var(--c-border);
+      overflow: hidden;
+    }
+
+    .dim-header {
+      padding: 10px 16px;
+      border-bottom: 1px solid var(--c-border);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .dim-num {
+      font-family: var(--font-mono);
+      font-size: 10px;
+      font-weight: 600;
+      padding: 2px 6px;
+      border: 1px solid currentColor;
+    }
+
+    .dim-title {
+      font-size: 12px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .dim-body { padding: 14px 16px; }
+
+    .node-item {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 8px;
+      margin-bottom: 10px;
+      align-items: start;
+    }
+
+    .node-item:last-child { margin-bottom: 0; }
+
+    .node-dot {
+      width: 8px;
+      height: 8px;
+      border: 1.5px solid currentColor;
+      margin-top: 4px;
+      flex-shrink: 0;
+    }
+
+    .node-text { font-size: 12px; line-height: 1.6; color: var(--c-text-main); }
+    .node-text strong { font-weight: 600; }
+
+    .node-highlight {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      color: var(--c-text-sub);
+      margin-top: 2px;
+    }
+
+    /* Key stats bar */
+    .stats-bar {
+      display: grid;
+      grid-template-columns: repeat(6, 1fr);
+      gap: 1px;
+      background: var(--c-border);
+      border: 1px solid var(--c-border);
+      margin-bottom: 24px;
+    }
+
+    .stat-cell {
+      background: var(--c-canvas);
+      padding: 12px 14px;
+      text-align: center;
+    }
+
+    .stat-value {
+      font-family: var(--font-mono);
+      font-size: 16px;
+      font-weight: 600;
+      color: var(--c-text-main);
+      margin-bottom: 2px;
+    }
+
+    .stat-label {
+      font-size: 10px;
+      color: var(--c-text-sub);
+      line-height: 1.4;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+
+    /* Policy timeline */
+    .timeline-section { margin-bottom: 24px; }
+
+    .section-label {
+      font-family: var(--font-mono);
+      font-size: 10px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--c-text-sub);
+      margin-bottom: 12px;
+      padding-bottom: 8px;
+      border-bottom: 1px solid var(--c-border);
+    }
+
+    .timeline {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 12px;
+    }
+
+    .timeline-item {
+      border: 1px solid var(--c-border);
+      padding: 12px 14px;
+    }
+
+    .timeline-date {
+      font-family: var(--font-mono);
+      font-size: 10px;
+      color: var(--c-text-sub);
+      margin-bottom: 6px;
+    }
+
+    .timeline-title {
+      font-size: 12px;
+      font-weight: 600;
+      margin-bottom: 4px;
+      line-height: 1.4;
+    }
+
+    .timeline-desc {
+      font-size: 11px;
+      color: var(--c-text-sub);
+      line-height: 1.5;
+    }
+
+    /* Provincial section */
+    .province-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+      margin-bottom: 24px;
+    }
+
+    .province-card {
+      border: 1px solid var(--c-border);
+      padding: 14px 16px;
+    }
+
+    .province-card .province-name {
+      font-size: 13px;
+      font-weight: 700;
+      margin-bottom: 8px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .province-tag {
+      font-family: var(--font-mono);
+      font-size: 9px;
+      padding: 1px 5px;
+      border: 1px solid;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+
+    .province-items { display: grid; gap: 6px; }
+    .province-item {
+      font-size: 11px;
+      line-height: 1.5;
+      color: var(--c-text-main);
+      padding-left: 10px;
+      border-left: 2px solid var(--c-border);
+    }
+
+    .province-item .item-ref {
+      font-family: var(--font-mono);
+      font-size: 10px;
+      color: var(--c-text-sub);
+      margin-top: 2px;
+    }
+
+    /* Blockchain section */
+    .blockchain-grid {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 10px;
+      margin-bottom: 24px;
+    }
+
+    .bc-card {
+      border: 1px solid var(--c-border);
+      padding: 12px 14px;
+      text-align: center;
+    }
+
+    .bc-icon {
+      font-size: 20px;
+      margin-bottom: 8px;
+      display: block;
+    }
+
+    .bc-title {
+      font-size: 11px;
+      font-weight: 600;
+      margin-bottom: 6px;
+      line-height: 1.4;
+    }
+
+    .bc-desc {
+      font-size: 10px;
+      color: var(--c-text-sub);
+      line-height: 1.5;
+    }
+
+    /* Carbon market data */
+    .market-data {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1px;
+      background: var(--c-border);
+      border: 1px solid var(--c-border);
+      margin-bottom: 24px;
+    }
+
+    .market-cell {
+      background: var(--c-canvas);
+      padding: 14px 16px;
+    }
+
+    .market-label {
+      font-size: 10px;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--c-text-sub);
+      margin-bottom: 6px;
+    }
+
+    .market-value {
+      font-family: var(--font-mono);
+      font-size: 18px;
+      font-weight: 600;
+      color: var(--c-text-main);
+      margin-bottom: 2px;
+    }
+
+    .market-sub {
+      font-size: 10px;
+      color: var(--c-text-sub);
+      line-height: 1.4;
+    }
+
+    /* Footer */
+    .diagram-footer {
+      border-top: 1px solid var(--c-border);
+      padding-top: 16px;
+      margin-top: 8px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .footer-note {
+      font-family: var(--font-mono);
+      font-size: 10px;
+      color: var(--c-text-sub);
+      line-height: 1.6;
+    }
+
+    .footer-sources {
+      font-family: var(--font-mono);
+      font-size: 10px;
+      color: var(--c-text-sub);
+      text-align: right;
+      line-height: 1.6;
+    }
+
+    /* Color accents per dimension */
+    .dim-1 .dim-header { color: var(--c-accent); }
+    .dim-1 .dim-num { border-color: var(--c-accent); color: var(--c-accent); }
+
+    .dim-2 .dim-header { color: var(--c-blue); }
+    .dim-2 .dim-num { border-color: var(--c-blue); color: var(--c-blue); }
+
+    .dim-3 .dim-header { color: var(--c-green); }
+    .dim-3 .dim-num { border-color: var(--c-green); color: var(--c-green); }
+
+    .dim-4 .dim-header { color: var(--c-purple); }
+    .dim-4 .dim-num { border-color: var(--c-purple); color: var(--c-purple); }
+
+    .dim-5 .dim-header { color: var(--c-orange); }
+    .dim-5 .dim-num { border-color: var(--c-orange); color: var(--c-orange); }
+
+    .dim-6 .dim-header { color: var(--c-teal); }
+    .dim-6 .dim-num { border-color: var(--c-teal); color: var(--c-teal); }
+
+    .tag-red { color: var(--c-accent); }
+    .tag-blue { color: var(--c-blue); }
+    .tag-green { color: var(--c-green); }
+    .tag-purple { color: var(--c-purple); }
+    .tag-orange { color: var(--c-orange); }
+    .tag-teal { color: var(--c-teal); }
+  </style>
+</head>
+<body>
+<div class="diagram-container">
+<div class="diagram-canvas">
+
+  <!-- Header -->
+  <div class="diagram-header">
+    <div>
+      <div class="diagram-title">双碳政策全景知识图谱</div>
+      <div class="diagram-subtitle">Dual-Carbon Policy Knowledge Graph · 2026年4月 · 来源：政府官网直接抓取</div>
+    </div>
+    <div class="header-meta">
+      <div>更新：2026-04-24</div>
+      <div>数据源：生态环境部 / 发改委 / 交易所</div>
+      <div>可信度：★ ★ ★ 官方</div>
+    </div>
+  </div>
+
+  <!-- Hero: 4月双响炮 -->
+  <div class="hero-node">
+    <div>
+      <h2>🌱 2026年4月双碳"组合拳"：两部顶层文件同日发布</h2>
+      <p>2026年4月22-23日，中共中央办公厅、国务院办公厅连续发布《关于更高水平更高质量做好节能降碳工作的意见》和《碳达峰碳中和综合评价考核办法》，标志着双碳政策从"目标导向"进入"考核落地"新阶段。十五五是实现碳达峰的决胜阶段（2030年）。</p>
+    </div>
+    <div class="date-badge">2026-04</div>
+  </div>
+
+  <!-- Key stats bar -->
+  <div class="stats-bar">
+    <div class="stat-cell">
+      <div class="stat-value">65%+</div>
+      <div class="stat-label">2030碳强度<br>较2005年降幅</div>
+    </div>
+    <div class="stat-cell">
+      <div class="stat-value">25%</div>
+      <div class="stat-label">2030非化石<br>能源消费占比</div>
+    </div>
+    <div class="stat-cell">
+      <div class="stat-value">60%+</div>
+      <div class="stat-label">碳市场覆盖<br>全国碳排放</div>
+    </div>
+    <div class="stat-cell">
+      <div class="stat-value">75元</div>
+      <div class="stat-label">碳价（元/吨）<br>2025年6月</div>
+    </div>
+    <div class="stat-cell">
+      <div class="stat-value">462亿</div>
+      <div class="stat-label">累计成交额<br>（元）</div>
+    </div>
+    <div class="stat-cell">
+      <div class="stat-value">99.98%</div>
+      <div class="stat-label">最新清缴<br>完成率</div>
+    </div>
+  </div>
+
+  <!-- Six dimensions -->
+  <div class="six-grid">
+
+    <!-- Dim 1: 顶层制度 -->
+    <div class="dim-card dim-1">
+      <div class="dim-header">
+        <span class="dim-num">01</span>
+        <span class="dim-title">顶层制度</span>
+      </div>
+      <div class="dim-body">
+        <div class="node-item">
+          <span class="node-dot"></span>
+          <div>
+            <div class="node-text"><strong>考核办法</strong>（4月23日）</div>
+            <div class="node-highlight">中办/国办 · 党政同责</div>
+          </div>
+        </div>
+        <div class="node-item">
+          <span class="node-dot"></span>
+          <div>
+            <div class="node-text"><strong>节能降碳意见</strong>（4月22日）</div>
+            <div class="node-highlight">18条关键举措</div>
+          </div>
+        </div>
+        <div class="node-item">
+          <span class="node-dot"></span>
+          <div>
+            <div class="node-text">三档评级：<strong>优秀/合格/不合格</strong></div>
+            <div class="node-highlight">→干部任用重要参考</div>
+          </div>
+        </div>
+        <div class="node-item">
+          <span class="node-dot"></span>
+          <div>
+            <div class="node-text">控制指标：碳排放总量/强度<br>煤炭/石油消费/非化石占比</div>
+          </div>
+        </div>
+        <div class="node-item">
+          <span class="node-dot"></span>
+          <div>
+            <div class="node-text">徇私舞弊/篡改数据<br><strong>→直接不合格+追责</strong></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Dim 2: 十五五目标 -->
+    <div class="dim-card dim-2">
+      <div class="dim-header">
+        <span class="dim-num">02</span>
+        <span class="dim-title">十五五目标</span>
+      </div>
+      <div class="dim-body">
+        <div class="node-item">
+          <span class="node-dot"></span>
+          <div>
+            <div class="node-text"><strong>2030年碳达峰</strong> 决胜阶段</div>
+            <div class="node-highlight">发改委副主任王昌林·2026-04-17</div>
+          </div>
+        </div>
+        <div class="node-item">
+          <span class="node-dot"></span>
+          <div>
+            <div class="node-text">碳排放强度 <strong>-65%</strong><br>较2005年</div>
+            <div class="node-highlight">vs 十四五 -18%</div>
+          </div>
+        </div>
+        <div class="node-item">
+          <span class="node-dot"></span>
+          <div>
+            <div class="node-text">非化石能源消费 <strong>25%</strong></div>
+            <div class="node-highlight">2023年约18%</div>
+          </div>
+        </div>
+        <div class="node-item">
+          <span class="node-dot"></span>
+          <div>
+            <div class="node-text">煤炭/石油消费 <strong>达峰</strong></div>
+            <div class="node-highlight">十五五期间完成</div>
+          </div>
+        </div>
+        <div class="node-item">
+          <span class="node-dot"></span>
+          <div>
+            <div class="node-text">绿电增量 <strong>覆盖</strong> 新增用电</div>
+            <div class="node-highlight">"以新替新"原则</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Dim 3: 碳市场 -->
+    <div class="dim-card dim-3">
+      <div class="dim-header">
+        <span class="dim-num">03</span>
+        <span class="dim-title">碳市场</span>
+      </div>
+      <div class="dim-body">
+        <div class="node-item">
+          <span class="node-dot"></span>
+          <div>
+            <div class="node-text">全球最大碳市场<br><strong>80亿吨</strong> CO₂覆盖</div>
+            <div class="node-highlight">60%+全国总量</div>
+          </div>
+        </div>
+        <div class="node-item">
+          <span class="node-dot"></span>
+          <div>
+            <div class="node-text">首次行业扩围<br>钢铁+水泥+铝冶炼</div>
+            <div class="node-highlight">2024年度起实施</div>
+          </div>
+        </div>
+        <div class="node-item">
+          <span class="node-dot"></span>
+          <div>
+            <div class="node-text"><strong>CCER</strong> 重启<br>2024年1月全国统一市场</div>
+            <div class="node-highlight">5%抵销上限</div>
+          </div>
+        </div>
+        <div class="node-item">
+          <span class="node-dot"></span>
+          <div>
+            <div class="node-text">《碳排放权交易管理<br>暂行条例》2024年4月</div>
+            <div class="node-highlight">国务院令</div>
+          </div>
+        </div>
+        <div class="node-item">
+          <span class="node-dot"></span>
+          <div>
+            <div class="node-text">绿电绿证与碳市场<br><strong>衔接机制</strong> 建立中</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Dim 4: 省级落地 -->
+    <div class="dim-card dim-4">
+      <div class="dim-header">
+        <span class="dim-num">04</span>
+        <span class="dim-title">省级落地</span>
+      </div>
+      <div class="dim-body">
+        <div class="node-item">
+          <span class="node-dot"></span>
+          <div>
+            <div class="node-text"><strong>四川</strong>：碳排放评价<br>+节能审查同步</div>
+            <div class="node-highlight">川发改环资规〔2025〕641号</div>
+          </div>
+        </div>
+        <div class="node-item">
+          <span class="node-dot"></span>
+          <div>
+            <div class="node-text"><strong>广东</strong>：新型储能<br>管理办法</div>
+            <div class="node-highlight">粤发改规〔2026〕4号<br>源网荷储一体化</div>
+          </div>
+        </div>
+        <div class="node-item">
+          <span class="node-dot"></span>
+          <div>
+            <div class="node-text"><strong>云南</strong>：零碳园区<br>先行实践</div>
+            <div class="node-highlight">技术创新+模式创新</div>
+          </div>
+        </div>
+        <div class="node-item">
+          <span class="node-dot"></span>
+          <div>
+            <div class="node-text">省发改委统筹<br>+ 党政同责考核</div>
+            <div class="node-highlight">中央组织部统筹</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Dim 5: 关键举措 -->
+    <div class="dim-card dim-5">
+      <div class="dim-header">
+        <span class="dim-num">05</span>
+        <span class="dim-title">关键举措</span>
+      </div>
+      <div class="dim-body">
+        <div class="node-item">
+          <span class="node-dot"></span>
+          <div>
+            <div class="node-text"><strong>零碳园区</strong> 建设<br>"以绿制绿"模式</div>
+          </div>
+        </div>
+        <div class="node-item">
+          <span class="node-dot"></span>
+          <div>
+            <div class="node-text">高耗能项目<br><strong>等量/减量置换</strong></div>
+            <div class="node-highlight">新改扩建必须</div>
+          </div>
+        </div>
+        <div class="node-item">
+          <span class="node-dot"></span>
+          <div>
+            <div class="node-text"><strong>国家低碳转型基金</strong><br>研究设立中</div>
+          </div>
+        </div>
+        <div class="node-item">
+          <span class="node-dot"></span>
+          <div>
+            <div class="node-text"><strong>产品碳标识</strong> 认证制度<br>建立中</div>
+          </div>
+        </div>
+        <div class="node-item">
+          <span class="node-dot"></span>
+          <div>
+            <div class="node-text">节约能源法/可再生能源法<br><strong>加快修订</strong></div>
+          </div>
+        </div>
+        <div class="node-item">
+          <span class="node-dot"></span>
+          <div>
+            <div class="node-text">数字基建能效<br><strong>严格准入</strong></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Dim 6: 区块链+碳资产 -->
+    <div class="dim-card dim-6">
+      <div class="dim-header">
+        <span class="dim-num">06</span>
+        <span class="dim-title">区块链+碳资产</span>
+      </div>
+      <div class="dim-body">
+        <div class="node-item">
+          <span class="node-dot"></span>
+          <div>
+            <div class="node-text"><strong>碳信用数字化</strong><br>CCER体系确权</div>
+            <div class="node-highlight">北京绿色交易所主导</div>
+          </div>
+        </div>
+        <div class="node-item">
+          <span class="node-dot"></span>
+          <div>
+            <div class="node-text"><strong>碳足迹上链</strong><br>供应链存证溯源</div>
+            <div class="node-highlight">蚂蚁链等已落地</div>
+          </div>
+        </div>
+        <div class="node-item">
+          <span class="node-dot"></span>
+          <div>
+            <div class="node-text"><strong>碳账户</strong> 普及<br>银行绿色信贷</div>
+          </div>
+        </div>
+        <div class="node-item">
+          <span class="node-dot"></span>
+          <div>
+            <div class="node-text"><strong>智能合约</strong><br>自动履约结算</div>
+          </div>
+        </div>
+        <div class="node-item">
+          <span class="node-dot"></span>
+          <div>
+            <div class="node-text">代币化：早期探索<br>监管政策尚不明确</div>
+            <div class="node-highlight">市场驱动为主</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Carbon market data expansion -->
+  <div class="market-data">
+    <div class="market-cell">
+      <div class="market-label">碳市场现状</div>
+      <div class="market-value">4行业</div>
+      <div class="market-sub">发电/钢铁/水泥/铝冶炼<br>3000+控排企业</div>
+    </div>
+    <div class="market-cell">
+      <div class="market-label">累计成交</div>
+      <div class="market-value">6.7亿吨</div>
+      <div class="market-sub">碳配额累计成交量<br>462亿元</div>
+    </div>
+    <div class="market-cell">
+      <div class="market-label">减排成效</div>
+      <div class="market-value">-8.78%</div>
+      <div class="market-sub">电力碳排放强度<br>较2018年</div>
+    </div>
+    <div class="market-cell">
+      <div class="market-label">CCER案例</div>
+      <div class="market-value">79万吨</div>
+      <div class="market-sub">中海油CCER交易<br>2024年9月</div>
+    </div>
+  </div>
+
+  <!-- Policy timeline -->
+  <div class="timeline-section">
+    <div class="section-label">政策时间轴 · Policy Timeline</div>
+    <div class="timeline">
+      <div class="timeline-item">
+        <div class="timeline-date">2024-01</div>
+        <div class="timeline-title">CCER市场重启</div>
+        <div class="timeline-desc">全国温室气体自愿减排交易市场正式启动</div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-date">2024-04</div>
+        <div class="timeline-title">碳排放权交易暂行条例</div>
+        <div class="timeline-desc">国务院令颁布，碳市场法制框架建立</div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-date">2025-03</div>
+        <div class="timeline-title">钢铁/水泥/铝行业纳入</div>
+        <div class="timeline-desc">首次行业扩围，覆盖80亿吨碳排放</div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-date">2026-04</div>
+        <div class="timeline-title">双碳考核+节能降碳意见</div>
+        <div class="timeline-desc">中办国办两部顶层文件同日发布</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Provincial policies -->
+  <div class="province-grid">
+    <div class="province-card">
+      <div class="province-name">
+        <span class="tag-red">●</span> 四川
+        <span class="province-tag" style="color: var(--c-red); border-color: var(--c-red);">首创</span>
+      </div>
+      <div class="province-items">
+        <div class="province-item">
+          节能审查+碳排放评价同步实施<br>
+          <span class="item-ref">川发改环资规〔2025〕641号 · 2026-01-23</span>
+        </div>
+        <div class="province-item">
+          电动汽车充电设施倍增行动方案<br>
+          <span class="item-ref">川发改能源〔2026〕99号 · 2026-03-30</span>
+        </div>
+      </div>
+    </div>
+    <div class="province-card">
+      <div class="province-name">
+        <span class="tag-blue">●</span> 广东
+        <span class="province-tag" style="color: var(--c-blue); border-color: var(--c-blue);">经济大省</span>
+      </div>
+      <div class="province-items">
+        <div class="province-item">
+          新型储能电站建设运行管理办法<br>
+          <span class="item-ref">粤发改规〔2026〕4号 · 2026-04-22</span>
+        </div>
+        <div class="province-item">
+          源网荷储一体化/虚拟电厂/微电网<br>
+          <span class="item-ref">广东发改委 · 2026年</span>
+        </div>
+      </div>
+    </div>
+    <div class="province-card">
+      <div class="province-name">
+        <span class="tag-teal">●</span> 云南
+        <span class="province-tag" style="color: var(--c-teal); border-color: var(--c-teal);">示范</span>
+      </div>
+      <div class="province-items">
+        <div class="province-item">
+          零碳园区建设先行实践<br>
+          <span class="item-ref">国家发改委转载 · 2026-02-24</span>
+        </div>
+        <div class="province-item">
+          技术创新+政策创新+商业模式创新<br>
+          <span class="item-ref">发改委原文</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Blockchain opportunities -->
+  <div class="section-label">区块链+碳资产 机遇图谱 · Blockchain + Carbon Assets</div>
+  <div class="blockchain-grid">
+    <div class="bc-card">
+      <span class="bc-icon">🏷️</span>
+      <div class="bc-title">碳资产数字化确权</div>
+      <div class="bc-desc">CCER体系认证<br>链上存证</div>
+    </div>
+    <div class="bc-card">
+      <span class="bc-icon">🔗</span>
+      <div class="bc-title">供应链碳足迹上链</div>
+      <div class="bc-desc">全链条可追溯<br>数据防篡改</div>
+    </div>
+    <div class="bc-card">
+      <span class="bc-icon">💰</span>
+      <div class="bc-title">碳资产代币化</div>
+      <div class="bc-desc">提升流动性<br>早期探索阶段</div>
+    </div>
+    <div class="bc-card">
+      <span class="bc-icon">🤖</span>
+      <div class="bc-title">智能合约自动履约</div>
+      <div class="bc-desc">配额清缴/CCER<br>注销自动化</div>
+    </div>
+    <div class="bc-card">
+      <span class="bc-icon">🌐</span>
+      <div class="bc-title">跨境碳交易</div>
+      <div class="bc-desc">降低认证成本<br>国际互认</div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <div class="diagram-footer">
+    <div class="footer-note">
+      Hermes Agent 直接抓取政府官网 · 2026-04-24<br>
+      11个权威来源 · 可追溯URL · 实时更新
+    </div>
+    <div class="footer-sources">
+      meo.gov.cn · ndrc.gov.cn · cneeex.com<br>
+      fgw.sc.gov.cn · drc.gd.gov.cn
+    </div>
+  </div>
+
+</div>
+</div>
+</body>
+</html>
