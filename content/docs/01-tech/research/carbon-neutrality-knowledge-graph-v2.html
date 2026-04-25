@@ -1,0 +1,1082 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>双碳全产业知识图谱 V2 | Carbon Neutrality Knowledge Graph</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --c-bg: #f8fafc;
+      --c-canvas: #ffffff;
+      --c-border: #cbd5e1;
+      --c-text-main: #0f172a;
+      --c-text-sub: #64748b;
+      --c-accent-policy: #0f766e;
+      --c-accent-industry: #0369a1;
+      --c-accent-tech: #7c3aed;
+      --c-accent-market: #b45309;
+      --c-accent-finance: #15803d;
+      --c-accent-intl: #be123c;
+      --c-accent-web3: #6366f1;
+      --font-ui: 'Inter', sans-serif;
+      --font-mono: 'JetBrains Mono', monospace;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: var(--font-ui);
+      background: var(--c-bg);
+      padding: 40px 20px;
+      min-height: 100vh;
+      color: var(--c-text-main);
+    }
+
+    .diagram-container {
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+
+    .diagram-canvas {
+      background: var(--c-canvas);
+      border: 1px solid var(--c-border);
+      padding: 32px;
+    }
+
+    .diagram-header {
+      border-bottom: 2px solid var(--c-border);
+      padding-bottom: 20px;
+      margin-bottom: 32px;
+    }
+
+    .diagram-title {
+      font-size: 24px;
+      font-weight: 700;
+      color: var(--c-text-main);
+      margin-bottom: 6px;
+    }
+
+    .diagram-subtitle {
+      font-size: 12px;
+      font-weight: 500;
+      color: var(--c-text-sub);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
+    /* 全产业覆盖图 */
+    .industry-map {
+      margin-bottom: 40px;
+      padding: 24px;
+      border: 2px solid var(--c-border);
+      background: linear-gradient(135deg, #f0f9ff 0%, #f0fdf4 50%, #faf5ff 100%);
+    }
+
+    .industry-map-title {
+      font-size: 18px;
+      font-weight: 700;
+      margin-bottom: 20px;
+      text-align: center;
+    }
+
+    .industry-chain {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .chain-row {
+      display: flex;
+      align-items: stretch;
+      gap: 12px;
+    }
+
+    .chain-label {
+      width: 100px;
+      font-size: 12px;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 12px 8px;
+      border: 1px solid var(--c-border);
+      background: var(--c-canvas);
+      flex-shrink: 0;
+    }
+
+    .chain-items {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      flex: 1;
+    }
+
+    .chain-item {
+      padding: 8px 14px;
+      border: 1px solid var(--c-border);
+      font-size: 11px;
+      background: var(--c-canvas);
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .chain-item .dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+
+    .dot-energy { background: #f59e0b; }
+    .dot-industry { background: #3b82f6; }
+    .dot-building { background: #10b981; }
+    .dot-transport { background: #8b5cf6; }
+    .dot-agri { background: #22c55e; }
+    .dot-carbon { background: #06b6d4; }
+    .dot-service { background: #f43f5e; }
+    .dot-finance { background: #14b8a6; }
+    .dot-tech { background: #6366f1; }
+
+    .support-layer {
+      margin-top: 16px;
+      padding: 16px;
+      border: 2px dashed var(--c-border);
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .support-layer-label {
+      font-size: 11px;
+      font-weight: 600;
+      color: var(--c-text-sub);
+      width: 100%;
+      text-align: center;
+      margin-bottom: 8px;
+    }
+
+    .support-item {
+      padding: 6px 12px;
+      border: 1px solid var(--c-border);
+      font-size: 11px;
+      background: var(--c-canvas);
+    }
+
+    .core-node {
+      background: var(--c-canvas);
+      border: 2px solid var(--c-text-main);
+      padding: 24px;
+      margin-bottom: 32px;
+      text-align: center;
+    }
+
+    .core-node h2 {
+      font-size: 20px;
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+
+    .core-node p {
+      font-size: 13px;
+      color: var(--c-text-sub);
+      line-height: 1.6;
+    }
+
+    .dimensions-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+      margin-bottom: 32px;
+    }
+
+    @media (max-width: 1024px) {
+      .dimensions-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+
+    @media (max-width: 640px) {
+      .dimensions-grid { grid-template-columns: 1fr; }
+    }
+
+    .dimension-card {
+      background: var(--c-canvas);
+      border: 1px solid var(--c-border);
+      border-top: 4px solid var(--c-border);
+      padding: 20px;
+    }
+
+    .dimension-card.policy { border-top-color: var(--c-accent-policy); }
+    .dimension-card.industry { border-top-color: var(--c-accent-industry); }
+    .dimension-card.tech { border-top-color: var(--c-accent-tech); }
+    .dimension-card.market { border-top-color: var(--c-accent-market); }
+    .dimension-card.finance { border-top-color: var(--c-accent-finance); }
+    .dimension-card.intl { border-top-color: var(--c-accent-intl); }
+    .dimension-card.web3 { border-top-color: var(--c-accent-web3); }
+
+    .dimension-header {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 16px;
+      padding-bottom: 12px;
+      border-bottom: 1px solid var(--c-border);
+    }
+
+    .dimension-icon {
+      width: 32px;
+      height: 32px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--font-mono);
+      font-size: 14px;
+      font-weight: 500;
+      border: 1px solid var(--c-border);
+    }
+
+    .dimension-title {
+      font-size: 14px;
+      font-weight: 600;
+    }
+
+    .dimension-subtitle {
+      font-size: 11px;
+      color: var(--c-text-sub);
+      font-family: var(--font-mono);
+    }
+
+    .node-list {
+      list-style: none;
+    }
+
+    .node-list li {
+      font-size: 12px;
+      padding: 6px 0;
+      border-bottom: 1px dotted var(--c-border);
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 8px;
+    }
+
+    .node-list li:last-child { border-bottom: none; }
+
+    .node-name {
+      font-weight: 500;
+    }
+
+    .node-desc {
+      font-size: 11px;
+      color: var(--c-text-sub);
+      text-align: right;
+      max-width: 50%;
+    }
+
+    .badge {
+      display: inline-block;
+      font-family: var(--font-mono);
+      font-size: 9px;
+      padding: 1px 5px;
+      border: 1px solid var(--c-border);
+      color: var(--c-text-sub);
+      margin-left: 4px;
+    }
+
+    .section-title {
+      font-size: 16px;
+      font-weight: 600;
+      margin: 32px 0 16px;
+      padding-bottom: 8px;
+      border-bottom: 1px solid var(--c-border);
+    }
+
+    .relations-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 16px;
+      margin-bottom: 32px;
+    }
+
+    @media (max-width: 768px) {
+      .relations-grid { grid-template-columns: 1fr; }
+    }
+
+    .relation-item {
+      border: 1px solid var(--c-border);
+      padding: 16px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .relation-arrow {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      color: var(--c-text-sub);
+      white-space: nowrap;
+    }
+
+    .relation-desc {
+      font-size: 12px;
+      line-height: 1.5;
+    }
+
+    .chain-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-bottom: 32px;
+      font-size: 12px;
+    }
+
+    .chain-table th {
+      text-align: left;
+      padding: 10px 12px;
+      border-bottom: 2px solid var(--c-border);
+      font-weight: 600;
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--c-text-sub);
+    }
+
+    .chain-table td {
+      padding: 10px 12px;
+      border-bottom: 1px solid var(--c-border);
+      vertical-align: top;
+    }
+
+    .chain-table tr:hover td {
+      background: #f8fafc;
+    }
+
+    .risk-matrix {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 12px;
+      margin-bottom: 32px;
+    }
+
+    @media (max-width: 1024px) {
+      .risk-matrix { grid-template-columns: repeat(2, 1fr); }
+    }
+
+    .risk-card {
+      border: 1px solid var(--c-border);
+      padding: 16px;
+    }
+
+    .risk-level {
+      font-family: var(--font-mono);
+      font-size: 10px;
+      padding: 2px 6px;
+      border: 1px solid var(--c-border);
+      display: inline-block;
+      margin-bottom: 8px;
+    }
+
+    .risk-high { border-color: #dc2626; color: #dc2626; }
+    .risk-med { border-color: #ea580c; color: #ea580c; }
+    .risk-low { border-color: #16a34a; color: #16a34a; }
+
+    .risk-title {
+      font-size: 13px;
+      font-weight: 600;
+      margin-bottom: 6px;
+    }
+
+    .risk-desc {
+      font-size: 11px;
+      color: var(--c-text-sub);
+      line-height: 1.5;
+    }
+
+    .footer {
+      margin-top: 32px;
+      padding-top: 20px;
+      border-top: 1px solid var(--c-border);
+      font-size: 11px;
+      color: var(--c-text-sub);
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .footer-left {
+      font-family: var(--font-mono);
+    }
+
+    .timeline-bar {
+      display: flex;
+      gap: 0;
+      margin: 20px 0;
+      border: 1px solid var(--c-border);
+    }
+
+    .timeline-segment {
+      flex: 1;
+      padding: 12px 8px;
+      text-align: center;
+      border-right: 1px solid var(--c-border);
+      font-size: 11px;
+    }
+
+    .timeline-segment:last-child { border-right: none; }
+
+    .timeline-year {
+      font-family: var(--font-mono);
+      font-size: 12px;
+      font-weight: 600;
+      display: block;
+      margin-bottom: 4px;
+    }
+
+    .timeline-event {
+      font-size: 10px;
+      color: var(--c-text-sub);
+    }
+
+    /* 产业板块细分 */
+    .sector-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      margin-bottom: 32px;
+    }
+
+    @media (max-width: 1024px) {
+      .sector-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+
+    @media (max-width: 640px) {
+      .sector-grid { grid-template-columns: 1fr; }
+    }
+
+    .sector-card {
+      border: 1px solid var(--c-border);
+      padding: 16px;
+    }
+
+    .sector-header {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 12px;
+      padding-bottom: 8px;
+      border-bottom: 1px solid var(--c-border);
+    }
+
+    .sector-icon {
+      width: 24px;
+      height: 24px;
+      border-radius: 4px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 12px;
+      color: white;
+      font-weight: 600;
+    }
+
+    .sector-title {
+      font-size: 13px;
+      font-weight: 600;
+    }
+
+    .sector-items {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+
+    .sector-tag {
+      font-size: 10px;
+      padding: 3px 8px;
+      border: 1px solid var(--c-border);
+      background: #f8fafc;
+    }
+
+    .web3-detail {
+      background: linear-gradient(135deg, #eef2ff 0%, #f5f3ff 100%);
+      border: 1px solid #c7d2fe;
+      padding: 20px;
+      margin-bottom: 16px;
+    }
+
+    .web3-detail-title {
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--c-accent-web3);
+      margin-bottom: 12px;
+    }
+
+    .web3-scenarios {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
+    }
+
+    @media (max-width: 768px) {
+      .web3-scenarios { grid-template-columns: 1fr; }
+    }
+
+    .web3-scenario {
+      background: var(--c-canvas);
+      border: 1px solid #c7d2fe;
+      padding: 12px;
+    }
+
+    .web3-scenario-title {
+      font-size: 12px;
+      font-weight: 600;
+      margin-bottom: 6px;
+    }
+
+    .web3-scenario-desc {
+      font-size: 11px;
+      color: var(--c-text-sub);
+      line-height: 1.5;
+    }
+  </style>
+</head>
+<body>
+  <div class="diagram-container">
+    <div class="diagram-canvas">
+      <!-- Header -->
+      <div class="diagram-header">
+        <div class="diagram-title">双碳全产业知识图谱 V2</div>
+        <div class="diagram-subtitle">CARBON NEUTRALITY KNOWLEDGE GRAPH v2.0 / 2026-04-25</div>
+      </div>
+
+      <!-- 全产业覆盖图 -->
+      <div class="industry-map">
+        <div class="industry-map-title">🌐 双碳全产业领域覆盖图</div>
+        
+        <div class="industry-chain">
+          <!-- 上游 -->
+          <div class="chain-row">
+            <div class="chain-label" style="background: #fef3c7;">上游资源</div>
+            <div class="chain-items">
+              <div class="chain-item"><span class="dot dot-energy"></span>锂/镍/钴/稀土</div>
+              <div class="chain-item"><span class="dot dot-energy"></span>硅料/硅片/银浆</div>
+              <div class="chain-item"><span class="dot dot-industry"></span>铁矿石/石灰石</div>
+              <div class="chain-item"><span class="dot dot-carbon"></span>地质封存选址</div>
+              <div class="chain-item"><span class="dot dot-agri"></span>生物质/林业资源</div>
+              <div class="chain-item"><span class="dot dot-tech"></span>碳纤维/特种钢</div>
+            </div>
+          </div>
+          
+          <!-- 中游 -->
+          <div class="chain-row">
+            <div class="chain-label" style="background: #dbeafe;">中游装备</div>
+            <div class="chain-items">
+              <div class="chain-item"><span class="dot dot-energy"></span>光伏组件</div>
+              <div class="chain-item"><span class="dot dot-energy"></span>风机整机</div>
+              <div class="chain-item"><span class="dot dot-energy"></span>储能系统</div>
+              <div class="chain-item"><span class="dot dot-energy"></span>电解槽/燃料电池</div>
+              <div class="chain-item"><span class="dot dot-industry"></span>CCUS成套设备</div>
+              <div class="chain-item"><span class="dot dot-industry"></span>核电装备</div>
+              <div class="chain-item"><span class="dot dot-transport"></span>动力电池</div>
+              <div class="chain-item"><span class="dot dot-building"></span>热泵/BIPV</div>
+            </div>
+          </div>
+          
+          <!-- 下游 -->
+          <div class="chain-row">
+            <div class="chain-label" style="background: #d1fae5;">下游应用</div>
+            <div class="chain-items">
+              <div class="chain-item"><span class="dot dot-energy"></span>风光大基地/分布式</div>
+              <div class="chain-item"><span class="dot dot-industry"></span>绿电采购/氢能替代</div>
+              <div class="chain-item"><span class="dot dot-building"></span>近零能耗建筑</div>
+              <div class="chain-item"><span class="dot dot-transport"></span>充换电/氢能重卡</div>
+              <div class="chain-item"><span class="dot dot-carbon"></span>碳资产管理</div>
+              <div class="chain-item"><span class="dot dot-agri"></span>生态碳汇项目</div>
+            </div>
+          </div>
+        </div>
+        
+        <!-- 支撑层 -->
+        <div class="support-layer">
+          <div class="support-layer-label">🔧 支撑服务体系</div>
+          <div class="support-item">⚖️ 碳核算/MRV</div>
+          <div class="support-item">📊 碳管理SaaS</div>
+          <div class="support-item">🔗 区块链存证</div>
+          <div class="support-item">💰 碳金融</div>
+          <div class="support-item">📈 碳交易</div>
+          <div class="support-item">🔬 检测认证</div>
+          <div class="support-item">📚 咨询培训</div>
+          <div class="support-item">🤖 AI/大数据</div>
+        </div>
+      </div>
+
+      <!-- Core Node -->
+      <div class="core-node">
+        <h2>碳达峰 → 碳中和</h2>
+        <p>中国承诺2030年前实现碳达峰，2060年前实现碳中和。覆盖能源、工业、建筑、交通、农林五大领域，<br>涉及政策规制、技术替代、市场机制、金融工具、国际合作、Web3创新六大维度，是一场系统性经济社会变革。</p>
+      </div>
+
+      <!-- Timeline -->
+      <div class="section-title">政策时间线 TIMELINE</div>
+      <div class="timeline-bar">
+        <div class="timeline-segment">
+          <span class="timeline-year">2020.09</span>
+          <span class="timeline-event">双碳目标宣布<br>3060承诺</span>
+        </div>
+        <div class="timeline-segment">
+          <span class="timeline-year">2021.10</span>
+          <span class="timeline-event">顶层设计出台<br>《意见》+《方案》</span>
+        </div>
+        <div class="timeline-segment">
+          <span class="timeline-year">2021.07</span>
+          <span class="timeline-event">全国碳市场启动<br>发电行业首批</span>
+        </div>
+        <div class="timeline-segment">
+          <span class="timeline-year">2024.01</span>
+          <span class="timeline-event">碳排放权交易<br>暂行条例公布</span>
+        </div>
+        <div class="timeline-segment">
+          <span class="timeline-year">2024</span>
+          <span class="timeline-event">碳市场扩容<br>钢铁/水泥/电解铝</span>
+        </div>
+        <div class="timeline-segment">
+          <span class="timeline-year">2025</span>
+          <span class="timeline-event">CCER重启<br>十四五收官</span>
+        </div>
+        <div class="timeline-segment">
+          <span class="timeline-year">2026.04</span>
+          <span class="timeline-event">综合评价考核<br>节能降碳意见</span>
+        </div>
+        <div class="timeline-segment">
+          <span class="timeline-year">2030</span>
+          <span class="timeline-event">碳达峰目标年<br>非化石能源25%</span>
+        </div>
+        <div class="timeline-segment">
+          <span class="timeline-year">2060</span>
+          <span class="timeline-event">碳中和目标年<br>净零排放</span>
+        </div>
+      </div>
+
+      <!-- 产业板块细分 -->
+      <div class="section-title">产业板块细分 SECTOR BREAKDOWN</div>
+      <div class="sector-grid">
+        <div class="sector-card">
+          <div class="sector-header">
+            <div class="sector-icon" style="background: #f59e0b;">E</div>
+            <div class="sector-title">能源革命</div>
+          </div>
+          <div class="sector-items">
+            <span class="sector-tag">光伏(PERC→钙钛矿)</span>
+            <span class="sector-tag">风电(陆上/海上/漂浮)</span>
+            <span class="sector-tag">储能(锂电/钠电/液流)</span>
+            <span class="sector-tag">氢能(灰/蓝/绿)</span>
+            <span class="sector-tag">核电(三代/四代/聚变)</span>
+            <span class="sector-tag">智能电网/虚拟电厂</span>
+          </div>
+        </div>
+        
+        <div class="sector-card">
+          <div class="sector-header">
+            <div class="sector-icon" style="background: #3b82f6;">I</div>
+            <div class="sector-title">工业脱碳</div>
+          </div>
+          <div class="sector-items">
+            <span class="sector-tag">钢铁(氢冶金/电炉)</span>
+            <span class="sector-tag">水泥(替代燃料/CCUS)</span>
+            <span class="sector-tag">化工(绿氢/生物基)</span>
+            <span class="sector-tag">有色(水电铝/再生)</span>
+            <span class="sector-tag">玻璃/陶瓷/造纸</span>
+            <span class="sector-tag">工业园区循环经济</span>
+          </div>
+        </div>
+        
+        <div class="sector-card">
+          <div class="sector-header">
+            <div class="sector-icon" style="background: #10b981;">B</div>
+            <div class="sector-title">建筑低碳</div>
+          </div>
+          <div class="sector-items">
+            <span class="sector-tag">BIPV光伏建筑</span>
+            <span class="sector-tag">近零能耗建筑</span>
+            <span class="sector-tag">热泵供暖</span>
+            <span class="sector-tag">绿色建材</span>
+            <span class="sector-tag">智能楼宇/数字孪生</span>
+            <span class="sector-tag">建筑废弃物再生</span>
+          </div>
+        </div>
+        
+        <div class="sector-card">
+          <div class="sector-header">
+            <div class="sector-icon" style="background: #8b5cf6;">T</div>
+            <div class="sector-title">交通电动化</div>
+          </div>
+          <div class="sector-items">
+            <span class="sector-tag">动力电池(固态/半固态)</span>
+            <span class="sector-tag">换电/超充网络</span>
+            <span class="sector-tag">氢燃料电池重卡</span>
+            <span class="sector-tag">电动船舶</span>
+            <span class="sector-tag">eVTOL/电动航空</span>
+            <span class="sector-tag">智慧交通/共享出行</span>
+          </div>
+        </div>
+        
+        <div class="sector-card">
+          <div class="sector-header">
+            <div class="sector-icon" style="background: #22c55e;">A</div>
+            <div class="sector-title">农林与碳汇</div>
+          </div>
+          <div class="sector-items">
+            <span class="sector-tag">林业碳汇(CCER)</span>
+            <span class="sector-tag">海洋蓝碳(红树林)</span>
+            <span class="sector-tag">生态农业/甲烷减排</span>
+            <span class="sector-tag">土壤碳汇</span>
+            <span class="sector-tag">草原恢复</span>
+            <span class="sector-tag">湿地保护</span>
+          </div>
+        </div>
+        
+        <div class="sector-card">
+          <div class="sector-header">
+            <div class="sector-icon" style="background: #06b6d4;">N</div>
+            <div class="sector-title">负碳技术</div>
+          </div>
+          <div class="sector-items">
+            <span class="sector-tag">CCUS(捕集/封存/利用)</span>
+            <span class="sector-tag">DACCS直接空气捕集</span>
+            <span class="sector-tag">BECCS生物能源+碳捕集</span>
+            <span class="sector-tag">CO₂矿化利用</span>
+            <span class="sector-tag">海洋碳汇增强</span>
+            <span class="sector-tag">人工光合作用</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Seven Dimensions -->
+      <div class="section-title">七大维度 SEVEN DIMENSIONS</div>
+      <div class="dimensions-grid">
+        <!-- 1. 政策规制 -->
+        <div class="dimension-card policy">
+          <div class="dimension-header">
+            <div class="dimension-icon" style="color: var(--c-accent-policy);">P</div>
+            <div>
+              <div class="dimension-title">政策规制体系</div>
+              <div class="dimension-subtitle">POLICY & REGULATION</div>
+            </div>
+          </div>
+          <ul class="node-list">
+            <li><span class="node-name">顶层设计</span><span class="node-desc">《意见》+《方案》</span></li>
+            <li><span class="node-name">十四五/十五五规划</span><span class="node-desc">能耗双控→碳排双控</span></li>
+            <li><span class="node-name">综合评价考核办法</span><span class="node-desc">2026.04党政同责</span></li>
+            <li><span class="node-name">生态环境法典</span><span class="node-desc">2026.03绿色低碳成编</span></li>
+            <li><span class="node-name">碳排放权交易管理</span><span class="node-desc">暂行条例→未来法律</span></li>
+            <li><span class="node-name">节能降碳工作意见</span><span class="node-desc">2026.04零碳园区</span></li>
+            <li><span class="node-name">绿色电力交易</span><span class="node-desc">绿证+绿电全覆盖</span></li>
+            <li><span class="node-name">碳关税应对</span><span class="node-desc">CBAM准备/产品碳足迹</span></li>
+          </ul>
+        </div>
+
+        <!-- 2. 产业转型 -->
+        <div class="dimension-card industry">
+          <div class="dimension-header">
+            <div class="dimension-icon" style="color: var(--c-accent-industry);">I</div>
+            <div>
+              <div class="dimension-title">产业转型路径</div>
+              <div class="dimension-subtitle">INDUSTRIAL TRANSFORMATION</div>
+            </div>
+          </div>
+          <ul class="node-list">
+            <li><span class="node-name">能源革命</span><span class="node-desc">风光储氢核</span></li>
+            <li><span class="node-name">工业脱碳</span><span class="node-desc">钢铁/水泥/化工/有色</span></li>
+            <li><span class="node-name">建筑零碳</span><span class="node-desc">近零能耗/BIPV/热泵</span></li>
+            <li><span class="node-name">交通电动化</span><span class="node-desc">EV+氢能+航运+航空</span></li>
+            <li><span class="node-name">循环经济</span><span class="node-desc">资源再生/固废利用</span></li>
+            <li><span class="node-name">碳汇开发</span><span class="node-desc">林业/海洋/土壤/湿地</span></li>
+            <li><span class="node-name">负碳技术</span><span class="node-desc">CCUS/DACCS/BECCS</span></li>
+            <li><span class="node-name">数字化赋能</span><span class="node-desc">智慧能源/工业互联网</span></li>
+          </ul>
+        </div>
+
+        <!-- 3. 技术支撑 -->
+        <div class="dimension-card tech">
+          <div class="dimension-header">
+            <div class="dimension-icon" style="color: var(--c-accent-tech);">T</div>
+            <div>
+              <div class="dimension-title">技术支撑体系</div>
+              <div class="dimension-subtitle">TECHNOLOGY STACK</div>
+            </div>
+          </div>
+          <ul class="node-list">
+            <li><span class="node-name">可再生能源</span><span class="node-desc">光伏/风电/储能</span></li>
+            <li><span class="node-name">氢能产业链</span><span class="node-desc">制(ALK/PEM/SOEC)储运用</span></li>
+            <li><span class="node-name">CCUS</span><span class="node-desc">捕集/运输/封存/利用</span></li>
+            <li><span class="node-name">核能技术</span><span class="node-desc">华龙一号/高温气冷堆/聚变</span></li>
+            <li><span class="node-name">智能电网</span><span class="node-desc">特高压/微网/虚拟电厂</span></li>
+            <li><span class="node-name">数字化工具</span><span class="node-desc">碳管理软件/IoT/AI/大数据</span></li>
+            <li><span class="node-name">新材料</span><span class="node-desc">固态电池/钙钛矿/氢储材料</span></li>
+            <li><span class="node-name">生物能源</span><span class="node-desc">生物燃料/沼气/生物基材料</span></li>
+          </ul>
+        </div>
+
+        <!-- 4. 市场机制 -->
+        <div class="dimension-card market">
+          <div class="dimension-header">
+            <div class="dimension-icon" style="color: var(--c-accent-market);">M</div>
+            <div>
+              <div class="dimension-title">市场机制</div>
+              <div class="dimension-subtitle">MARKET MECHANISMS</div>
+            </div>
+          </div>
+          <ul class="node-list">
+            <li><span class="node-name">全国碳市场</span><span class="node-desc">CEA碳排放配额(发电+钢铁+水泥+铝)</span></li>
+            <li><span class="node-name">CCER</span><span class="node-desc">国家核证自愿减排(2025重启)</span></li>
+            <li><span class="node-name">绿证交易</span><span class="node-desc">GEC绿色电力证书全覆盖</span></li>
+            <li><span class="node-name">碳普惠</span><span class="node-desc">个人/企业碳账户(PHCER)</span></li>
+            <li><span class="node-name">用能权交易</span><span class="node-desc">能耗指标市场化</span></li>
+            <li><span class="node-name">排污权交易</span><span class="node-desc">环境权益市场</span></li>
+            <li><span class="node-name">碳期货/期权</span><span class="node-desc">广州期货交易所筹备中</span></li>
+            <li><span class="node-name">地方试点</span><span class="node-desc">广东/北京/上海/深圳/湖北/天津/重庆/福建</span></li>
+          </ul>
+        </div>
+
+        <!-- 5. 绿色金融 -->
+        <div class="dimension-card finance">
+          <div class="dimension-header">
+            <div class="dimension-icon" style="color: var(--c-accent-finance);">F</div>
+            <div>
+              <div class="dimension-title">绿色金融工具</div>
+              <div class="dimension-subtitle">GREEN FINANCE</div>
+            </div>
+          </div>
+          <ul class="node-list">
+            <li><span class="node-name">绿色信贷</span><span class="node-desc">央行碳减排支持工具(延续至2027)</span></li>
+            <li><span class="node-name">绿色债券</span><span class="node-desc">碳中和债/转型债/蓝色债</span></li>
+            <li><span class="node-name">碳基金</span><span class="node-desc">碳资产托管/投资基金/ETF</span></li>
+            <li><span class="node-name">碳质押融资</span><span class="node-desc">CCER/配额质押(规模超50亿)</span></li>
+            <li><span class="node-name">碳保险</span><span class="node-desc">碳信用保险/履约保险</span></li>
+            <li><span class="node-name">ESG投资</span><span class="node-desc">可持续投资框架/TCFD披露</span></li>
+            <li><span class="node-name">碳信托</span><span class="node-desc">资产证券化/碳理财</span></li>
+            <li><span class="node-name">转型金融</span><span class="node-desc">SLL/SLB利率与碳排放挂钩</span></li>
+          </ul>
+        </div>
+
+        <!-- 6. 国际合作 -->
+        <div class="dimension-card intl">
+          <div class="dimension-header">
+            <div class="dimension-icon" style="color: var(--c-accent-intl);">G</div>
+            <div>
+              <div class="dimension-title">国际合作与标准</div>
+              <div class="dimension-subtitle">GLOBAL COOPERATION</div>
+            </div>
+          </div>
+          <ul class="node-list">
+            <li><span class="node-name">巴黎协定</span><span class="node-desc">Article 6市场机制/NDC更新</span></li>
+            <li><span class="node-name">CBAM</span><span class="node-desc">欧盟碳边境调节(2026全面实施)</span></li>
+            <li><span class="node-name">ISO 14064/14067</span><span class="node-desc">温室气体核算/产品碳足迹</span></li>
+            <li><span class="node-name">SBTi</span><span class="node-desc">科学碳目标倡议</span></li>
+            <li><span class="node-name">CDM/JI</span><span class="node-desc">清洁发展机制(存量项目)</span></li>
+            <li><span class="node-name">VCS/GS</span><span class="node-desc">自愿碳标准/黄金标准</span></li>
+            <li><span class="node-name">一带一路绿色</span><span class="node-desc">海外投资绿色化/绿色丝绸之路</span></li>
+            <li><span class="node-name">气候融资</span><span class="node-desc">GCF/多边开发银行/绿色气候基金</span></li>
+          </ul>
+        </div>
+
+        <!-- 7. 区块链/Web3 -->
+        <div class="dimension-card web3">
+          <div class="dimension-header">
+            <div class="dimension-icon" style="color: var(--c-accent-web3);">W</div>
+            <div>
+              <div class="dimension-title">区块链/Web3融合</div>
+              <div class="dimension-subtitle">BLOCKCHAIN × CARBON</div>
+            </div>
+          </div>
+          <ul class="node-list">
+            <li><span class="node-name">碳资产Token化</span><span class="node-desc">配额/CCER→链上可编程资产</span></li>
+            <li><span class="node-name">MRV链上存证</span><span class="node-desc">IoT数据直连区块链防篡改</span></li>
+            <li><span class="node-name">碳普惠DAO</span><span class="node-desc">个人碳积分跨平台流通</span></li>
+            <li><span class="node-name">ReFi再生金融</span><span class="node-desc">碳汇项目链上融资/治理</span></li>
+            <li><span class="node-name">绿证NFT</span><span class="node-desc">绿色电力证书数字化</span></li>
+            <li><span class="node-name">碳信用DeFi</span><span class="node-desc">碳资产质押/流动性挖矿</span></li>
+            <li><span class="node-name">智能合约履约</span><span class="node-desc">自动执行配额清缴/抵消</span></li>
+            <li><span class="node-name">跨境碳互认</span><span class="node-desc">国际碳信用链上标准化</span></li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Web3 深度展开 -->
+      <div class="section-title">区块链 × 双碳六大场景深度展开</div>
+      <div class="web3-scenarios">
+        <div class="web3-scenario">
+          <div class="web3-scenario-title">1. MRV可信存证</div>
+          <div class="web3-scenario-desc">IoT传感器（电表/CEMS）直连区块链，原始数据上链存证。第三方核查报告哈希上链，监管部门实时审计。解决2022年内蒙古/河南碳排放数据造假痛点。</div>
+        </div>
+        <div class="web3-scenario">
+          <div class="web3-scenario-title">2. 碳资产代币化</div>
+          <div class="web3-scenario-desc">碳配额/CCER转化为可分割、可交易的链上资产。Toucan Protocol桥接Verra碳信用为TCO₂代币（规模超$100M）。海南国际碳交所探索国际碳信用数字资产交易。</div>
+        </div>
+        <div class="web3-scenario">
+          <div class="web3-scenario-title">3. 供应链碳足迹追溯</div>
+          <div class="web3-scenario-desc">原材料→生产→物流→消费→回收全链路数据上链。蚂蚁链+宁德时代电池护照、万向区块链+上汽零部件追溯。应对欧盟CBAM/新电池法碳足迹披露要求。</div>
+        </div>
+        <div class="web3-scenario">
+          <div class="web3-scenario-title">4. 碳普惠与全民参与</div>
+          <div class="web3-scenario-desc">个人低碳行为（公交/骑行/垃圾分类）转化为碳积分上链存证。深圳"低碳星球"（腾讯）、浙江碳账户（趣链）、成都"碳惠天府"。跨平台积分兑换，防止造假/超发。</div>
+        </div>
+        <div class="web3-scenario">
+          <div class="web3-scenario-title">5. 绿色DeFi与碳金融</div>
+          <div class="web3-scenario-desc">碳资产上链后作为DeFi抵押品，智能合约自动执行碳回购/碳借贷。KlimaDAO碳储备货币探索（高风险）。碳资产碎片化（1吨拆分为1000份），降低参与门槛。</div>
+        </div>
+        <div class="web3-scenario">
+          <div class="web3-scenario-title">6. VCM透明化</div>
+          <div class="web3-scenario-desc">自愿碳市场项目注册→监测→核查→签发→交易→退役全生命周期上链。Regen Network生态信用链上MRV（遥感+IoT+AI）。Guardian平台（Hedera，Mastercard/DBS合作）。</div>
+        </div>
+      </div>
+
+      <!-- Cross Relations -->
+      <div class="section-title">跨维度关联 CROSS-DIMENSION RELATIONS</div>
+      <div class="relations-grid">
+        <div class="relation-item">
+          <span class="relation-arrow">[政策] → [产业]</span>
+          <span class="relation-desc">碳排放双控制度驱动高耗能行业产能出清与技改，2026年考核办法落地加速</span>
+        </div>
+        <div class="relation-item">
+          <span class="relation-arrow">[技术] → [产业]</span>
+          <span class="relation-desc">光伏/储能成本下降推动能源结构转型，氢冶金/CCUS为工业脱碳托底</span>
+        </div>
+        <div class="relation-item">
+          <span class="relation-arrow">[市场] → [金融]</span>
+          <span class="relation-desc">碳配额资产化催生碳质押、碳期货等金融工具，广州期货交易所筹备中</span>
+        </div>
+        <div class="relation-item">
+          <span class="relation-arrow">[国际] → [政策]</span>
+          <span class="relation-desc">CBAM 2026年全面实施倒逼出口企业建立产品碳足迹体系</span>
+        </div>
+        <div class="relation-item">
+          <span class="relation-arrow">[金融] → [技术]</span>
+          <span class="relation-desc">绿色信贷/债券为CCUS和氢能提供长期资金，转型金融支持高碳行业技改</span>
+        </div>
+        <div class="relation-item">
+          <span class="relation-arrow">[产业] → [市场]</span>
+          <span class="relation-desc">林业碳汇/可再生能源产生CCER供给，负碳技术未来纳入碳市场</span>
+        </div>
+        <div class="relation-item">
+          <span class="relation-arrow">[Web3] → [市场]</span>
+          <span class="relation-desc">区块链提升碳资产流动性，智能合约自动履约降低交易成本</span>
+        </div>
+        <div class="relation-item">
+          <span class="relation-arrow">[Web3] → [国际]</span>
+          <span class="relation-desc">链上碳信用标准化促进国际互认，跨境碳资产结算探索（稳定币/CBDC）</span>
+        </div>
+      </div>
+
+      <!-- Value Chain -->
+      <div class="section-title">碳管理价值链 CARBON VALUE CHAIN</div>
+      <table class="chain-table">
+        <thead>
+          <tr>
+            <th>环节</th>
+            <th>核心活动</th>
+            <th>关键主体</th>
+            <th>产出/价值</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>核算</strong></td>
+            <td>碳盘查、碳足迹计算、LCA生命周期评估、范围1/2/3核算</td>
+            <td>第三方核查机构、SaaS服务商、咨询公司</td>
+            <td>排放基线、产品碳标签、CBAM合规数据</td>
+          </tr>
+          <tr>
+            <td><strong>减排</strong></td>
+            <td>能效提升、工艺替代、燃料切换、电气化、绿电采购</td>
+            <td>工业企业、能源公司、技术服务商</td>
+            <td>减排量、成本节约、配额盈余</td>
+          </tr>
+          <tr>
+            <td><strong>抵消</strong></td>
+            <td>CCER开发、碳汇项目、碳捕集、绿证采购</td>
+            <td>项目开发商、林农、技术公司、碳资产管理公司</td>
+            <td>碳信用额度、绿证、碳中和证书</td>
+          </tr>
+          <tr>
+            <td><strong>交易</strong></td>
+            <td>配额买卖、CCER抵消、碳资产管理、跨境交易</td>
+            <td>交易所、券商、资产管理公司、国际碳商</td>
+            <td>价格发现、流动性、套利机会</td>
+          </tr>
+          <tr>
+            <td><strong>披露</strong></td>
+            <td>ESG报告、TCFD披露、碳信息披露、电池护照</td>
+            <td>上市公司、评级机构、审计机构</td>
+            <td>透明度、资本溢价、市场准入</td>
+          </tr>
+          <tr>
+            <td><strong>认证</strong></td>
+            <td>碳中和认证、零碳工厂、PAS 2060、产品碳标签</td>
+            <td>认证机构、咨询公司、区块链平台</td>
+            <td>品牌溢价、消费者信任、出口合规</td>
+          </tr>
+          <tr>
+            <td><strong>金融化</strong></td>
+            <td>碳质押、碳回购、碳托管、碳基金、碳债券、碳期货</td>
+            <td>银行、券商、基金公司、保险公司</td>
+            <td>融资便利、风险对冲、投资收益</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <!-- Risk Matrix -->
+      <div class="section-title">风险矩阵 RISK MATRIX</div>
+      <div class="risk-matrix">
+        <div class="risk-card">
+          <span class="risk-level risk-high">HIGH</span>
+          <div class="risk-title">政策不确定性</div>
+          <div class="risk-desc">碳市场扩容节奏、CCER重启后的供给冲击、碳价波动剧烈、方法学调整</div>
+        </div>
+        <div class="risk-card">
+          <span class="risk-level risk-high">HIGH</span>
+          <div class="risk-title">技术成熟度</div>
+          <div class="risk-desc">CCUS成本高（300-600元/吨）、氢能储运难、固态电池未量产、绿氢经济性差</div>
+        </div>
+        <div class="risk-card">
+          <span class="risk-level risk-med">MED</span>
+          <div class="risk-title">国际贸易壁垒</div>
+          <div class="risk-desc">CBAM扩大范围、美国IRA补贴竞争、绿色贸易保护主义、电池法案溯源</div>
+        </div>
+        <div class="risk-card">
+          <span class="risk-level risk-med">MED</span>
+          <div class="risk-title">数据质量与漂绿</div>
+          <div class="risk-desc">MRV体系不完善、碳数据造假、ESG报告可信度存疑、区块链预言机问题</div>
+        </div>
+        <div class="risk-card">
+          <span class="risk-level risk-med">MED</span>
+          <div class="risk-title">市场流动性不足</div>
+          <div class="risk-desc">碳市场以履约为主、金融机构参与有限、衍生品缺失、地方市场分割</div>
+        </div>
+        <div class="risk-card">
+          <span class="risk-level risk-low">LOW</span>
+          <div class="risk-title">可再生能源替代</div>
+          <div class="risk-desc">风光储技术路线明确、成本持续下降、产业链完整、中国全球领先</div>
+        </div>
+        <div class="risk-card">
+          <span class="risk-level risk-low">LOW</span>
+          <div class="risk-title">数字化工具渗透</div>
+          <div class="risk-desc">碳管理软件、IoT监测、区块链溯源、AI优化快速迭代，渗透率提升</div>
+        </div>
+        <div class="risk-card">
+          <span class="risk-level risk-low">LOW</span>
+          <div class="risk-title">碳汇资源潜力</div>
+          <div class="risk-desc">林业/海洋碳汇资源丰富、生态补偿机制逐步完善、CCER方法学扩容</div>
+        </div>
+      </div>
+
+      <!-- Footer -->
+      <div class="footer">
+        <div class="footer-left">Generated: 2026-04-25 | Source: 公开政策文件/行业报告/学术研究综合整理</div>
+        <div>hackdapp knowledge base | wiki.hackdapp.com</div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
