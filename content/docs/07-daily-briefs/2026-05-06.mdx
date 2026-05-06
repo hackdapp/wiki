@@ -1,0 +1,217 @@
+---
+title: 2026-05-06 - 每日早报
+description: AI行业知识图谱 · 架构收敛 · 资本爆发 · 应用平民化
+---
+
+# 2026-05-06 - 每日早报
+
+> 本报告基于 TechCrunch + Twitter/X + Stanford CS336 等来源整理，覆盖 2026年5月6日 AI 行业关键动态。
+
+---
+
+## 1. LLM 架构收敛完成：2026 开源标准模板确立
+
+Stanford CS336 课程系统拆解了近3年主流开源 LLM，结论明确：**90% 的架构选择已经收敛**，2026年开源 LLM 已形成「标准配置」。
+
+### 核心要点
+
+**已收敛的 7 个架构选择**：
+
+- **Pre-Norm（LN移出残差流）**：保持残差流干净，梯度反传更稳定
+- **RMSNorm 替代 LayerNorm**：去掉减均值和 bias 部分，运行时省 25%
+- **所有 Bias 项删除**：减少内存搬运，与 RMSNorm 配合
+- **SwiGLU / GeGLU 激活函数**：Llama 系用 SwiGLU，Google 系用 GeGLU，差距极小
+- **RoPE 位置编码**：2024年后基本统一，让 inner product 只依赖相对位置
+- **Transformer Block 串联**：GPT-J/Palm 并联方案被放弃，串联优化成熟
+- **Layer Norm 灵活放置**：attention 前后可各加一层（double norm）
+
+**已收敛的 5 个超参数**：
+
+- FFN 维度：非 GLU 模型 4x hidden，GLU 模型 8/3x（Llama 系 3.5x）
+- Head 数 × Head 维度 ≈ Hidden 维度（T5为例外）
+- 模型纵横比（hidden/层数）≈ 100（系统约束 + 表达力平衡）
+- Vocab Size：多语模型 100K-200K（GPT-4/Llama3/Gemma 均在此范围）
+- Weight Decay：仍然使用，实际作用是优化器干预而非防过拟合
+
+**稳定性三剑客**：
+
+- **Z-loss**：对 softmax normalizer 加正则项，让 Z 始终接近 1（DCLM/Olmo 在用）
+- **QK Norm**：attention 前对 Q/K 各加 LN，保证 softmax 输入为单位尺度
+- **Logit Soft Cap**：Google 系专用（Gemma 2/3/4），会轻微损失性能
+
+**注意力机制新趋势**：
+
+- **GQA（Grouped Query Attention）**：几乎统一，共享 K/V 保留多 Q，推理成本砍掉 80%
+- **局部 + 全局 attention 交替**：每4层1层 full attention，其他3层 sliding window（Llama 4/Gemma 4/Olmo 3 在用）
+
+### 为什么值得看
+
+2026 年开源 LLM 的「标准答案」已经确立。创业公司或研究者可以直接抄作业，不需要重新发明。理解这些标准配置，也能看懂 GitHub 上大多数 `modeling_xxx.py` 的底层逻辑。
+
+### 原文引用
+
+> [1] [Stanford CS336 - LLM Architecture 课程笔记](https://x.com/geekbb/status/2051494907974697144)（Twitter @geekbb，45万阅读，2700+ 点赞）
+
+---
+
+## 2. 企业 AI 资本爆发：SAP $1.16B、NemoClaw、QuTwo $380M
+
+本周企业 AI 赛道融资密集，资本正在加速布局垂直场景和企业级应用。
+
+### 核心要点
+
+- **SAP 斥资 $1.16B 押注德国 AI Lab NemoClaw**：这家成立仅 18 个月的实验室，是 SAP 史上最大单笔 AI 投资，布局企业 AI 赛道
+- **QuTwo 获 $380M 估值天使轮**：前 DeepMind 高管 Peter Sarlin 创办，聚焦企业自动化
+- **Altara 融资 $700M**：填补物理科学研究的数据缺口，加速 AI 在材料科学领域的应用
+- **Samsung 市值突破 $1T**：AI 芯片需求强劲，验证 AI 芯片超级周期持续
+
+### 为什么值得看
+
+企业 AI 已进入「大资本」阶段，不再是小打小闹的实验性投资。SAP 的 $1.16B 是一个明确信号：传统企业软件巨头正在用资本换时间，快速补齐 AI 能力短板。
+
+### 原文引用
+
+> [2] [SAP bets $1.16B on NemoClaw](https://techcrunch.com/2026/05/05/sap-bets-1-16b-on-18-month-old-german-ai-lab-and-says-yes-to-nemoclaw/)（TechCrunch）
+
+> [3] [QuTwo reaches $380M valuation](https://techcrunch.com/2026/05/05/peter-sarlins-qutwo-reaches-380m-valuation-in-angel-round/)（TechCrunch）
+
+> [4] [AI boom pushes Samsung to $1T](https://techcrunch.com/2026/05/06/ai-boom-pushes-samsung-to-1t/)（TechCrunch）
+
+---
+
+## 3. Apple iOS 27：开放第三方 AI 模型选择
+
+苹果计划在 iOS 27 中允许用户自选 AI 模型，打破单一供应商绑定。
+
+### 核心要点
+
+- iOS 27 将成为「Choose Your Own Adventure」式的 AI 模型选择界面
+- 用户可切换至第三方模型（预计支持 Claude、Gemini、DeepSeek 等）
+- 这是苹果从「封闭生态」向「平台化」转型的关键一步
+
+### 为什么值得看
+
+Apple 的 AI 策略从封闭走向开放，将触发 AI 模型分发渠道战。模型厂商不再只需要 API 竞争，而需要争取成为 iOS 用户默认选择。
+
+### 原文引用
+
+> [5] [Apple plans iOS 27 AI model selection](https://techcrunch.com/2026/05/05/apple-plans-to-make-ios-27-a-choose-your-own-adventure-of-ai-models/)（TechCrunch）
+
+---
+
+## 4. AI 视频创作平民化：Codex + HyperFrames 一句话成片
+
+多条 Twitter 讨论聚焦 AI 视频工具的突破，剪辑师职业受到实质冲击。
+
+### 核心要点
+
+**@BTCqzy1 实测**：Codex + HyperFrames 一句话生成视频，动效、字幕、配音全自动，「把剪辑师捏一把汗」（1600+ 点赞）
+
+**@WEB3_furture 实测**：把网站发给 Codex，自动分析内容、抓取图片、调用 HyperFrames 渲染 MP4 宣传片，10分钟完成，全程无人工干预
+
+**关键工具**：
+
+- **Codex**：AI 代码/内容生成助手，可调用各种工具
+- **HyperFrames**：AI 视频渲染插件，将动画代码直接转换为专业 MP4
+
+**Command Code AI**：$1/月 Coding Agent，支持 Kimi K2.6、GLM-5、MiniMax、DeepSeek V4 Pro 等顶级开源模型，AI Coding 进入$1时代
+
+### 为什么值得看
+
+AI 视频制作的成本已接近零。专业视频不再是「需要团队」的事情，一句话描述需求 → 自动生成完整视频，这个流程已经打通。内容创作行业的门槛正在被彻底重构。
+
+### 原文引用
+
+> [6] [Codex + HyperFrames 实测 - @BTCqzy1](https://x.com/BTCqzy1/status/2051866228646691321)
+
+> [7] [Codex 自动宣传片制作 - @WEB3_furture](https://x.com/WEB3_furture/status/2051930141622677607)
+
+> [8] [Command Code AI $1/月](https://x.com/xiangxiang103/status/2051495641231372399)
+
+---
+
+## 5. Open-Slide：AI Agent 驱动的 PPT 自动生成
+
+开源项目 Open-Slide 将 AI Agent 引入幻灯片创作流，PPT 制作进入「自动工厂」时代。
+
+### 核心要点
+
+- **Agent 驱动创作**：定义需求 → Agent 自动生成内容、逻辑和视觉
+- **原生 Web 编辑器**：所见即所得，支持复杂 Web 组件嵌入
+- **动效与交互**：生成的 Slides 可直接在浏览器全屏播放
+- **Roadmap**：.pptx 格式导出已在规划中
+
+### 为什么值得看
+
+「方案构思5分钟，排版美化2小时」的痛苦将被解决。AI Agent 介入后，人类只需要定义需求，结构和美化全部自动化。这是 AI 办公的又一个高价值场景。
+
+### 原文引用
+
+> [9] [Open-Slide GitHub](https://github.com/1weiho/Open-Slide)
+
+---
+
+## 6. 本地 AI Agent 兴起：OpenMonoAgent
+
+本地运行的开源 Coding Agent，不收 token 费、代码不出本地机器。
+
+### 核心要点
+
+- **.NET 10 + llama.cpp** 构建，推理全在本地
+- **20 个工具 + 5 个专项子 Agent**，Docker 沙箱隔离
+- **GPU 模式 45 tok/s，CPU 模式 20 tok/s**
+- **支持 YAML Playbook、LSP、Roslyn 代码智能、MCP 集成**
+
+### 为什么值得看
+
+隐私优先和成本敏感场景下，本地 Agent 是云端 API 的有力替代。代码不传第三方服务器，对企业安全合规场景尤为重要。
+
+### 原文引用
+
+> [10] [OpenMonoAgent](https://x.com/QingQ77/status/2050935659196756452)
+
+---
+
+## 7. GPT-6 定价曝光：$2.5/M 输入 token，10 倍 GPT-4o
+
+OpenAI 明确高端 AI 定价策略，免费用户与付费用户的体验差距将持续拉大。
+
+### 核心要点
+
+- GPT-6 定价：输入 $2.5/M token，比 GPT-4o 贵 10 倍
+- 5-6万亿参数，Symphony 架构，整合 ChatGPT + Codex + Atlas
+- OpenAI 信号明确：AI 天花板还远，顶级能力只向付费用户开放
+
+### 为什么值得看
+
+AI 定价的两极化已经开始。开源免费 vs 闭源高价，用户被迫在成本和能力之间做选择。这对面向企业的 AI 服务商来说，高价反而是信任背书。
+
+### 原文引用
+
+> [11] [GPT-6 定价策略 - @ai_xiaomu](https://x.com/ai_xiaomu/status/2051446776696299577)
+
+---
+
+## 引用列表
+
+[1: Stanford CS336 LLM Architecture](https://x.com/geekbb/status/2051494907974697144)
+
+[2: SAP bets $1.16B on NemoClaw](https://techcrunch.com/2026/05/05/sap-bets-1-16b-on-18-month-old-german-ai-lab-and-says-yes-to-nemoclaw/)
+
+[3: QuTwo reaches $380M valuation](https://techcrunch.com/2026/05/05/peter-sarlins-qutwo-reaches-380m-valuation-in-angel-round/)
+
+[4: AI boom pushes Samsung to $1T](https://techcrunch.com/2026/05/06/ai-boom-pushes-samsung-to-1t/)
+
+[5: Apple plans iOS 27 AI model selection](https://techcrunch.com/2026/05/05/apple-plans-to-make-ios-27-a-choose-your-own-adventure-of-ai-models/)
+
+[6: Codex + HyperFrames 实测](https://x.com/BTCqzy1/status/2051866228646691321)
+
+[7: Codex 自动宣传片制作](https://x.com/WEB3_furture/status/2051930141622677607)
+
+[8: Command Code AI $1/月](https://x.com/xiangxiang103/status/2051495641231372399)
+
+[9: Open-Slide GitHub](https://github.com/1weiho/Open-Slide)
+
+[10: OpenMonoAgent](https://x.com/QingQ77/status/2050935659196756452)
+
+[11: GPT-6 定价策略](https://x.com/ai_xiaomu/status/2051446776696299577)
