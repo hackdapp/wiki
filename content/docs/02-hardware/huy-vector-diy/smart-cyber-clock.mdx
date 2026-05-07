@@ -1,0 +1,84 @@
+---
+title: Smart Cyber Clock
+description: ESP32C3 + 1.8" TFT + air quality sensor + 3W speaker — DIY WiFi steampunk desk clock
+---
+
+# Smart Cyber Clock
+
+> DIY WiFi-enabled steampunk desk clock with ESP32C3, TFT display, air quality sensor, and 3W speaker.
+> **Source:** [huyvector.org](https://www.huyvector.org/clocks/smart-cyber-clock)
+
+## BOM — AliExpress Links
+
+| Component | Link | Notes |
+|-----------|------|-------|
+| Copper wire | [1mm + 0.7mm](https://s.click.aliexpress.com/e/_c4pah9Tz) | |
+| Battery | [Link](https://s.click.aliexpress.com/e/_oBItcGP) | |
+| Type-C Charging Module | [4.2V](https://s.click.aliexpress.com/e/_olOxhTt) | |
+| ESP32C3 | [Link](https://s.click.aliexpress.com/e/_oCNdARN) | |
+| TFT Display 1.8" + Rotary Encoder | [Link](https://s.click.aliexpress.com/e/_c4OKencp) | |
+| Air Quality Sensor | [Link](https://s.click.aliexpress.com/e/_c41NeF0R) | |
+| Switch | [Link](https://s.click.aliexpress.com/e/_c3F1y5i3) | |
+| 3W Speaker | [Link](https://s.click.aliexpress.com/e/_c39nK32l) | |
+| LED Edison Bulb | [39mm](https://s.click.aliexpress.com/e/_onQ5cjz) | |
+| Glass Fuse | [6×30mm](https://s.click.aliexpress.com/e/_c3ikToif) | |
+| Brass Tubes | [3mm](https://s.click.aliexpress.com/e/_c3XbJLv9) | |
+
+## BOM — Amazon Links
+
+| Component | Link | Notes |
+|-----------|------|-------|
+| Copper wire | [1mm + 0.8mm](https://amzn.to/4t62Llb) | |
+| Type-C Charging Module | [Link](https://amzn.to/3OcuuAv) | |
+| Battery | [Link](https://amzn.to/4c5uc85) | |
+| ESP32-C3 | [Link](https://amzn.to/45DVKhl) | |
+| 3W Speaker | [Link](https://amzn.to/3NTVMLW) | |
+| Air Quality Sensor | [Link](https://amzn.to/4qc8Rhh) | |
+| TFT Display 1.8" + Rotary Encoder | [Link](https://amzn.to/3LEnegc) | |
+| LED Edison Bulb | [38mm](https://amzn.to/4c5FJoe) | |
+| Glass Fuse | [6×30mm](https://amzn.to/4t2EEE5) | |
+| Brass Tubes | [3mm](https://amzn.to/4brcYCi) | |
+| Switch | [Link](https://amzn.to/4q5aNYC) | |
+
+## Code & Schematics
+
+- **[Code](https://drive.google.com/file/d/1TS-izoy6gGaPv4POn_InBzjaassiXMW1/view?usp=sharing)** — Google Drive
+- **[Wiring Diagram](https://drive.google.com/file/d/1RmrIqwimZX8m34M2yMl1QDFt5xPMi9cM/view?usp=sharing)** — Google Drive
+
+## Required Libraries (Arduino / PlatformIO)
+
+- `Adafruit_GFX`
+- `Adafruit_ST7735` and `Adafruit_ST7789`
+- `Adafruit_AHTX0`
+- `ENS160` — ScioSense ENS160 Library (Adafruit Fork)
+
+## Configuration
+
+```cpp
+// Enter WiFi credentials
+const char* ssid = "YOUR_WIFI_NAME";
+const char* password = "YOUR_WIFI_PASSWORD";
+
+// Set timezone offset (seconds)
+// GMT+7: 7 * 3600
+// GMT-5: -5 * 3600
+const long gmtOffset_sec = 7 * 3600;
+```
+
+## Tools Used
+
+| Tool | AliExpress Link |
+|------|-----------------|
+| Soldering Iron Station | [Link](https://s.click.aliexpress.com/e/_c4ED792T) |
+| Solder Wire | [Link](https://s.click.aliexpress.com/e/_c2yRy1iL) |
+| Solder Flux | [Link](https://s.click.aliexpress.com/e/_c4Cq8IsT) |
+| Soldering Iron Stand Clamp | [Link](https://s.click.aliexpress.com/e/_c3dCSsAJ) |
+| Desoldering Pump | [Link](https://s.click.aliexpress.com/e/_c3dAUxnl) |
+| Mini Pliers Cutter | [Link](https://s.click.aliexpress.com/e/_c4q7lyRp) |
+| Cutting Pad | [Link](https://s.click.aliexpress.com/e/_c3GBUlMP) |
+| Circle Cutter | [Link](https://s.click.aliexpress.com/e/_c3ynmdWT) |
+
+## Community
+
+- [YouTube](https://www.youtube.com/@HuyVector) — Subscribe for more DIY electronics & creative builds
+- [Facebook Group](https://www.facebook.com/share/g/1BgXx6R11e/) — Huy Vector Community
