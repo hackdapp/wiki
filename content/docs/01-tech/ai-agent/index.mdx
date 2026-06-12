@@ -1,0 +1,131 @@
+---
+title: AI Agent 技术栈
+description: 现代 AI Agent 的完整技术架构，详解 Model、Memory、Tools、Runtime、Observability 五层架构与 ReAct 循环
+---
+
+# AI Agent 技术栈
+
+现代 AI Agent 基于 **ReAct Loop**（Reasoning + Acting）在 Agent Runtime 中持续运转，通过调用外部工具与真实世界交互，完成复杂任务。
+
+## 五层架构总览
+
+```
+┌─────────────────────────────────────────────────────────┐
+│                      Model Layer                        │
+│         GPT-5 / Claude 4 / Gemini 1.5 Pro                │
+├─────────────────────────────────────────────────────────┤
+│                     Memory Layer                        │
+│  Short-term (Redis/Cache) │ Long-term (Vector/SQL)     │
+├─────────────────────────────────────────────────────────┤
+│                      Tool Layer                         │
+│   Search │ APIs │ Code Exec │ Data Access │ Others     │
+├─────────────────────────────────────────────────────────┤
+│              AI Agent Runtime (Core)                   │
+│         ReAct Loop + Orchestration Components           │
+├─────────────────────────────────────────────────────────┤
+│              Observability & Safety Layer               │
+│   Tracing │ Eval │ Cost │ Quality │ Safety             │
+└─────────────────────────────────────────────────────────┘
+```
+
+## 分层详解
+
+### 1. Model Layer — 底层模型
+
+LLM 作为 Agent 的"大脑"，负责推理、决策和语言生成。
+
+| 提供商 | 代表模型 | 特点 |
+|--------|----------|------|
+| OpenAI | GPT-5 (Latest) | 通用推理能力强，工具调用成熟 |
+| Anthropic | Claude Sonnet 4 / Opus 4 | 长上下文、安全性强 |
+| Google | Gemini 1.5 Pro | 超长上下文（1M+ tokens） |
+
+### 2. Memory Layer — 记忆系统
+
+管理 Agent 的上下文生命周期：**Read（Context）+ Write（Experience）**。
+
+| 类型 | 技术栈 | 用途 |
+|------|--------|------|
+| 短期记忆（Working） | Redis、Session/Cache、Context Buffer | 当前会话上下文 |
+| 长期记忆（Semantic） | Qdrant、Pinecone、Milvus（向量数据库） | 语义知识检索 |
+| 长期记忆（Transactional） | PostgreSQL、MySQL（关系数据库） | 结构化数据存储 |
+
+### 3. Tool Layer — 工具层
+
+Agent 与真实世界交互的接口。
+
+| 类别 | 工具示例 | 用途 |
+|------|----------|------|
+| 搜索 | SerpAPI、Tavily、Firecrawl | 网络信息检索 |
+| API 集成 | Stripe、Slack、GitHub、Notion API | 第三方服务接入 |
+| 代码执行 | E2B、Modal、Fly.io | 沙箱计算环境 |
+| 数据访问 | PostgreSQL、MySQL | 读取/写入数据库 |
+| 其他 | Email、Calendar、Filesystem | 日常办公工具 |
+
+### 4. AI Agent Runtime（核心）— ReAct Loop
+
+Agent 的执行引擎，循环运转四步：
+
+```
+Thought → Action → Observation → Reflection → (循环)
+```
+
+| 步骤 | 说明 | 图标 |
+|------|------|------|
+| **Thought**（思考） | LLM 分析当前状态，决定下一步行动 | 🧠 |
+| **Action**（行动） | Agent 选择工具并执行 | ⚙️ |
+| **Observation**（观察） | 工具返回数据或反馈 | 👁️ |
+| **Reflection**（反思） | LLM 更新上下文，决定下一步 | 🔄 |
+
+#### 编排组件（Orchestration Components）
+
+支撑 ReAct 循环的后台逻辑模块：
+
+- **Planning** — 任务规划
+- **Task Decomposition** — 任务拆解
+- **Model Selection** — 模型选择
+- **Tool Selection** — 工具选择
+- **Execution Control** — 执行控制
+- **Error Handling** — 错误处理
+- **Retries & Recovery** — 重试与恢复
+
+### 5. Observability & Safety Layer — 可观测性与安全
+
+跨切面能力，监控、评估、调试与安全防护。
+
+| 类别 | 工具/内容 | 用途 |
+|------|-----------|------|
+| Tracing & Debugging | LangSmith、Sessions & Runs、Logs & Spans | 调用链追踪 |
+| Evaluation & Feedback | Langfuse、Prompt/Response、Evals & Scores | 效果评估 |
+| Cost & Usage | Helicone、Cost & Latency | 成本监控 |
+| Quality & Performance | Arize Phoenix、Drift Detection | 质量与漂移检测 |
+| Safety & Moderation | Guardrails AI、Policy & Compliance | 内容安全 |
+| Security | Lakera / LlamaGuard、Security & Risk | 安全防护 |
+
+## 主流架构模式
+
+### ReAct（Reasoning + Acting）
+1. 思考当前状态
+2. 调用工具执行
+3. 观察结果
+4. 循环直到任务完成
+
+### Plan-and-Execute
+1. 先制定完整计划
+2. 逐步执行
+3. 根据结果调整计划
+
+### Multi-Agent（多智能体）
+- **Supervisor 模式**：一个协调者分配任务给多个专业 Agent
+- 详见 [LLM 应用模式](/docs/01-tech/ai-llm/llm-application-patterns)
+
+## 工程实践
+
+- **错误处理**：工具调用失败时的重试和降级策略
+- **安全边界**：权限控制、人类确认（Human-in-the-Loop）机制
+- **成本控制**：迭代次数限制、Token 预算
+- **可观测性**：日志、轨迹记录、调试工具
+
+## 来源
+
+- ByteByteGo, "The AI Agent Stack, Explained"  infographic
