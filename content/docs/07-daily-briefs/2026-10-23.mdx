@@ -1,0 +1,124 @@
+---
+title: 2026-10-23 - 每日简报
+description: OpenAI Decisions API · Canva Craft · Anthropic Agent Skills · 微软医疗诊断 · DeepSeek $150亿 · World Model并购
+---
+
+# 2026-10-23 - 每日简报
+
+> 本报告基于 TechCrunch + Techmeme 整理，覆盖 2026-10-22 (PDT) / 2026-10-23 (CST) AI 行业关键动态。
+
+---
+
+## 1. AI 模型 & 产品
+
+### 核心要点
+- **OpenAI 全面开放 Decisions API**：直接对标 TypeSafe 的 Jev 模型（该模型曾把 TypeSafe 估值推到 76 亿美元）。OpenAI API 产品负责人 Nikunj Handa 称同事看到 Jev 后"想到了一百万个用例"，团队 sprints 后将其 ChatGPT Luna 重新配置以加速推理、降低成本。延迟从 1-3 秒降至 100 / 120 / 180 毫秒。Handa 承认目前"只是调优过的普通 Luna"，未来可能做针对性训练
+- **Canva 发布首个图像生成模型 Canva Craft**：由 Canva 研究团队开发，与 Google、OpenAI、字节跳动、Meta 同类模型正面竞争。两阶段工作流：第一阶段解析提示词并生成包含元素空间关系、相对尺度、视觉层级、文本生成信息的规划；第二阶段生成最高 2K 分辨率、覆盖 30 种宽高比的图像。关键差异是用 Canva 素材库中的人类设计模板（海报、社交帖、演示、信息图、菜单、字体密集排版）而非照片训练，主打文字可读、物体细节准确、可局部精确编辑而不影响画面其他部分
+- **Anthropic 将 Agent Skills 开放标准捐赠给 Agentic AI Foundation（AAIF）**：继 2025 年捐赠 MCP 后的第二次标准捐赠。Anthropic 称已有 70+ 平台集成 Agent Skills。AI Agent 的能力封装从厂商私有格式进入基金会治理阶段
+- **微软 MAI-DxO 诊断准确率超全科医生 2 倍**：Science 周四发表。系统用多个 AI Agent 模拟专家会诊面板（问诊、开检查、辩论诊断），在 NEJM 复杂病例模拟中正确率 83%，而独立工作的全科医生/普通内科医师仅 36%（The Verge 报道口径为"最高 4 倍"）。微软 AI CEO Mustafa Suleyman 称这是迈向"医疗超级智能"的一步，并表示未来几年要造出"与人类表现无法区分"的系统。注意：复杂病例现实中通常由专科医生或医疗团队处理，未纳入对比；且提升主要来自底层模型而非微软系统本身
+- **1Password 发布 for Agents**：用户可授权 AI Agent 代为登录个人账号，Agent 全程接触不到凭证。机制为 Agent、用户、密码三方通信——Agent 请求登录时向 1Password 发送唯一数字密钥确认身份，用户收到登录提醒并亲自确认，1Password 再代填凭证完成登录
+- **Uber 全量启用 ChatGPT Work**：从年初 1000 人试点扩至全球约 3 万名员工。ChatGPT Work 是 7 月推出的企业级 Agent。早期采用者覆盖财务、运营、产品多个部门，其中约 80% 为非工程师（Sumanth Sukumar, Uber 工程 VP）
+- **前 OpenAI 科研负责人 Kevin Weil 创办 Warp Sciences**：用机器人自动化湿实验中的候选化合物合成与测试。已融资 2.15 亿美元，估值 8.65 亿美元，Lightspeed 领投，IVP、Premji Invest、Lux Capital 参与。目标是把多年外包给 WuXi AppTec 等中国承包商的分子合成工作回流美国，降低地缘供应链风险
+- **Rivian 收购英国世界模型公司 Third Dimension**：该公司由游戏与自动驾驶行业老兵创办，用 AI 把图像和视频转成逼真的 3D 世界。Rivian 将其技术用于把真实世界数据转为 3D 场景，加速 ADAS 与 Uber Robotaxi 自动驾驶系统研发。交易金额未披露，15 人团队大部分在英国，并入 James Philbin 主导的自动驾驶与 AI 部门
+
+### 为什么值得看
+今天的产品线有两条清晰主线：**一是 Agent 从"能做什么"转向"多快多便宜"**——Decisions API 把延迟砍两个数量级，Uber 的 80% 非工程师采用率则说明企业 Agent 的瓶颈已不是能力而是场景适配；**二是标准与生态位争夺**——Anthropic 连续两年捐赠标准，Canva 用设计模板而非照片训练图像模型，都是在把自己最独特的资产变成护城河（可移植的技能标准、独家设计数据）。MAI-DxO 的 83% 则暴露了一个更尖锐的事实：底座模型强到一定程度后，"系统创新"能贡献的增量正在快速趋零。
+
+### 原文引用
+> [1] [OpenAI makes its Jev competitor widely available as decision model competition heats up](https://techcrunch.com/2026/10/22/openai-makes-its-jev-competitor-widely-available-as-decision-model-competition-heats-up/)
+> [2] [Canva releases its first image generation model](https://techcrunch.com/2026/10/22/canva-releases-its-first-image-generation-model/)
+> [3] [Anthropic donates the Agent Skills open standard to the Agentic AI Foundation](https://www.techmeme.com/261022/p53)
+> [4] [Microsoft's Mustafa Suleyman says its AI outperforms doctors on hard cases](https://techcrunch.com/2026/10/22/microsofts-mustafa-suleyman-says-its-ai-outperforms-doctors-on-hard-cases-as-he-chases-medical-superintelligence/)
+> [5] [1Password launches a way for AI agents to log in on your behalf without seeing your password](https://techcrunch.com/2026/10/22/1password-launches-a-way-for-ai-agents-to-log-in-on-your-behalf-without-seeing-your-password/)
+> [6] [Uber puts all 30,000 employees on ChatGPT Work](https://techcrunch.com/2026/10/22/uber-puts-all-30000-employees-on-chatgpt-work/)
+> [7] [Former OpenAI science lead launches Warp Science to automate wet labs with robots](https://techcrunch.com/2026/10/22/former-openai-science-lead-launches-warp-science-to-automate-wet-labs-with-robots/)
+> [8] [Rivian buys world model startup to accelerate self-driving ambitions](https://techcrunch.com/2026/10/22/rivian-buys-world-model-startup-to-accelerate-self-driving-ambitions/)
+
+---
+
+## 2. 投资 & 市场
+
+### 核心要点
+- **OpenAI 拟募资最高 300 亿美元，估值 1.25 万亿美元**：CNBC 报道由 Coatue 与阿联酋投资人领投，pre-money 估值 1.25 万亿美元，OpenAI 拒评。一个月前 Bloomberg 曾报道同一规模、估值 1.4 万亿美元。FT 补充称部分投资者抵触后，OpenAI 已把估值目标从 1.4 万亿下调至 1.25 万亿。UAE 资金可能与算力采购协议绑定。OpenAI 今年 6 月已秘密提交 IPO 文件，3 月上一轮融资 post-money 估值 8520 亿美元。若此轮完成，将成为史上估值最高的非上市公司
+- **DeepSeek 融资约 150 亿美元（约 1000 亿人民币）**：Bloomberg 报道，是中国国内最大规模融资之一。潜在投资方包括电池厂商宁德时代与腾讯。发生在美国下令联邦民事机构移除 DeepSeek AI 技术仅两天之后。参考：6 月一轮募资超 70 亿美元、估值 500 亿美元；7 月据报以约 710 亿美元估值再募 15 亿；计划最快明年在中国 IPO
+- **其余投资与并购**：Rivian 收购世界模型公司 Third Dimension（金额未披露）；a16z Crypto 更名 a16z Frontier，放弃区块链投资标签（由 Chris Dixon 负责）；Datadog 报价近 40 亿美元收购以色列云安全公司 Upwind Security（后者正敲定 3 亿美元轮、估值约 38 亿）；芝加哥机器人即服务公司 Formic 融资 5000 万美元（4000 万 B 轮 + 1000 万资产抵押融资）；软银旗下 SB Energy 考虑最快 12 月上市，其进度紧盯预计 11 月的 Anthropic IPO
+
+### 为什么值得看
+"AI 融资永远上涨"这个前提今天被打破了：OpenAI 自己下调目标估值，理由是部分投资者抵触。这说明即使是一万亿美元量级的 AI 资产，买方开始要求可见的现金流与算力资产对价（UAE 资金绑定算力订单就是明证）。另一端，DeepSeek 在被美国禁用两天后就拿下 1000 亿人民币，说明地缘限制催生的是国内资本加速而非资本外流——两套资本循环正在分岔运行。
+
+### 原文引用
+> [9] [OpenAI working on new $30B raise at $1.25T valuation ahead of IPO](https://techcrunch.com/2026/10/22/openai-working-on-new-30b-raise-at-1-25t-valuation-ahead-of-ipo/)
+> [10] [Sources: OpenAI nears an up to $30B round led by investors from the UAE and Coatue](https://www.techmeme.com/261022/p52)
+> [11] [Sources: OpenAI has cut its valuation target to $1.25T](https://www.techmeme.com/261022/p55)
+> [12] [DeepSeek reportedly raises $15B days after US restrictions](https://techcrunch.com/2026/10/22/deepseek-reportedly-raises-15b-days-after-us-restrictions/)
+> [13] [Sources: Datadog offered to acquire Upwind Security for nearly $4B](https://www.techmeme.com/261022/p47)
+> [14] [Formic raises $50M, including a $40M Series B](https://www.techmeme.com/261022/p43)
+> [15] [As blockchain investing falls out of vogue, a16z Crypto rebrands as a16z Frontier](https://techcrunch.com/2026/10/22/as-blockchain-investing-falls-out-of-vogue-a16z-crypto-rebrands-as-a16z-frontier/)
+> [16] [Sources: SoftBank's SB Energy is considering going public as soon as December](https://www.techmeme.com/261022/p45)
+
+---
+
+## 3. 安全 & 行业
+
+### 核心要点
+- **ConnectWise 供应链攻击扩大**：微软安全 researchers 指中国国家关联黑客攻破 IT 管理与远程接入巨头 ConnectWise 的云备份服务，窃取用于建立数据连接的应用程序凭证。攻击者可借此以授权用户身份登录客户微软托管环境，访问邮件与其他文件，数千家企业被监视
+- **Railway 要求全部用户吊销密钥**：vibe coding 平台在遭网络攻击后，呼吁所有客户吊销并轮换私钥——攻击者已能解密部分客户密钥
+- **Arc 浏览器 12 月 22 日关停**：The Browser Company 宣布关闭 2023 年上线的 Arc，全面转向 2025 年发布的 AI 浏览器 Dia。Arc 有忠实拥趸，但始终未能成为其创始人设想的 Chrome 大众替代品
+- **Helion 获 2.25 亿美元推进聚变半导体**：新半导体可将电站输出翻倍，首座聚变电站计划 2028 年向微软供电
+- **Spotify 的 AI 押注**：联席 CEO Gustav Söderström 解释为何 AI Agent 的兴起对音乐服务是利好——目标是成为"Agent 会主动选择"的音乐服务
+- **Arc、Microsoft The Garage 关闭**：微软同时宣布关闭运营 17 年的 The Garage 员工创新空间与全球黑客松
+
+### 为什么值得看
+ConnectWise 事件是一条完整的技术链条：单点 SaaS 厂商被突破 → 云备份凭证被窃 → 凭证可直接冒充授权用户 → 数千家下游企业被动沦陷。它同时暴露了"AI Agent 被用于攻击"的现实——黑客用 Agent 批量扫描客户环境，这正是过去需要人工做的工作量级被压缩后的必然结果。
+
+### 原文引用
+> [17] [Chinese hackers spied on thousands of companies after breaching IT giant ConnectWise](https://techcrunch.com/2026/10/22/chinese-hackers-spied-on-thousands-of-companies-after-breaching-it-giant-connectwise/)
+> [18] [Developer platform Railway urges 'all users' to revoke secret keys after cyberattack](https://techcrunch.com/2026/10/22/developer-platform-railway-urges-all-users-to-revoke-secret-keys-after-cyberattack/)
+> [19] [Arc browser sunsets December 22 as The Browser Company doubles down on Dia](https://techcrunch.com/2026/10/22/arc-browser-sunsets-december-22-as-the-browser-company-doubles-down-on-dia/)
+> [20] [Fusion startup Helion is developing new semiconductors](https://techcrunch.com/2026/10/22/fusion-startup-helion-is-developing-new-semiconductors-that-could-double-output-of-its-power-plants/)
+> [21] [Spotify's current AI bet is about being the music service that agents choose](https://techcrunch.com/2026/10/22/spotifys-current-ai-bet-is-about-being-the-music-service-that-agents-choose/)
+> [22] [Sources: Microsoft says it is closing The Garage](https://www.techmeme.com/261022/p41)
+
+---
+
+## 4. 深度思考（追本之箭）
+
+### 核心要点
+- **《缺口替你换了灯》**（2026-10-17）：匮乏不是静态短缺，而是一种**自动续费的订阅**——匮乏感 → 俘获认知带宽 → 管窥 → 短视决策 → 更多匮乏。闭环不需要外力维持，它自己给自己充能
+- **"要清醒一点"是循环命令**：放松需要的那份认知松弛，恰好是失眠正在消耗的东西；"提醒自己别管窥""记得感恩""回到当下"同属此类——它们在带宽枯竭时恰好不可执行，而那正是最需要它们的时刻
+- **带宽不是均质的**：注意力分对象级（盯住手头的事）与元级（注意到自己正在怎么盯）。匮乏优先占用对象级，且可能连带削弱元认知——公司现金流紧张时砍掉审计与规划，仍能忙着生产和催账，却少了一双看见风险累积的眼睛
+- **奥德修斯的解法：预装机制**：不指望失常时有余裕换灯，而在清醒时把机制装在匮乏挪不动的位置。三种形态——硬规则（收入到账先自动转走固定比例）、环境默认值（冰箱只放清醒时挑好的食物）、外包触发器（授权可信的人在你连续取消社交超两周时直接来找你）。共同特征：清醒时写的程序，常态时自动执行，中间不经过实时判断
+- **预装机制必须是钝器**：月初自动转账不区分你是真需要钱还是冲动消费。航空业检查清单是同一原理——它不信任当事人的实时评估，"误触"是系统的设计成本。足够聪明、能区分每种情况的规则，可能又需要人实时判断，于是又变回循环命令
+
+### 为什么值得看
+这篇的价值在于它给出了一个反直觉但可操作的结论：**最好的自我管理不是更努力地觉察，而是放弃依赖觉察**。预装机制（自动化转账、预置环境、外包监控）本质上是用架构替代意志力，对应到工程与创业上就是：用 CI 流水线替代"记得跑测试"，用预算告警替代"记得看现金流"，用幂等与配额设计替代"记得别超支"。凡是需要人在带宽枯竭时做关键判断的规则，都应该被重写成不需要判断的规则。
+
+### 原文引用
+> [23] [缺口替你换了灯 — 追本之箭](https://think.x.fish/缺口替你换了灯.html)
+
+---
+
+## 引用列表
+[1]: https://techcrunch.com/2026/10/22/openai-makes-its-jev-competitor-widely-available-as-decision-model-competition-heats-up/
+[2]: https://techcrunch.com/2026/10/22/canva-releases-its-first-image-generation-model/
+[3]: https://www.techmeme.com/261022/p53
+[4]: https://techcrunch.com/2026/10/22/microsofts-mustafa-suleyman-says-its-ai-outperforms-doctors-on-hard-cases-as-he-chases-medical-superintelligence/
+[5]: https://techcrunch.com/2026/10/22/1password-launches-a-way-for-ai-agents-to-log-in-on-your-behalf-without-seeing-your-password/
+[6]: https://techcrunch.com/2026/10/22/uber-puts-all-30000-employees-on-chatgpt-work/
+[7]: https://techcrunch.com/2026/10/22/former-openai-science-lead-launches-warp-science-to-automate-wet-labs-with-robots/
+[8]: https://techcrunch.com/2026/10/22/rivian-buys-world-model-startup-to-accelerate-self-driving-ambitions/
+[9]: https://techcrunch.com/2026/10/22/openai-working-on-new-30b-raise-at-1-25t-valuation-ahead-of-ipo/
+[10]: https://www.techmeme.com/261022/p52
+[11]: https://www.techmeme.com/261022/p55
+[12]: https://techcrunch.com/2026/10/22/deepseek-reportedly-raises-15b-days-after-us-restrictions/
+[13]: https://www.techmeme.com/261022/p47
+[14]: https://www.techmeme.com/261022/p43
+[15]: https://techcrunch.com/2026/10/22/as-blockchain-investing-falls-out-of-vogue-a16z-crypto-rebrands-as-a16z-frontier/
+[16]: https://www.techmeme.com/261022/p45
+[17]: https://techcrunch.com/2026/10/22/chinese-hackers-spied-on-thousands-of-companies-after-breaching-it-giant-connectwise/
+[18]: https://techcrunch.com/2026/10/22/developer-platform-railway-urges-all-users-to-revoke-secret-keys-after-cyberattack/
+[19]: https://techcrunch.com/2026/10/22/arc-browser-sunsets-december-22-as-the-browser-company-doubles-down-on-dia/
+[20]: https://techcrunch.com/2026/10/22/fusion-startup-helion-is-developing-new-semiconductors-that-could-double-output-of-its-power-plants/
+[21]: https://techcrunch.com/2026/10/22/spotifys-current-ai-bet-is-about-being-the-music-service-that-agents-choose/
+[22]: https://www.techmeme.com/261022/p41
+[23]: https://think.x.fish/缺口替你换了灯.html
