@@ -1,0 +1,174 @@
+---
+title: 2026-11-03 - 每日简报
+description: Anthropic 逼近 RSI · 权重空间编程 · 电网保护计划 · AI 估值重定价 · 具身智能融资
+---
+
+# 2026-11-03 - 每日简报
+
+> 本报告基于 TechCrunch 与 Techmeme 整理，覆盖 2026-11-03 AI 行业关键动态（过去 24 小时）。
+
+---
+
+## 1. Anthropic：我们非常接近 RSI 能力（自我改进 AI）
+
+### 核心要点
+- Anthropic 在 TechCrunch 发文警告，模型距离「递归自我改进（RSI）」已经非常接近——即 AI 强到可以自我训练，从而引发能力爆炸式加速。
+- RSI 一直被 doom 派视为不可逆的临界点，一旦跨过即意味着能力复利失控。
+- 同日 Anthropic 更新 S-1：已签署的采购承诺与租赁协议合计 8954 亿美元，其中「绝大部分与算力和基础设施相关」。
+
+### 为什么值得看
+一家头部实验室公开把 RSI 当作近期风险而非远景，同时披露近万亿级的算力长约——两条信息合起来说明前沿模型公司的资本结构已被「买下未来算力」绑架。
+
+### 原文引用
+> [1] [Anthropic warns that it's very close to RSI capability, aka self-building AI](https://techcrunch.com/2026/11/02/anthropic-warns-that-its-very-close-to-rsi-capability-aka-self-building-ai/)
+> [2] [Anthropic says it has purchased commitments and lease agreements of $895.4B](https://www.cnbc.com/2026/11/02/anthropic-ant-s-1-quarter-financials.html)
+
+---
+
+## 2. 研究者：LLM 可以直接读写神经网络权重
+
+### 核心要点
+- 研究人员提出「权重空间编程（weight-space programming）」：LLM 可以原生读取与修改神经网络权重，而不只是操作文本。
+- 案例中 GPT-6 Astra 直接编辑了 Qwen3.5-0.8B 的权重，使其数学能力提升。
+- 这意味着模型优化第一次从「提示工程 / RLHF 黑箱调参」下沉到「对参数本身做编辑」。
+
+### 为什么值得看
+如果权重可以被语言模型直接读写，「训练一个更强的模型」就退化成一个可自动化的编辑问题——这既是能力跃迁的钥匙，也是安全对齐的全新攻击面。
+
+### 原文引用
+> [3] [Researchers say LLMs can be good at natively reading and writing neural network weights](https://rikiyat.github.io/blog/weight-space-programming/)
+
+---
+
+## 3. OpenAI 推出「电网保护计划」（Grid Protectors Program）
+
+### 核心要点
+- OpenAI 启动美国范围的 Grid Protectors Program，面向其未来数据中心园区，目标是「在电网承压时降低用电需求」。
+- 这是 OpenAI 首次把「需求侧响应」纳入自身算力基础设施的正式机制，而非仅做可再生能源采购。
+- 与 Google 太空数据中心成本 100 倍的判断形成对照：电力与并网才是算力落地的真约束。
+
+### 为什么值得看
+数据中心从「负荷」转向「可调度资源」，正是虚拟电厂（VPP）商业模式的核心命题；需求侧响应合同可能成为 AI 园区新的固定成本项与议价筹码。
+
+### 原文引用
+> [4] [OpenAI launches the Grid Protectors Program](https://openai.com/index/grid-protectors-program)
+
+---
+
+## 4. DeepSeek 发布「创作者模式」，Harness 支持自建插件
+
+### 核心要点
+- DeepSeek 推出 creator mode，允许 DeepSeek Harness 用户快速创建自定义插件。
+- 官方示例包括 3D 模型渲染器与视频剪辑工作台。
+- 意味着国产大模型正从「聊天 + 工具调用」转向「可扩展的 Agent 运行时平台」。
+
+### 为什么值得看
+插件生态是 Agent 时代的事实操作系统入口，DeepSeek 选择开放扩展而非封闭 API，直接对标 Claude Code / Codex 的开发者心智。
+
+### 原文引用
+> [5] [DeepSeek releases a "creator mode" for custom plugins](https://www.bloomberg.com/news/articles/2026-11-02/deepseek-boosts-ai-agent-offering-with-new-creator-mode)
+
+---
+
+## 5. 42AI 出隐身：6250 万美元种子轮，做「行为世界模型」
+
+### 核心要点
+- 特拉维夫 42AI 宣布结束隐身，融资 6250 万美元种子轮。
+- 其定位是构建「行为世界模型（behavioral world model）」——预测人在全新情境下将如何行动，而不只是预测语言。
+- 试图回答科幻式问题：如果 AI 能在你决定之前预测你的行为会怎样？
+
+### 为什么值得看
+从「预测下一个 token」到「预测人」是模型目标函数的实质性转向，这类玩家大概率会最先在游戏、广告与行为经济中落地。
+
+### 原文引用
+> [6] [42AI comes out of stealth with $62.5M and a world model that can 'predict human behavior'](https://techcrunch.com/2026/11/02/42ai-comes-out-of-stealth-with-62-5m-and-a-world-model-that-can-predict-human-behavior/)
+
+---
+
+## 6. Anthropic IPO 估值被机构压到 1.5–1.6 万亿美元
+
+### 核心要点
+- 据《华尔街日报》，机构投资者建议 Anthropic 的 IPO 估值落在约 1.5–1.6 万亿美元，低于此前 2 万亿美元的口径。
+- 理由是科技股整体回调，而非公司基本面恶化。
+- 同时 Anthropic 披露的算力采购承诺高达 8954 亿美元，估值锚点已从「收入倍数」转向「算力债务」。
+
+### 为什么值得看
+AI 一级市场定价逻辑正在从「增长倍数」切换到「资本开支承受力」，这是泡沫化与出清并存的典型阶段特征。
+
+### 原文引用
+> [7] [Anthropic investors push for cautious valuation closer to $1.5 trillion](https://www.wsj.com/finance/stocks/anthropic-investors-push-for-cautious-valuation-closer-to-1-5-trillion-2f2df9cf)
+
+---
+
+## 7. Palantir Q3 营收同比 +96%，上调全年指引
+
+### 核心要点
+- Palantir Q3 营收 23.1 亿美元，同比增长 96%，高于市场预期的 21.8 亿美元。
+- 美国商业收入同比 +148% 至 9.84 亿美元。
+- 全年 2026 营收指引上调至约 85.3 亿美元。
+
+### 为什么值得看
+企业级 AI 落地的收入验证仍在强化——在被质疑「AI 变现是伪命题」的当下，PLTR 的商业化速度是少数硬证据。
+
+### 原文引用
+> [8] [Palantir reports Q3 revenue up 96% YoY to $2.31B](https://www.cnbc.com/2026/11/02/palantir-pltr-earnings-q3-2026.html)
+
+---
+
+## 8. Tutor Intelligence 融资 7500 万美元 B 轮，a16z 领投
+
+### 核心要点
+- 机器人基础模型公司 Tutor Intelligence 完成 7500 万美元 B 轮，a16z 领投，累计融资 1.17 亿美元。
+- 公司主打训练机器人基础模型，并构建 AI 仓储机器人，主张「与其教机器人不如直接让机器人学」。
+- 资本继续从通用大模型外溢到具身智能的垂直基础模型层。
+
+### 为什么值得看
+具身智能正在复制 LLM 的融资剧本：先训通用底座，再向下渗透到具体作业场景（如仓储拣选）。
+
+### 原文引用
+> [9] [Tutor Intelligence raised a $75M Series B led by a16z](https://www.forbes.com/sites/johnwerner/2026/11/02/tutor-intelligence-why-not-just-teach-the-robots-ourselves/)
+
+---
+
+## 9. Marvell 1150 亿美元收购 Lumentum，创科技史级并购
+
+### 核心要点
+- Marvell 计划以 1150 亿美元收购 Lumentum，为科技史上最大并购之一。
+- 交易双方共同战略投资方为英伟达。
+- 标的正是 AI 数据中心光互连与光模块供应链的核心环节。
+
+### 为什么值得看
+AI 算力投资的瓶颈正从 GPU 芯片外溢到光互连与网络，巨额并购是产业链集中度快速抬头的明确信号。
+
+### 原文引用
+> [10] [In one of the largest deals in tech history, Marvell buys Lumentum for $115B](https://techcrunch.com/2026/11/02/in-one-of-the-largest-deals-in-tech-history-marvell-buys-lumentum-for-115b/)
+
+---
+
+## 10. AI 开始直接替代岗位：SUSE 裁员约 10%
+
+### 核心要点
+- Linux 发行版厂商 SUSE 内部备忘录宣布裁员约 10% 员工。
+- 官方理由是「自动化与 AI 正在根本性地改变软件公司的运作方式」。
+- 同期 SquareSpace 裁员 19%，OpenAI 则把 ChatGPT 与 Codex 的用量合并到同一额度池以压成本。
+
+### 为什么值得看
+「AI 替代」从叙事进入成本表：软件公司正在用 AI 直接削减人头与算力开支，裁员理由从疫情期归因转向技术归因。
+
+### 原文引用
+> [11] [Linux distribution vendor SUSE is laying off ~10% of its employees](https://www.theregister.com/software/2026/11/02/suse-to-cut-one-in-ten-employees-because-of-ai/5306950)
+
+---
+
+## 引用列表
+[1] [Anthropic warns that it's very close to RSI capability, aka self-building AI](https://techcrunch.com/2026/11/02/anthropic-warns-that-its-very-close-to-rsi-capability-aka-self-building-ai/)
+[2] [Anthropic says it has purchased commitments and lease agreements of $895.4B](https://www.cnbc.com/2026/11/02/anthropic-ant-s-1-quarter-financials.html)
+[3] [Researchers say LLMs can be good at natively reading and writing neural network weights](https://rikiyat.github.io/blog/weight-space-programming/)
+[4] [OpenAI launches the Grid Protectors Program](https://openai.com/index/grid-protectors-program)
+[5] [DeepSeek releases a "creator mode" for custom plugins](https://www.bloomberg.com/news/articles/2026-11-02/deepseek-boosts-ai-agent-offering-with-new-creator-mode)
+[6] [42AI comes out of stealth with $62.5M and a world model that can 'predict human behavior'](https://techcrunch.com/2026/11/02/42ai-comes-out-of-stealth-with-62-5m-and-a-world-model-that-can-predict-human-behavior/)
+[7] [Anthropic investors push for cautious valuation closer to $1.5 trillion](https://www.wsj.com/finance/stocks/anthropic-investors-push-for-cautious-valuation-closer-to-1-5-trillion-2f2df9cf)
+[8] [Palantir reports Q3 revenue up 96% YoY to $2.31B](https://www.cnbc.com/2026/11/02/palantir-pltr-earnings-q3-2026.html)
+[9] [Tutor Intelligence raised a $75M Series B led by a16z](https://www.forbes.com/sites/johnwerner/2026/11/02/tutor-intelligence-why-not-just-teach-the-robots-ourselves/)
+[10] [In one of the largest deals in tech history, Marvell buys Lumentum for $115B](https://techcrunch.com/2026/11/02/in-one-of-the-largest-deals-in-tech-history-marvell-buys-lumentum-for-115b/)
+[11] [Linux distribution vendor SUSE is laying off ~10% of its employees](https://www.theregister.com/software/2026/11/02/suse-to-cut-one-in-ten-employees-because-of-ai/5306950)
