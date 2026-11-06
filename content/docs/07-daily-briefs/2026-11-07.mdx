@@ -1,0 +1,195 @@
+---
+title: 2026-11-07 - 每日简报
+description: OpenAI 增发 110 亿 · Anthropic IPO 冲刺 · AI 支出停滞 · 32MB 端侧语音模型 · 物理 AI 融资 · AI 黑客工具暴露 · 中期选举监管 · 虚拟资料自动赚钱
+---
+
+# 2026-11-07 - 每日简报
+
+> 本报告基于 TechCrunch + Techmeme 整理，覆盖 2026-11-07 AI 行业关键动态；后半部分为生财有术日报（2026-11-06）。
+
+---
+
+## 1. OpenAI 增发 110 亿美元，估值 1.25 万亿美元
+
+### 核心要点
+- 据 TechCrunch 报道，OpenAI 在尚未关闭的一轮融资中额外募资 **110 亿美元**，对应估值 **1.25 万亿美元**。
+- Techmeme 援引 Bloomberg 称本轮总额最高可能达到 **200 亿美元**。
+- 同日 FT 消息：Anthropic 计划在 **感恩节（11 月底）前** 完成上市，目标募资 **800 亿–1000 亿美元**，对应估值 **1.25 万亿–1.75 万亿美元**。
+
+### 为什么值得看
+头部 AI 实验室的资本体量已逼近主权基金级别，估值锚从"AI 创业公司"切换到"科技巨头"坐标系。但同期 Ramp 的企业支出数据出现背离——融资规模与真实付费需求正在脱钩。
+
+### 原文引用
+> [1] OpenAI reportedly raises an additional $11 billion at a $1.25 trillion valuation (TechCrunch)
+> [2] Sources: OpenAI has closed on new funding of roughly $11B at a $1.25T valuation (Bloomberg, via Techmeme)
+> [3] Sources: Anthropic is continuing with plans to list before the Thanksgiving holiday (FT, via Techmeme)
+
+---
+
+## 2. Ramp 数据：AI 用量涨，支出却停滞
+
+### 核心要点
+- Ramp 报告显示，**8 月与 9 月 token 支出合计仅环比增长 1.5%**，而 7 月增幅高达 **42%**。
+- Ramp 首席经济学家 Ara Kharazian：AI 支出几乎全部来自"风投支持的高增长科技公司"，若这一群体同步降速，将引发连锁反应。
+- 头部 1% "AI 重度用户"企业 8–9 月人均支出略低于夏季峰值 **1 万美元** 的水平。
+
+### 为什么值得看
+价格战 + 客户成本管控，正在给"AI 超级增长"叙事泼冷水。这恰好发生在 Anthropic IPO 前夕，是给二级市场定价的关键变量。
+
+### 原文引用
+> [4] Ramp data shows AI spending stalling just as Anthropic nears its IPO (TechCrunch)
+
+---
+
+## 3. Underdog 发布 32MB 端侧语音模型 Woof
+
+### 核心要点
+- Underdog 发布文本转语音模型 **Woof**，体积仅 **31.7 MB / 3100 万参数**，可在浏览器内直接运行、离线可用。
+- 公司用该模型做了一款复古机房主题小游戏：台灯开关会发声、打字机可输入任意文本并朗读、音乐调谐器可实时生成音乐。
+- 模型对所有人开放下载。
+
+### 为什么值得看
+端侧小模型从"能跑"进入"好玩且够用"阶段。对做本地化 AI 应用的人，这是一条零 GPU 成本的可落地路径。
+
+### 原文引用
+> [5] Underdog shows off a 32MB speech model in new demo (TechCrunch)
+
+---
+
+## 4. Physicl 获 1000 万美元种子轮，押注物理 AI 的 sim-to-real
+
+### 核心要点
+- Physicl 完成 **1000 万美元**种子轮，由 **Inovia Capital** 领投。
+- 创始人 Alex de Vigan 此前创办 nfinite（电商 3D 商品渲染），把 3D 场景重建的技术栈转向机器人世界模型训练。
+- 目标：解决 physical AI 模型训练中"用视频训效果差、遥操作采数据太贵"的问题，让仿真世界的物理保真度足够高。
+
+### 为什么值得看
+"具身智能缺的不是模型，是数据"——用高保真仿真替代真机采集，是降低 physical AI 边际成本的一条工程路线。
+
+### 原文引用
+> [6] Physicl raises $10M to make the digital world real enough for robots (TechCrunch)
+
+---
+
+## 5. Meta 推出 Muse Spaces，同时把 Muse 做成可视频通话的 AI 化身
+
+### 核心要点
+- Meta 发布 **Spaces**，作为与 Muse agent 协作的新方式，Muse 持续扩展功能与集成。
+- 此前 Meta 已开放美国用户与 Muse AI 化身**视频通话**，并预告了一款 Tamagotchi 式的可穿戴设备。
+- TechCrunch 另一篇报道提到，Amazon 在封禁 Muse 后改推"发短信让 Alexa 帮你购物"，功能将向数百万用户铺开。
+
+### 为什么值得看
+助手类产品正从"聊天框"迁到"常驻角色 + 场景入口"（Meta 硬件、Alexa 购物）。入口之争才是真正的护城河。
+
+### 原文引用
+> [7] Meta introduces Spaces, a new way to collaborate with your Muse agent (TechCrunch)
+> [8] Meta says US users can now video chat with their Muse AI avatar (TechCrunch)
+
+---
+
+## 6. 数百台 Artex AI 渗透测试工具服务器公开暴露
+
+### 核心要点
+- 安全研究人员发现**数百台**托管 Artex（渗透测试工具）的服务器直接暴露在公网，任何人可访问该工具。
+- 事件再次说明：AI 驱动的攻防工具一旦落到弱配置服务器上，暴露面会比传统工具更快被武器化。
+
+### 为什么值得看
+AI 安全工具的部署正在从内网红队环境滑向公网，这一条对做安全产品的团队有直接运维价值。
+
+### 原文引用
+> [9] Hundreds of Artex AI hacking tools found publicly exposed to the web (TechCrunch)
+
+---
+
+## 7. 芯片与算力链条：TSMC 或入局 3D DRAM，微软砍掉 Oracle 租算力
+
+### 核心要点
+- The Information：TSMC 正考虑**为最大客户 Nvidia 生产 3D DRAM**，以缓解 AI 热潮带来的内存短缺。
+- Bloomberg：微软因 2023 年合约涉及**较老的 Nvidia 芯片**，未续约，正在关停向 Oracle 租用的算力。
+- Qualcomm 同期披露 Google 约 **5.48 亿美元**买入约 **300 万股**，Qualcomm 正进军 AI 数据中心市场。
+
+### 为什么值得看
+"算力不够"正在从 GPU 蔓延到 HBM/DRAM 环节，晶圆代工与内存厂商的边界开始模糊——这是本轮 AI 基础设施最被低估的变量。
+
+### 原文引用
+> [10] Sources: TSMC is considering expanding into manufacturing 3D DRAM (The Information, via Techmeme)
+> [11] Sources: Microsoft has been turning off rented computing capacity from Oracle (Bloomberg, via Techmeme)
+
+---
+
+## 8. 中期选举之后：AI 监管与数据中心进入"政治周期"
+
+### 核心要点
+- 美国中期选举中选民就 **41 项数据中心相关公投**表决，**除 1 项外全部倾向加强限制**。
+- TechCrunch 提问：民主党胜选后 AI 行业是否将进入"难受的两年"。
+- Techmeme：民主党议程包括重建 CISA、优先 AI 安全、恢复地方网络安全拨款、调查 DOGE；Nvidia 的芯片出口与循环融资成为潜在审查目标。
+
+### 为什么值得看
+AI 基础设施的第一大变量正在从"融资能力"切换到"地方选民态度"。对中国出海企业而言，东南亚/欧美的合规与选址逻辑都要重算。
+
+### 原文引用
+> [12] After the midterms, is the AI industry in for a rough two years? (TechCrunch)
+> [13] Democrats poised to step up oversight of Nvidia over chip exports and circular financing (Bloomberg, via Techmeme)
+
+---
+
+## 引用列表
+
+[1: OpenAI reportedly raises an additional $11 billion at a $1.25 trillion valuation](https://techcrunch.com/2026/11/06/openai-reportedly-raises-an-additional-11-billion-at-a-1-25-trillion-valuation/)
+[2: Sources: OpenAI has closed on new funding of roughly $11B at a $1.25T valuation (Techmeme)](https://www.techmeme.com/261106/p22)
+[3: Sources: Anthropic plans to list before Thanksgiving (FT, via Techmeme)](https://www.techmeme.com/261106/p21)
+[4: Ramp data shows AI spending stalling just as Anthropic nears its IPO](https://techcrunch.com/2026/11/06/ramp-data-shows-ai-spending-stalling-just-as-anthropic-nears-its-ipo/)
+[5: Underdog shows off a 32MB speech model in new demo](https://techcrunch.com/2026/11/06/underdog-shows-off-a-32mb-speech-model-in-new-demo/)
+[6: Physicl raises $10M to make the digital world real enough for robots](https://techcrunch.com/2026/11/06/physicl-raises-10m-to-make-the-digital-world-real-enough-for-robots/)
+[7: Meta introduces Spaces, a new way to collaborate with your Muse agent](https://techcrunch.com/2026/11/06/meta-introduces-spaces-a-new-way-to-collaborate-with-your-muse-agent/)
+[8: Meta says US users can now video chat with their Muse AI avatar](https://techcrunch.com/2026/11/05/meta-says-us-users-can-now-video-chat-with-their-muse-ai-avatar/)
+[9: Hundreds of Artex AI hacking tools found publicly exposed to the web](https://techcrunch.com/2026/11/06/hundreds-of-artex-ai-hacking-tools-found-publicly-exposed-to-the-web/)
+[10: TSMC considering 3D DRAM manufacturing for Nvidia (Techmeme)](https://www.techmeme.com/261106/p13)
+[11: Microsoft winding down Oracle deal to rent AI cloud capacity (Techmeme)](https://www.techmeme.com/261106/p18)
+[12: After the midterms, is the AI industry in for a rough two years?](https://techcrunch.com/video/after-the-midterms-is-the-ai-industry-in-for-a-rough-two-years/)
+[13: Democrats poised to step up oversight of Nvidia (Techmeme)](https://www.techmeme.com/261106/p15)
+
+---
+
+## 💰 生财有术日报 · 2026-11-06
+
+> 以下内容由生财有术 MCP (scys-mcp) 抓取，日报实际日期为 **2026-11-06**（11 月 6 日 周五）。
+
+### 今日信号
+- **抖音博主做 AI 交互课件，游戏化玩法建 10 多个群** — 除标准化下载外接个性化定制，青鲸 AI 课件站单份最高 30 元、包年会员 199 元
+- **离线文件转换工具支持 6000+ 格式，终身收费 29 刀年入 60 万刀** — howtoconvert.co 用 FFmpeg 等开源工具本地转换，主打隐私与大文件上传快
+- **用 Opus 做视频月播放超 100 万** — 作者称代制收入 2k+，做法是真实素材＋代码渲染＋视频生成，涨粉 5000+
+- **日本颜文字收集站月访问 35 万，靠程序化 SEO 赚 1600 刀** — kaomojiya.org 用 4192 个同模板单页做 SEO，94% 流量来自日本搜索
+- **深度拆解 80 条中国普通人英文 vlog 爆款** — 作者称扫了 54 个频道 1156 条视频，2.8 万订阅号单条视频 520 万播放
+
+### 今日精华
+- **Grok bot + 闲鱼 = 虚拟资料自动赚钱** — 6 个 bot 分工选品、做资料、上架、传网盘、绑自动发货，作者称多账号测试均拿到结果
+- **从 0 入局小红书电商一年半：月营收稳定 10w+，年营收 120w+** — 累计销量 2 万+件、退货率低于 1%，一人＋两名兼职，每天工作 2–3 小时
+- **AI 代充从对接到出单** — 选卡台更看重 API 和配套兑换站，销售收款走第三方店铺，不必都自建
+- **半年变现 7w AI 定制视频项目经验复盘** — 4–6 月月入均过万，最高一个月 1.7w，改稿常到半夜
+
+### 圈友在讨论
+- 官方群正在手动安排中，预计 **11 月中下旬全部覆盖完** — 每个 AI 有术群至少配 1 名生财员工
+- 小红书虚拟产品（AI 赋能）实战活动 — 圈友问上架是否要出版物经营许可证、交作业是否必须上架 5 个产品
+- 个人 AI 助理实战活动 — 圈友关心本地部署是否要 24 小时开机、对电脑配置有什么要求
+
+### 外部在关注
+- **deepseek-ai/dsh-superagent-prototype** — DeepSeek 的自主 Agent 系统原型，朝更自主的智能体方向
+- **KKKKhazix/agent-autoloop** — 让命令行 Agent 在后台自己接活、跟进到底，拿不准才发卡片找你拍板
+- **mromidev/claude-animated-shorts** — 免费 Claude skill，用 three.js + Remotion 做动画短片
+
+### 群聊精选
+- **AI 工具实战 · 验证 Skill 价值：先做无 Skill 对照** — 同一 harness 跑「无 Skill／有 Skill」对照，重复运行并删组件做消融；把 Skill 当 AI 执行 SOP，写清输入输出、业务规则、工具、自检、异常和验收
+- **AI 工具实战 · Codex 做并行，Claude 做复杂单任务** — 多会话并行、长线自主选 Codex；大上下文单条复杂任务和前端选 Claude；Claude Code 同任务约用一半量，Opus 管指挥验收，Haiku 做 git 报错检查和 CI
+- **AI 工具实战 · 长任务防钻牛角尖：先定 spec 再写码** — 先确认 scope 和 spec，规定 review 轮数，另开 session 或换模型 review，完成后统一部署测试再通知
+- **官方活动 · AI 视频练习作业开船后可上传** — 已有圈友做出第一个 AI 视频练习作品
+- **生财 MCP 手机用：先在电脑端接好** — 手机不能直接安装生财 MCP，需先在电脑端接好；设备必须选本地，云电脑装不了
+
+### SkillHub
+- **热门技能** — 小红书指南笔记全链路生成（135 人安装）、小红书虚拟产品选品助手（92 人安装）、小红书选品（43 人安装）
+- **新上架** — 英文关键词研究（把用户任务转成有来源的英文关键词候选，可中断续跑）、微信小程序一键开发（自然语言需求到设计、开发、调试、交付）
+
+### 同城聚会（未来 7 天）
+- 11 月 8 日 09:30 · 北京
+- 11 月 8 日 14:00 · 北京（3 场）
+- 11 月 9 日 14:00 · 北京
