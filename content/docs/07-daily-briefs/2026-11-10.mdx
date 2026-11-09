@@ -1,0 +1,180 @@
+---
+title: 2026-11-10 - 每日简报
+description: Anthropic Mythos 5.2 · Meta Muse Ember 降价 · 英伟达黄仁勋治理风波 · AI 算力电力军备竞赛 · Fireworks 数据泄露 · 个人 AI 助理变现 · 小游戏与虚拟资料 · 撤架以后
+---
+
+# 2026-11-10 - 每日简报
+
+> 本报告基于 TechCrunch 与 Techmeme 整理，覆盖 2026-11-10 AI 行业关键动态，并附生财有术日报（2026-11-09）的社区商业情报。
+
+---
+
+## 1. 模型层双线推进：一边降价，一边打到底价
+
+### 核心要点
+- Anthropic 发布 **Mythos 5.2 / Fable 5.2**，定价 $8/1M 输入、$40/1M 输出，较 5.1 版本下降 20%。
+- Meta 发布 **Muse Ember**，面向 agent 执行场景，每百万输入 token 仅 **0.1 美元**，显著低于 Haiku、Luna 等竞品。
+- Anthropic 称两个新模型在编码、推理、视觉上均有提升，且在预发布测试中"形式化证明了费马大定理"，同时承认存在 RSI（递归自我改进）方面的隐忧。
+
+### 为什么值得看
+一边是前沿模型把价格打下来 20%，一边是最小模型把单价压到 0.1 美元级别，agent 的边际成本正在快速塌陷。个人 AI 助理、批量自动化 Agent 这类产品的毛利结构将被彻底改写。
+
+### 原文引用
+> [1] Anthropic releases new Mythos and Fable models amid RSI concerns (https://techcrunch.com/2026/11/09/anthropic-releases-new-mythos-and-fable-models-amid-rsi-concerns/)
+> [2] Anthropic prices Fable 5.2 and Mythos 5.2 at $8/1M input and $40/1M output tokens, down 20% from 5.1 (https://www.techmeme.com/261109/p40)
+> [3] Meta releases Muse Ember, a new lightweight model for agent execution (https://techcrunch.com/2026/11/09/meta-releases-muse-ember-a-new-lightweight-model-for-agent-execution/)
+
+---
+
+## 2. 英伟达治理危机：股价重挫、诉讼在即、FBI 介入
+
+### 核心要点
+- 英伟达股价在董事会启动对黄仁勋与中国高管关系的调查后**下跌逾 4%**。
+- 证券法律专家称，公司此前坚称此事"一切正常"的公开表态可能成为昂贵的法律问题，集体诉讼已箭在弦上。
+- 短售机构 Culper Research 在丑闻爆发前六个月就已质疑黄仁勋与某中国高管的异常密切关系。
+- 特朗普表示 **FBI 正在调查**此事；耶鲁大学 Jeffrey Sonnenfeld 判断黄仁勋能否留任"约五五开"。
+- 事件外溢：黄仁勋已退出 ElevenLabs 峰会，此前亦退出 Anthropic 的活动；其游说放松美国对华芯片出口管制的努力受挫。
+
+### 为什么值得看
+AI 巨头进入"公司治理即风险"阶段。技术掌舵人与地缘政治的关系不再只是八卦，而是直接决定供应链、出口许可与估值。对做 To B 产品的团队而言，客户采购决策会额外评估供应商的治理与合规敞口。
+
+### 原文引用
+> [4] The race is on to sue Nvidia (https://techcrunch.com/2026/11/09/the-race-is-on-to-sue-nvidia/)
+> [5] Jensen Huang's affair with alleged Chinese spy puts Nvidia's China ambitions under scrutiny (https://techcrunch.com/2026/11/09/jensen-huangs-affair-with-alleged-chinese-spy-puts-nvidias-china-ambitions-under-scrutiny/)
+> [6] Trump says the FBI is "looking into" Jensen Huang's affair (https://apnews.com/article/china-denies-spy-jensen-huang-nvidia-3345b9f05c54d58909e88f6dcb9c1cd8)
+
+---
+
+## 3. 算力战争升级为电力战争
+
+### 核心要点
+- **Anthropic** 采购价值 **34 亿美元** 的天然气轮机，直接锁死自有算力的能源供应。
+- **SpaceX** 计划在德州 Starbase 建设燃气电厂与超算设施，投资规模约 **240 亿美元**。
+- 地热公司 **Fervo** 已有 **120 亿美元**订单，主力是犹他州 8.4 GW 地热资源，目标是靠降低钻井成本对标天然气发电。
+- 模块化数据中心创业公司 **Mavria** 完成 **1.3 亿美元**融资（pre-seed 至 A 轮），主打"卡车运输的数据中心"。
+
+### 为什么值得看
+芯片供给之后，电力成为下一个硬约束。模型公司亲自下场买发电设备，意味着"AI 算力成本"这个变量已经从云厂商账单，变成重资产资本开支问题。对国内做算力/储能/虚拟电厂的团队，这是明确的产业信号。
+
+### 原文引用
+> [7] Anthropic joins AI's natural gas frenzy, buys $3.4B worth of turbines (https://techcrunch.com/2026/11/09/anthropic-joins-ais-natural-gas-frenzy-buys-3-4b-worth-of-turbines/)
+> [8] SpaceX plans a gas-fired power plant and super-compute facility in Starbase, TX (https://www.bloomberg.com/news/articles/2026-11-09/spacex-plans-24-billion-data-center-and-gas-plant-in-texas)
+> [9] Fervo now has $12B in orders for its geothermal power tech (https://techcrunch.com/2026/11/09/fervo-now-has-12b-in-orders-for-its-geothermal-power-tech/)
+> [10] Mavria raised $130M for modular truck-shipped data centers (https://www.wsj.com/business/energy-oil/they-led-an-energy-department-overhaul-now-they-plan-to-build-data-centers-914f47c2)
+
+---
+
+## 4. AI 供应链安全：模型权重也开始泄露
+
+### 核心要点
+- AI 基础设施服务商 **Fireworks** 承认黑客访问了部分客户数据集，并拿到了**不完整的模型权重**。
+- 法国指责伊朗对欧洲及全法范围内的商超冷藏柜、血库发起至少两波网络攻击，目标直指物理世界的温控基础设施。
+- Waymo 的自动驾驶系统更新近一年发布后，联邦监管机构发现其机器人出租车仍在**违法超越校车**。
+
+### 为什么值得看
+安全边界正从"应用层被攻破"外移到"模型权重、数据集与基础设施被攻破"。第三方 API 供应商与私有化部署的模型仓库，都需要进入企业的安全清单；物理世界的物联网攻击（冷链、血库）则是 AI 之外的长期风险面。
+
+### 原文引用
+> [11] Fireworks cyberattack exposes customer data and AI models (https://www.forbes.com/sites/annatong/2026/11/09/fireworks-cyberattack-exposes-customer-data-and-ai-models-as-fallout-widens/)
+> [12] France blames Iran for mass-hacks targeting freezers in grocery stores and blood banks (https://techcrunch.com/2026/11/09/france-blames-iran-for-mass-hacks-targeting-freezers-in-grocery-stores-and-blood-banks/)
+> [13] Waymo robotaxis kept illegally passing school buses after software fix, feds say (https://techcrunch.com/2026/11/09/waymo-robotaxis-kept-illegally-passing-school-buses-after-software-fix-feds-say/)
+
+---
+
+## 5. AI + 硬科技：估值洼地仍在
+
+### 核心要点
+- 面向硬件工程的 AI 平台 **Nominal** 完成新一轮大额融资，**8 个月内估值三倍至 30 亿美元**，宣称 Anduril 为核心客户。
+- 法国兴业银行旗下创投继续加注：Mavria 融资 1.3 亿美元，瞄准模块化可运输数据中心。
+- Automattic 发布 **Spacefast**，正面挑战 Lovable 一类的 vibe-coding 部署平台。
+
+### 为什么值得看
+当通用模型能力趋于同质，护城河正在向"物理世界的工程知识 + 专有数据 + 交付能力"迁移。硬件工程、机器人、新能源这类垂直域 AI，仍是拿估值溢价最快的地方。
+
+### 原文引用
+> [14] AI hardware startup Nominal triples valuation to $3B in 8 months (https://techcrunch.com/2026/11/09/ai-hardware-startup-nominal-triples-valuation-to-3b-in-8-months/)
+> [15] Automattic debuts a platform to deploy vibe-coding apps (https://techcrunch.com/2026/11/09/automattic-debuts-a-platform-to-deploy-vibe-coding-apps-amid-a-changing-internet/)
+
+---
+
+## 💰 生财有术日报 · 2026-11-09
+
+> 以下内容由生财有术 MCP (scys-mcp) 抓取，日报实际日期为 2026-11-09（11月9日 周一）。
+
+### 今日信号
+- [中标/新玩法] 前几天说我们在大量测试 AI 生成内容做旅游赛道，这几天效果跑的还行 — 12 赞 · 3 评
+- [中标/案例拆解] 微信小游戏"地摊套圈"七天赚 2600 纯广告收入，个人开发者可参考 — 12 赞 · 1 评
+- [中标/新玩法] 网盘拉新绝对是非常适合新手入门的一个好项目，可能赚的不多，但真的可以作为睡后收入之一来做 — 10 赞 · 3 评
+- [风向标/市场洞察] 把同词根英语做成动画，做英语虚拟资料一周涨粉 15.3 万 — 2 赞 · 1 锚
+- [龙珠悬赏/工具推荐] 航海项目卡工具安装的圈友看过来，我有工具相关的服务和方法 — 7 赞 · 1 评
+
+### 今日精华
+- [精华] 参与个人 AI 助理航海，已有 5699 人报名，明晚和坤汀开直播分享 — 126 赞 · 623 评
+- [精华] 12 岁女儿用 AI 一周挣 1000，我照着她的路子，两个月收了 80 万 — 121 赞 · 18 评 · 25 锚
+- [精华] 开源 AI+幼儿园 FDE 方案，解决家长老师园区三大痛点的实操分享 — 71 赞 · 12 评 · 8 锚
+- [精华] 大四学生深入传统国企做了 3 周 FDE：AI 自动化没想象中那么简单，有些坑真得自己踩一遍 — 54 赞 · 14 评 · 7 锚
+- [精华] 小程序日活 10 万+，我做了哪些？实战经验分享 — 65 赞 · 11 评
+
+### 圈友在讨论
+- 开源 AI+幼儿园 FDE 方案，解决家长老师园区三大痛点的实操分享 — 10 人参与，10 条评论
+- 小程序日活 10 万+，我做了哪些？实战经验分享 — 7 人参与，10 条评论
+- 12 岁女儿用 AI 一周挣 1000，我照着她的路子，两个月收了 80 万 — 7 人参与，7 条评论
+- 抖音自然流 CPS ｜ 双11 进阶冲刺（2026年10月实战活动） — 17 份作业
+- 个人 AI 助理（2026年11月实战活动） — 新增 4 个提问
+
+### 外部在关注
+- KKKKhazix/agent-autoloop — 让你的命令行 Agent 在后台自己接活、自己跟进到底
+- sarpstar/cinecode — Films made with code. Short films, long …
+- 我的 AI 助理开始搭建了，12 月底给大家看成效 — 今天打通了微信、X 与 AI 的连接
+- 绝了！用这 5 个短剧的技巧做自媒体，那就是王炸！
+- 专业技能的精进只能提升执行价值，无法获得方向层面的决策自主权
+
+### 群聊精选
+- **项目与变现** — AI 助理代搭：2500 元/月卖的是维护 — 报价 2500 元/月、按年签约，含维护更新每月约两小时，明确不承接无限提需求；交付后不需另配 API Key。
+- **项目与变现** — Skill 商城将开放：垂类经验封装才可变现 — 商城尚未正式开放，按圈友说法在航海开船时统一开放，已有创作者上架 1000+ skill。卖 skill 是生意，但门槛是垂类经验足够丰富。
+- **AI 工具实战** — WorkBuddy 限额：多号并行，别做反代 — 免费额度用完也会受限，多模型限额不同；用其做反代、组号池很容易封号。
+- **AI 工具实战** — 视频生成 token：简化流程可压到 3 亿内 — 全流程交给模型开 Max 档约 10 亿 token，让模型自优化可压到 5 亿内，改 medium 档再压到 3 亿内。
+- **AI 工具实战** — ego 浏览器：命令行控制元素加 js，AI 操控更接近原生 — 初期仅限 Mac，Windows beta 刚上线；国内平台自动化风控仍待验证。
+- **行业动态** — 腾讯上线 AI 伙伴独立入口（eciyuan.qq.com）— 个人做助理类产品需在数据打通和垂直场景上找差异，而不是拼通用能力。
+- **官方活动** — 个人 AI 助理：上下文优先，21 天航海实操 — 亦仁首次亲自担任教练，核心观点是「AI 对自己赋能的深度，背后是上下文的竞争」。
+
+### SkillHub
+- **热门技能** — 小红书指南笔记全链路生成（126 人安装）、小红书虚拟产品选品助手（63 人安装）、小红书选品（58 人安装）
+- **新上架** — AI维权与纠纷回复、孟哥写作风格助手、孟哥公众号排版、小鹅通回放课件提取、公众号访谈经典排版（均为首次公开上架）
+
+### 同城聚会（未来 7 天）
+- 11月10日 12:00 · 北京
+- 11月11日 07:30 · 北京
+- 11月11日 14:00 · 北京
+- 11月14日 14:00 · 北京
+- 11月15日 14:00 · 北京
+
+---
+
+## 🌊 深度思考（追本之箭）
+
+### 撤架以后（2026-11-08 · 6 层下钻）
+
+**核心观点**：孩子能在父母缺席时活着、学习、快乐，说明脚手架已可撤；但父母可能把"被需要"当成身份和意义来源。撤架后面对空白的关键区分是——空白是**腾出来的**（一直保有与孩子无关的持续实践），还是**暴露出来的**（从未活出的生命被照料任务填满）。文章给出一个可反驳的预测：在养育期间仍保有与孩子无关的持续实践的父母，孩子独立后的角色转换可能更容易。
+
+🔗 https://think.x.fish/撤架以后.html
+
+---
+
+## 引用列表
+
+[1: Anthropic releases new Mythos and Fable models amid RSI concerns](https://techcrunch.com/2026/11/09/anthropic-releases-new-mythos-and-fable-models-amid-rsi-concerns/)
+[2: Anthropic prices Fable 5.2 and Mythos 5.2 at $8/1M input and $40/1M output tokens](https://www.techmeme.com/261109/p40)
+[3: Meta releases Muse Ember, a new lightweight model for agent execution](https://techcrunch.com/2026/11/09/meta-releases-muse-ember-a-new-lightweight-model-for-agent-execution/)
+[4: The race is on to sue Nvidia](https://techcrunch.com/2026/11/09/the-race-is-on-to-sue-nvidia/)
+[5: Jensen Huang's affair with alleged Chinese spy puts Nvidia's China ambitions under scrutiny](https://techcrunch.com/2026/11/09/jensen-huangs-affair-with-alleged-chinese-spy-puts-nvidias-china-ambitions-under-scrutiny/)
+[6: Trump says the FBI is "looking into" Jensen Huang's affair](https://apnews.com/article/china-denies-spy-jensen-huang-nvidia-3345b9f05c54d58909e88f6dcb9c1cd8)
+[7: Anthropic joins AI's natural gas frenzy, buys $3.4B worth of turbines](https://techcrunch.com/2026/11/09/anthropic-joins-ais-natural-gas-frenzy-buys-3-4b-worth-of-turbines/)
+[8: SpaceX plans a gas-fired power plant and super-compute facility in Starbase, TX](https://www.bloomberg.com/news/articles/2026-11-09/spacex-plans-24-billion-data-center-and-gas-plant-in-texas)
+[9: Fervo now has $12B in orders for its geothermal power tech](https://techcrunch.com/2026/11/09/fervo-now-has-12b-in-orders-for-its-geothermal-power-tech/)
+[10: Mavria raised $130M for modular truck-shipped data centers](https://www.wsj.com/business/energy-oil/they-led-an-energy-department-overhaul-now-they-plan-to-build-data-centers-914f47c2)
+[11: Fireworks cyberattack exposes customer data and AI models](https://www.forbes.com/sites/annatong/2026/11/09/fireworks-cyberattack-exposes-customer-data-and-ai-models-as-fallout-widens/)
+[12: France blames Iran for mass-hacks targeting freezers and blood banks](https://techcrunch.com/2026/11/09/france-blames-iran-for-mass-hacks-targeting-freezers-in-grocery-stores-and-blood-banks/)
+[13: Waymo robotaxis kept illegally passing school buses after software fix](https://techcrunch.com/2026/11/09/waymo-robotaxis-kept-illegally-passing-school-buses-after-software-fix-feds-say/)
+[14: AI hardware startup Nominal triples valuation to $3B in 8 months](https://techcrunch.com/2026/11/09/ai-hardware-startup-nominal-triples-valuation-to-3b-in-8-months/)
+[15: Automattic debuts a platform to deploy vibe-coding apps](https://techcrunch.com/2026/11/09/automattic-debuts-a-platform-to-deploy-vibe-coding-apps-amid-a-changing-internet/)
