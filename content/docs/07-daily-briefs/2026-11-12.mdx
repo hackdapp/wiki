@@ -1,0 +1,195 @@
+---
+title: 2026-11-12 - 每日简报
+description: OpenAI 营收破百亿 · 英伟达董事会罢免黄仁勋 · Gemini Decisions API · AlphaGenome 2 · AWS Emulator · Fractile 7.2亿 · CoreWeave 预付款 · 小红书虚拟产品选品 · AI 助理上下文复利
+---
+
+# 2026-11-12 - 每日简报
+
+> 本报告基于 TechCrunch + Techmeme + 生财有术 MCP 整理，覆盖 2026-11-12 AI 行业关键动态与商业变现信号。
+
+---
+
+## 1. OpenAI 季度营收首次突破 100 亿美元
+
+### 核心要点
+- Q3 营收首次达到 **100 亿美元**，相较 Q2 的 67 亿增长近 **50%**。
+- 这是 OpenAI 商业化从"补贴换规模"转向"规模自身造血"的拐点信号。
+
+### 为什么值得看
+营收曲线决定融资谈判地位。半年内从 67 亿到 100 亿，意味着下一轮估值定价的天花板被自身业绩重新抬高；同时它给所有仍在亏损买增长的模型公司设了一个硬基准——同期的 Anthropic、Mistral 若不靠订阅或 API 收入补齐差距，capex 只能靠一级市场继续输血。
+
+### 原文引用
+> [1] [OpenAI's quarterly revenue reportedly crosses $10B for the first time](https://techcrunch.com/2026/11/11/openais-quarterly-revenue-reportedly-crosses-10b-for-the-first-time/)
+
+---
+
+## 2. 英伟达董事会准备罢免黄仁勋，国会同日传唤
+
+### 核心要点
+- WSJ：英伟达董事会正准备 **罢免 CEO 黄仁勋**，最快周三开会决定其去留。
+- NYT 披露黄仁勋与公司医疗业务 VP Kimberly Powell 的婚外情在公司内部被讨论；美众议院共和党人要求其参加闭门简报。
+- TechCrunch 另一篇指出，行业内大量高层"知情并默许"类似行为，治理专家称"没见过这样的局面"。
+
+### 为什么值得看
+这不是花边新闻，而是 AI 算力叙事的权力结构问题：全球 AI 资本开支的定价锚是一家公司。如果创始人离任，Nvidia 的"AI 芯片 = AI 增长"这一简化叙事就会失去人格化载体，直接暴露在周期与竞争（自研 ASIC、Google TPU、Fractile 等专用芯片）的检验下。短期是治理风险，长期是"AI 硬件估值是否过度依赖单一人物"的第一次压力测试。
+
+### 原文引用
+> [2] [Nvidia's board is preparing to oust Jensen Huang (WSJ)](https://www.techmeme.com/261111/p44)
+> [3] [Congress to call Jensen Huang in to answer for alleged Chinese spy affair](https://techcrunch.com/2026/11/11/congress-to-call-jensen-huang-in-to-answer-for-alleged-chinese-spy-affair/)
+
+---
+
+## 3. Google 推出 Gemini Decisions API
+
+### 核心要点
+- 新模型 **Gemini Decision 1** 驱动，返回带 **置信度分数**的预定义答案。
+- 定价 **$0.10 / 100 万 input tokens**，主打低成本、确定性决策。
+
+### 为什么值得看
+"带置信度的答案"是把 LLM 从生成器改造成决策组件的关键一步：业务系统可以据此设置阈值门槛（低于某置信度转人工或走规则回退），这正是当前 Agent 落地最缺的一层可审计性。$0.10/M 的定价也意味着把 LLM 塞进每一次表单校验、路由决策、异常分类的成本可以忽略不计——决策类调用量可能远超聊天场景。
+
+### 原文引用
+> [4] [Google launches Gemini Decisions API, powered by Gemini Decision 1](https://blog.google/innovation-and-ai/technology/developers-tools/gemini-decisions-api/)
+
+---
+
+## 4. AWS 放出 AWS Emulator：200+ 服务本地模拟，全由 AI Agent 写成
+
+### 核心要点
+- 免费工具，本地模拟 **200+ 个 AWS 服务**，用于本地开发与测试。
+- AWS 称代码 **全部由 AI Agent 编写**，团队成员没有写过也没有审查过任何一行。
+
+### 为什么值得看
+这是"AI 写生产级基础设施"从演示走向主流工具链的标志性事件。更值得注意的是 AWS 明说"没人审过"——等于官方承认在云厂商自身的开发流程里，AI 生成代码的信任机制已从人工评审转向沙箱化验证。对独立开发者而言，本地全量模拟 AWS 意味着可以零成本搭出与生产同构的 Agent 评测环境，这是做 Agent 工具或交付 SaaS 的新基线。
+
+### 原文引用
+> [5] [AWS releases AWS Emulator, a free tool that simulates 200+ services locally](https://www.techmeme.com/261111/p41)
+
+---
+
+## 5. DeepMind 发布 AlphaGenome 2：1 亿+ 细胞谱系、68 种组织
+
+### 核心要点
+- 训练数据覆盖 **1 亿+ 细胞谱系**、**68 种组织**，用于预测遗传变异的影响。
+- 目前仅面向 **非商业研究**开放。
+
+### 为什么值得看
+从"读懂基因组"到"预测变异的下游后果"，是药物研发与精准医疗真正可用的门槛。1 亿级样本意味着模型已跨过数据稀缺的原始创新阶段，进入工程化兑现阶段——这也是 AI for Science 商业化最被看好的方向：数据资产壁垒一旦形成，后来者极难追赶。
+
+### 原文引用
+> [6] [Google DeepMind launches AlphaGenome 2](https://www.theverge.com/ai-artificial-intelligence/1031524/google-deepmind-alphagenome-2-genetic-ai-model)
+
+---
+
+## 6. 英国 AI 芯片公司 Fractile 完成 7.2 亿美元融资
+
+### 核心要点
+- 本轮 **7.2 亿美元**，成为专用 AI 芯片赛道融资额最高的公司之一。
+- TechCrunch 指其已进入该赛道"融资最多的玩家"之列。
+
+### 为什么值得看
+资本正在从"买谁的 GPU"转向"自己造 ASIC"。英伟达董事会动荡与专用芯片公司巨额融资同时发生，说明买方（超大云厂商）在主动去风险化。专用芯片的价值不在峰值算力，而在特定负载下的"每瓦每美元"效率——谁能把推理侧的性价比做上去，谁就吃下推理成本大头。
+
+### 原文引用
+> [7] [With $720M round, Britain's Fractile gets a leg up in the race for AI chips](https://techcrunch.com/2026/11/11/with-720m-round-britains-fractile-gets-a-leg-up-in-the-race-for-ai-chips/)
+
+---
+
+## 7. CoreWeave 转向客户预付款与短期合同
+
+### 核心要点
+- Q3 财报显示 CoreWeave 正要求客户 **预付现金**、以具体合同做抵押融资，并倾向 **短期合同**（可能推高价格）。
+- 商业模式的资金压力第一次以合同条款形式显性化。
+
+### 为什么值得看
+这是 AI 算力繁荣向资产负债表传导的第一份信号。客户预付款 + 短约 = 供应商在用"确定的现金"换"未来的确定性"，本质是资本效率的警戒线。若合同续签率或客户信用出现波动，AI 基建周期的脆弱点会最先在 Cloud neocloud 这层暴露。
+
+### 原文引用
+> [8] [CoreWeave turns to customer prepayments, shorter contracts to fund AI growth](https://techcrunch.com/2026/11/11/coreweave-turns-to-customer-prepayments-shorter-contracts-to-fund-ai-growth/)
+
+---
+
+## 8. 联航禁止个人 AI 助理代订机票
+
+### 核心要点
+- 美联航表示将阻止个人 AI 助理（如 ChatGPT Agent）代为预订机票。
+- 理由：数据隐私风险，以及可能违反 FAA / DOT 规定。
+
+### 为什么值得看
+这是第一条由大型承运人明确划出的"AI 代理红线"。凡是把个人身份凭证交给 Agent 的场景（订票、支付、医疗、签约）都会陆续进入监管视野。给做 Agent 产品的团队一个明确信号：涉及身份与资金的环节，权限边界必须由垂直行业方定义，模型厂商无法单方面越界。
+
+### 原文引用
+> [9] [United Airlines says it will prevent personal AI assistants from booking tickets (WSJ)](https://www.techmeme.com/261111/p39)
+
+---
+
+## 🌊 深度思考 · 追本之箭
+
+### 借来的刻度（2026-10-12）
+
+**核心观点**：一个人的成长上限不由主观用力程度决定，而由他**曾经近距离接触过的最高标准**决定。上限是一个序统计量——取你见过的最大值，一万个平庸样本不参与这个函数。推理学习率 = 差距（目标减当前）乘以努力；学习率再大，乘上一个为零的差距，结果还是零。差距只能从外部输入，且多半不以文字进入，而以学徒式的近距离在场传递。
+
+**可操作结论**：想抬升自己的产出上限，最省力的动作不是加大投入量，而是去近距离看一个真正优秀的一例——看它怎么改第三稿、什么被扔掉、在哪里停手。标准是一次性设定、终身生效（棘轮只往上走），所以"接触高标准"的窗口越早越便宜。
+
+🔗 https://think.x.fish/最高标准.html
+
+---
+
+## 💰 生财有术日报 · 2026-11-11
+
+> 以下内容由生财有术 MCP (scys-mcp) 抓取。
+
+### 今日信号
+- **[超级标] ChatGPT 任务词** — 圈友复盘：出海产品靠 AI 搜索来的流量，转化率比其他渠道高近一倍
+- **[中标/案例拆解] 视频号图书带货新玩法** — 42 条原创视频 1 个月赚近 1.8 万纯利（佣金 20～30、套装 40）
+- **[中标/市场洞察] YouTube 老需求新玩法** — 只剪并下载用户选定的那一段，月入 11 万美元
+- **[中标/工具推荐] 老牌论坛吾爱破解** — 能找免费工具还能挖小众需求（安全员题库、机床模拟器等热帖）
+- **[风向标] 抖音动漫杂谈** — 做 5 个月月入 3 万；精选计划单价可从 10 元/万播放到 50～100 元
+
+### 今日精华
+- **生财三年，从半年赚不到钱到半年 100 万** — 3-6 月小红书电商 GMV 30 万、6-9 月 90 万的三年项目复盘
+- **亦仁分享个人 AI 助理搭建与使用** — 近 4 万字逐字稿已整理成飞书文档；模型复利取决于私有上下文
+
+### 圈友在讨论
+- 三年复盘帖下多为共鸣：有圈友同为土木行业 23 年裸辞、做几十个项目，认为靠执行力而非运气
+- 国内注册 Codex 可找评论区留微信者代注册（成品号 97 元质保 30 天、直充 133 元）
+- 11 月大航海新增 1127 个 Skill，教练称点开 SkillHub 即可使用；未报名能否用仍无解答
+
+### 外部在关注
+- **DeepSeek Harness 薅光免费积分** — 手把手装 WorkBuddy、TRAE、Qoder 插件
+- **小红书虚拟日记第 20 天** — 一套 SKILL 一天自动生成 10 套产品 + 50 篇笔记
+- **调研市面双语翻译插件** — 流畅阅读开源但可能费 Token；陪读蛙更省额度
+
+### 群聊精选
+- **AI 工具实战 · Claude KYC 收紧** — 护照可通过验证，但存在"通过即封"；地域、公司所在地、股权、接入渠道四维度都会触发判定（传闻，未获官方确认）
+- **AI 工具实战 · Codex 可当主力但复杂项目掌控仍差一截** — 编程能力不输 Claude Code；稳定性优先，别让所有项目都建立在单一模型上
+- **项目与变现 · WorkBuddy 课程有细分需求** — 视频号开始扶持销售 WorkBuddy 课程，说明这类工具教学被平台当作可推品类
+
+### SkillHub
+- 热门：小红书指南笔记全链路生成（168 人安装）· 小红书虚拟产品选品助手（96 人）· 小红书选品（93 人）
+- 新上架：HuBuddy 航海版使用助手（按 Windows/Mac 指导安装、填两把 API Key、做首条作品并在剪映导出）
+
+### 同城聚会
+- 11 月 15 日 14:00 · 北京（5 场）
+
+---
+
+## 📌 今日要点
+
+1. **算力叙事进入权力交接期** — OpenAI 营收破 100 亿、英伟达董事会动议罢免创始人、CoreWeave 开始收预付款，AI 的账本与人事同时进入压力测试期。
+2. **AI 落地的分水岭从"能生成"转向"敢决策"** — Gemini Decisions API 的置信度输出与 AWS 全 AI 写成的本地模拟环境，指向同一点：可审计、低成本的决策层正在成型。
+3. **变现端最实用的信号在"选品 + AI 化"** — 生财日报里三款小红书 Skill 一天安装量近 300，同时 100% 的实操讨论指向"上下文/私域经验"才是护城河。
+
+---
+
+## 引用列表
+[1: OpenAI's quarterly revenue reportedly crosses $10B for the first time](https://techcrunch.com/2026/11/11/openais-quarterly-revenue-reportedly-crosses-10b-for-the-first-time/)
+[2: Nvidia's board is preparing to oust Jensen Huang (WSJ)](https://www.techmeme.com/261111/p44)
+[3: Congress to call Jensen Huang in to answer for alleged Chinese spy affair](https://techcrunch.com/2026/11/11/congress-to-call-jensen-huang-in-to-answer-for-alleged-chinese-spy-affair/)
+[4: Google launches Gemini Decisions API](https://blog.google/innovation-and-ai/technology/developers-tools/gemini-decisions-api/)
+[5: AWS releases AWS Emulator](https://www.techmeme.com/261111/p41)
+[6: Google DeepMind launches AlphaGenome 2](https://www.theverge.com/ai-artificial-intelligence/1031524/google-deepmind-alphagenome-2-genetic-ai-model)
+[7: With $720M round, Britain's Fractile gets a leg up in the race for AI chips](https://techcrunch.com/2026/11/11/with-720m-round-britains-fractile-gets-a-leg-up-in-the-race-for-ai-chips/)
+[8: CoreWeave turns to customer prepayments, shorter contracts to fund AI growth](https://techcrunch.com/2026/11/11/coreweave-turns-to-customer-prepayments-shorter-contracts-to-fund-ai-growth/)
+[9: United Airlines says it will prevent personal AI assistants from booking tickets (WSJ)](https://www.techmeme.com/261111/p39)
+[10: 借来的刻度（追本之箭）](https://think.x.fish/%E6%9C%80%E9%AB%98%E6%A0%87%E5%87%86.html)
