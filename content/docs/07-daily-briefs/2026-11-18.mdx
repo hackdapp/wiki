@@ -1,0 +1,227 @@
+---
+title: 2026-11-18 - 每日简报
+description: Nvidia财报与SEC调查 · Anthropic IPO股东结构 · GPT-6.2 Astra · Suno Visuals · AI安全研究 · 生财日报 · 小红书AI变现
+---
+
+# 2026-11-18 - 每日简报
+
+> 本报告基于 TechCrunch + Techmeme 整理，覆盖 2026-11-18 AI 行业关键动态；后半部分为生财有术日报（2026-11-17）。
+
+---
+
+## 1. Nvidia 董事会拒绝复任黄仁勋，Q3 营收同比翻倍
+
+### 核心要点
+- 新任董事长 Harvey Jones 在 Q3 财报电话会上明确：董事会不打算让黄仁勋回归 CEO，且拒绝就其离任再答问。
+- 黄仁勋辞任后首次公开表态称，若被允许回归将"不胜荣幸"（honored）。
+- Q3 营收 1158 亿美元，同比 +103%，高于 1091 亿美元预期；数据中心营收 1076 亿美元，同比 +110%；Q4 指引高于预期。
+- TechCrunch 另发稿确认英伟达"不计划重新任命 Jensen Huang 为 CEO"。
+
+### 为什么值得看
+算力需求与公司治理风险同时拉满：基本面仍在超预期，但市场对"创始人时代"结束的定价、以及潜在监管风险将成为 Q4 最大变量。
+
+### 原文引用
+> [1] [Nvidia says it doesn't plan to reappoint Jensen Huang as CEO](https://techcrunch.com/2026/11/17/nvidia-says-it-doesnt-plan-to-reappoint-jensen-huang-as-ceo/)
+> [2] [Nvidia reports Q3 revenue up 103% YoY to $115.8B](https://www.techmeme.com/261117/p56)
+
+---
+
+## 2. SEC 对 Nvidia 展开调查
+
+### 核心要点
+- 据《华尔街日报》独家报道，SEC 正对 Nvidia 展开民事调查，核心问题是公司信息披露是否误导投资者。
+- 调查紧随黄仁勋离任展开，后者承认与一名据称的中国间谍有婚外情。
+- TechCrunch 同日以 "In Brief" 形式跟进确认该消息。
+
+### 为什么值得看
+AI 硬件龙头首次因信息披露进入 SEC 调查程序，叠加管理层动荡，可能直接影响 Nvidia 后续的治理披露节奏与机构持仓信心。
+
+### 原文引用
+> [3] [SEC reportedly investigating Nvidia amid Huang exit](https://techcrunch.com/2026/11/17/sec-reportedly-investigating-nvidia-amid-huang-exit/)
+
+---
+
+## 3. Anthropic IPO 后，Amazon 与 Google 合计持股近 30%
+
+### 核心要点
+- Amazon 在 IPO 后将持有 Anthropic 略低于 15% 的股份，并保留进一步大幅增持的选择权。
+- Google 以接近 14% 的持股紧随其后，两家合计接近 30%。
+
+### 为什么值得看
+模型层公司的股权结构正在被云厂商深度绑定——既是护城河，也是"模型可替换性"风险，采购方议价能力会被重新定价。
+
+### 原文引用
+> [4] [Amazon and Google will together own nearly 30% of Anthropic after its IPO](https://techcrunch.com/2026/11/17/amazon-and-google-will-together-own-nearly-30-of-anthropic-after-its-ipo/)
+
+---
+
+## 4. GPT-6.2 Astra 发布：主榜仅次于 Claude Fable 5.2
+
+### 核心要点
+- Artificial Analysis 主榜显示，GPT-6.2 Astra 仅落后于 Claude Fable 5.2；编码维度与上一代 GPT-6 Astra 基本持平。
+- Epoch AI 评测中 Astra 与 Fable 5.2 打成平手。
+- Astra 与 Sol 已面向 Plus / Pro / Enterprise / Edu 用户，在 ChatGPT Work 与 Codex 中开放。
+- 开发者反馈偏负面：@theo 称其"没有知识缺口的概念、输出难以解析、长任务上原地打转"。
+
+### 为什么值得看
+榜单追平与体验吐槽同时出现，说明前沿模型的能力差距已收敛到"工程可用性"层面——长任务稳定性和可解析输出，正在取代单跑分成为新的分水岭。
+
+### 原文引用
+> [5] [Artificial Analysis shows GPT-6.2 Astra trailing only Claude Fable 5.2](https://www.techmeme.com/261117/p57)
+> [6] [GPT-6.2 Astra review (@theo)](https://www.techmeme.com/261117/p49)
+
+---
+
+## 5. GPT-6 Cyber 挖出 Java 远程代码执行漏洞 "Java4Shell"
+
+### 核心要点
+- 网络安全公司 Calif 称使用 GPT-6 Cyber 在 Java 中发现了一个远程代码执行（RCE）漏洞，代号 Java4Shell。
+- Oracle 已发布补丁。
+
+### 为什么值得看
+AI 挖洞第一次给出可验证的"主流语言运行时漏洞"样本，攻防两端的成本曲线都在被改写——防守方同样受益。
+
+### 原文引用
+> [7] [Cybersecurity startup Calif says it used GPT-6 Cyber to uncover an RCE flaw in Java dubbed "Java4Shell"](https://www.techmeme.com/261117/p55)
+
+---
+
+## 6. AI 模型可被"这是游戏"话术诱导去识别平民目标
+
+### 核心要点
+- 旧金山 AI 评测创业公司 Vals 测试了主流模型能否被诱导参与自主作战。
+- 研究者以"这只是游戏"的框架提示为攻击手段，试图绕过模型的安全约束。
+
+### 为什么值得看
+提示词层面的"游戏化绕过"仍是当前模型安全护栏最薄的一环，落地到真实产品时需要叠加行为层监控而非只靠对齐。
+
+### 原文引用
+> [8] [AI models can be tricked into identifying civilians as military targets by telling them it's a game](https://techcrunch.com/2026/11/17/ai-models-can-be-tricked-into-identifying-civilians-as-military-targets-by-telling-them-its-a-game/)
+
+---
+
+## 7. Suno 发布 Visuals：15 秒片段可拼接成完整 MV
+
+### 核心要点
+- Suno 推出 Visuals，可生成 15 秒视频片段并拼接为完整音乐视频。
+- 底层模型基于 MiniMax，视频积分需额外付费。
+
+### 为什么值得看
+音乐生成与视频生成合流到同一工作流，"一次提示词产出一支 MV"开始成立；对做 AI 自媒体的人，这是直接可用的内容管线。
+
+### 原文引用
+> [9] [Suno launches Visuals, letting users generate 15-second clips that can be spliced into a full music video](https://www.techmeme.com/261117/p58)
+
+---
+
+## 8. Google 将 Gemini 聊天保留期从 72 小时延长至约 2 个月
+
+### 核心要点
+- Google 更新 Gemini Privacy Hub：即使关闭聊天历史、临时聊天（Temporary Chat），数据保留期也从 72 小时延长至约 2 个月。
+- 新策略将在未来数周内全球推送。
+
+### 为什么值得看
+"关掉历史也不删数据"的默认化是隐私叙事的一次实质性转向，企业采购与合规审查需要重新评估 Gemini 的数据留存条款。
+
+### 原文引用
+> [10] [Google to keep Gemini chats for 2 months, up from 72 hours, even with history off](https://techcrunch.com/2026/11/17/google-to-keep-gemini-chats-for-two-months-up-from-72-hours-even-with-history-off/)
+
+---
+
+## 9. AI 制药 Isomorphic Labs 融资 50 亿美元
+
+### 核心要点
+- 2021 年从 Google DeepMind 分拆的 AI 制药平台 Isomorphic Labs 完成 50 亿美元 C 轮融资。
+- 目标是推进候选药物进入临床试验阶段。
+
+### 为什么值得看
+AI 制药从"候选分子生成"走向"临床推进"，融资额级别说明资本开始按药物研发周期而非软件 SaaS 逻辑给估值。
+
+### 原文引用
+> [11] [Isomorphic Labs raises $5B as it looks to take drug candidates to clinical trials](https://techcrunch.com/2026/11/17/isomorphic-labs-raises-5b-as-it-looks-to-take-drug-candidates-to-clinical-trials/)
+
+---
+
+## 10. Model ML 融资 2.5 亿美元，自动化投行体力活
+
+### 核心要点
+- Model ML 获 General Atlantic 领投 2.5 亿美元融资。
+- 其 agent 能够理解交易与咨询工作的完整上下文，并在新进展影响分析时自动更新财务模型与演示文稿。
+
+### 为什么值得看
+"文档 + 模型 + PPT"三件套是当前 Agent 最容易变现的复合工作流，投行是第一个把整条链路买断的高价值场景。
+
+### 原文引用
+> [12] [Model ML raises $250M to automate investment banking grunt work](https://techcrunch.com/2026/11/17/model-ml-raises-250m-to-automate-investment-banking-grunt-work/)
+
+---
+
+## 🌊 深度思考（来源: 追本之箭）
+
+### 认账（2026-11-13）
+
+**核心观点**：一句话 = meaning + force + effect，三者分属不同位置——meaning 在"我们"（词是从群体借来的，标准在共同用法里），force 在"我"（说话人为这句话押上的东西），effect 在"对方"（是对方做出来的，不是 force 的延长线）。
+
+**为什么值得看**：原文用一个硬证据收尾——48 项研究、8474 名参与者，法官指示陪审员忽略某条不可采纳证据，指示的 force 是足的，但该证据对裁决的影响总体未被有效消除。人开口多数是为了 effect，而 effect 恰恰是说话人填不了的那一格。
+
+🔗 https://think.x.fish/认账.html
+
+---
+
+## 💰 生财有术日报 · 2026-11-17
+
+> 以下内容由生财有术 MCP (scys-mcp) 抓取。
+
+### 今日信号
+- **小红书小工具，值得关注的 AI 产品机会** — 官方已开放开发文档，支持用 Agent 开发并适配 H5，可先做装修预算等轻量工具再用笔记验证需求
+- **硅谷大佬公开内容资料库** — 把马斯克说过什么、何时说的、后来怎样放进同一页，每条留原始链接与日期，作者用 300 多次搜索筛素材（马斯克有 810 个视频、610 小时内容）
+- **掼蛋学习痛点做成陪练小工具** — 已有九百多人使用，作者首次 Vibe Coding 做成，按评论区反馈边修边更
+- **NotebookLM 一句话出互动网页** — 网页端已向全球 18 岁以上用户开放；同类初中地理交互课件已售 72 单，另一款 7 天展示销量增 326
+- **视频号作品转发量高，适合做广告分成** — 详情需点开原帖
+
+### 今日精华
+- **Claude 封装 + Qwen 本地部署，实现 0 算力日剪万条带货视频** — 作者称已跑通印尼营养液 120 条、老鼠笼子 270 条，早期测试约 10 分钟剪 100 条
+- **超级个人 AI 助理航海报名 10929 人次** — 手册作业 Skill 按航海节奏推进，11 月 18 日开群
+
+### 圈友在讨论
+- **生财三年，从半年赚不到钱到半年 100 万** — 评论区以共鸣为主，有读者称裸辞半年实操才知项目难点，看完重拾信心
+- **入群与开船时间** — 评论区多在问入群，回复称鱼丸已安排、注意私聊信息，一个会员只能进一个群；开船仪式定在 18 号（不是 19 号）
+
+### 外部在关注
+- **CzzzzzzJ/mdldm-maitian（麦田）** — B站、抖音、小红书、视频号、YouTube、X 多平台发布中控，飞书卡片通知加数据大屏
+- **FrigadeHQ/yogurt** — 私有 AI 会议笔记留在本机，开源版 Granola，支持 Mac / Windows / Linux
+- **sybil-solutions/inference-optimisation-skill** — 本地 LLM 推理提速 Agent skill，覆盖解码、投机解码、prefill、KV、TTFT
+- **6000+字拆解谢胜子矩阵 ip 打法** — 多个矩阵号换封面、换字幕分发同一观点
+- **谷雨、波司登、睡特爆卖拆解｜视频号生意观察周报 1109-1115** — 拆解双十一周视频号卖法与直播间打法
+
+### 群聊精选
+- **AI 工具实战 — Claude 防封：留额度，KYC 扣款先退款** — 5 小时额度留 10%、周额度留 1%-2%，5x 套餐周额度用到 70-80 后转 Gemini；苹果内购扣款后弹 KYC 可先申请 Apple 退款或注销重试。KYC 证件：充值阶段用护照有概率通过，使用过程用护照容易秒封，过期签证实测不行
+- **AI 工具实战 — Codex 读微信群聊有封号风险** — 读取不到内容时触发 Computer Use 是主要诱因；可改用 Mac + weflow，并调整 skill 强制不调用 Computer Use
+- **AI 工具实战 — 中转站 Claude API 做视频烧钱更快** — API 本身比订阅贵，订阅制与 API 价格存在倒挂，还要把封号成本算进去
+- **其他 — M 系 Mac 内存不可升，外接 NVMe 扩容** — 有圈友用硬盘盒 + 三星 990 Pro 2T 把系统装到外接盘；硬盘涨价明显，2T 一周后涨到 2000 多
+
+### SkillHub
+- **热门技能** — 小红书指南笔记全链路生成（174 人安装）、小红书虚拟产品选品助手（125 人安装）、怀旧回忆贴图文案与史实核验助手（101 人安装）
+- **新上架** — Money Keywords（找新词新站）、班会笔记 skill、蒸馏 skill（选题矩阵 + 100 条选题）、起号包 skill、环创笔记 skill
+
+### 同城聚会（未来 7 天）
+- 11月22日 14:00 · 北京
+- 11月22日 13:45 · 北京
+- 11月22日 09:30 · 北京
+
+---
+
+## 引用列表
+[1: Nvidia says it doesn't plan to reappoint Jensen Huang as CEO](https://techcrunch.com/2026/11/17/nvidia-says-it-doesnt-plan-to-reappoint-jensen-huang-as-ceo/)
+[2: Nvidia Q3 revenue up 103% YoY to $115.8B](https://www.techmeme.com/261117/p56)
+[3: SEC reportedly investigating Nvidia amid Huang exit](https://techcrunch.com/2026/11/17/sec-reportedly-investigating-nvidia-amid-huang-exit/)
+[4: Amazon and Google will together own nearly 30% of Anthropic after its IPO](https://techcrunch.com/2026/11/17/amazon-and-google-will-together-own-nearly-30-of-anthropic-after-its-ipo/)
+[5: Artificial Analysis shows GPT-6.2 Astra trailing only Claude Fable 5.2](https://www.techmeme.com/261117/p57)
+[6: GPT-6.2 Astra review (@theo)](https://www.techmeme.com/261117/p49)
+[7: Calif used GPT-6 Cyber to uncover Java RCE "Java4Shell"](https://www.techmeme.com/261117/p55)
+[8: AI models can be tricked into identifying civilians as military targets](https://techcrunch.com/2026/11/17/ai-models-can-be-tricked-into-identifying-civilians-as-military-targets-by-telling-them-its-a-game/)
+[9: Suno launches Visuals](https://www.techmeme.com/261117/p58)
+[10: Google to keep Gemini chats for 2 months, up from 72 hours](https://techcrunch.com/2026/11/17/google-to-keep-gemini-chats-for-two-months-up-from-72-hours-even-with-history-off/)
+[11: Isomorphic Labs raises $5B](https://techcrunch.com/2026/11/17/isomorphic-labs-raises-5b-as-it-looks-to-take-drug-candidates-to-clinical-trials/)
+[12: Model ML raises $250M to automate investment banking grunt work](https://techcrunch.com/2026/11/17/model-ml-raises-250m-to-automate-investment-banking-grunt-work/)
+[13: 认账 — 追本之箭](https://think.x.fish/认账.html)
