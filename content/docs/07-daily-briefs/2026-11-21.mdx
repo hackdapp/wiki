@@ -1,0 +1,182 @@
+---
+title: 2026-11-21 - 每日简报
+description: Inkling 2 Mini 开源模型 · Anthropic 创纪录 IPO · 英伟达黄仁勋被罢免 · AI 破解黎曼猜想 · Cogniton 750 亿估值 · AI 训练数据版权 · 生财有术社区变现
+---
+
+# 2026-11-21 - 每日简报
+
+> 本报告基于 TechCrunch 与 Techmeme 整理，覆盖 2026-11-21 AI 行业关键动态；后半部分为生财有术日报（2026-11-20）。
+
+---
+
+## 1. Thinking Machines Lab 开源 Inkling 2 Mini，5 倍活跃参数对标 Qwen3.8 27B
+
+### 核心要点
+- TML 发布 **Inkling 2 Mini**：26.4B 总参数开源权重 Transformer，每个 token 将中间层循环 3 次，以更少 token 换更强推理。
+- Artificial Analysis 实测：仅 **5.4B 活跃参数**即在 Intelligence Index 上追平 Qwen3.8 27B (xhigh)，活跃参数约为其 **1/5**。
+
+### 为什么值得看
+"少激活、多循环"的推理架构开始正面挑战稠密大模型，推理成本曲线可能被重新定价。
+
+### 原文引用
+> [1] [TML releases Inkling 2 Mini](https://thinkingmachines.ai/news/inkling-2-mini/)
+> [2] [Inkling 2 Mini matches Qwen3.8 27B with ~5x fewer active parameters](https://artificialanalysis.ai/articles/inkling-2-mini)
+
+---
+
+## 2. Anthropic 创纪录 IPO，七位创始人套现近 20 亿美元
+
+### 核心要点
+- IPO 价格上修至 **83 美元/股**，公司募资近 **1050 亿美元**。
+- 七位创始人各自套现约 **2.8 亿美元**，为史上最大创始人套现纪录。
+
+### 为什么值得看
+AI 一级市场估值终于兑现成公开市场定价，同时给早期员工与创业团队提供了退出路径参照。
+
+### 原文引用
+> [3] [Anthropic's 7 founders cashed out nearly $2B in record-breaking IPO](https://techcrunch.com/2026/11/19/anthropics-7-founders-cashed-out-nearly-2b-in-record-breaking-ipo/)
+
+---
+
+## 3. 英伟达震荡：罢免黄仁勋、SEC 调查、加州总检察长传票
+
+### 核心要点
+- Wired：董事会罢免黄仁勋的主因是其"撒谎"与"缺乏坦诚"（涉及 Alice Huang 事件，2025 年 10 月至今秋）。
+- 股价周五再跌 **14%**，连续 7 个交易日下跌，7 周累计 **-44%**，市值蒸发 **2.5 万亿美元**；SEC 同步调查其收入确认口径（去年将新加坡移出地区拆分）。
+- 加州 AG Rob Bonta 传票 Nvidia，质疑公司及前 CEO 对中国关系与投资者披露。
+
+### 为什么值得看
+芯片霸主的治理、披露与地缘风险同时爆雷，短期直接冲击整个 AI 算力叙事。
+
+### 原文引用
+> [4] [Nvidia's 7-week losing streak is longest since 2008](https://www.cnbc.com/2026/11/20/nvidias-7-week-losing-streak-is-longest-since-2008-financial-crisis.html)
+> [5] [Jensen Huang's 'lying' alarmed Nvidia board](https://www.wired.com/story/jensen-huangs-lying-alarmed-nvidia-board-ahead-of-his-resignation/)
+> [6] [SEC's Nvidia probe examining accounting issues](https://www.reuters.com/world/us/secs-nvidia-probe-is-examining-potential-accounting-issues-sources-say-2026-11-20/)
+> [7] [California AG subpoenas Nvidia](https://techcrunch.com/2026/11/20/california-ag-subpoenas-nvidia-over-worries-about-huangs-ties-with-china/)
+
+---
+
+## 4. AI 与人类同时给出黎曼猜想解法，167 年难题现双解
+
+### 核心要点
+- AI 驱动的数学结果给出黎曼猜想的一个解法，人类研究者同期拿出竞争性证明。
+- 数学家群体评价"脑袋被炸开"（minds blown），验证 AI 进入前沿数学研究主战场。
+
+### 为什么值得看
+AI 科研能力从"辅助"跃升到与人类并行的原创成果，但同时把同行评审与可信度问题推到台前。
+
+### 原文引用
+> [8] [AI claimed a solution to the 167-year-old Riemann hypothesis — and a human did, too](https://techcrunch.com/2026/11/20/ai-claimed-a-solution-to-the-167-year-old-riemann-hypothesis-and-a-human-did-too/)
+
+---
+
+## 5. 苹果自研 Mac AI Agent，对标 Meta Muse / Claude / OpenAI Dots
+
+### 核心要点
+- 苹果被曝在开发可运行在用户 Mac 上的自有 AI agent。
+- 目标对手明确指向 Meta Muse、Instinct、Claude 与 OpenAI Dots 一类系统级智能体。
+
+### 为什么值得看
+"端侧系统级 Agent"是下一个平台级入口，苹果入场意味着 PC 侧智能体竞争全面开启。
+
+### 原文引用
+> [9] [Apple may be developing its own AI agent that runs your Mac](https://techcrunch.com/2026/11/19/apple-may-be-developing-its-own-ai-agent-that-runs-your-mac/)
+
+---
+
+## 6. Fireworks AI：多数场景可以绕过高价模型
+
+### 核心要点
+- Anthropic 竞品 Fireworks AI 提出：企业工作负载大多可以用更便宜的小模型承接。
+- 挑战"一律调用旗舰模型"的默认工程实践。
+
+### 为什么值得看
+与生财社区"写代码选 carbon、追速度选 neon"的降本实践同向，模型选型正在从信仰回到成本工程。
+
+### 原文引用
+> [10] [Anthropic rival says companies can (mostly) skip the pricey models](https://techcrunch.com/2026/11/19/anthropic-rival-says-companies-can-mostly-skip-the-pricey-models/)
+
+---
+
+## 7. METR 更新 AI 时间跨度曲线，并点名"设计 AI 评测"的短板
+
+### 核心要点
+- METR 在时间跨度图中加入"判断密集型"任务。
+- 结论：部分 AI 能力仍呈指数增长，但模型在设计 AI 评测基准上明显落后。
+
+### 为什么值得看
+给"AI 能力曲线"这条被广泛误读的图加了重要限定，也暴露了模型自我评估能力不足的元问题。
+
+### 原文引用
+> [11] [The most misunderstood graph in AI just got a major update](https://www.technologyreview.com/2026/11/20/1149399/the-most-misunderstood-graph-in-ai-just-got-a-major-update/)
+
+---
+
+## 8. Etsy 卖家因 AI 训练条款集体出走；CrowdStrike 传收购 Zscaler；Cognition 拟按 750 亿美元估值融资
+
+### 核心要点
+- Etsy 更新条款允许平台及第三方合作方将卖家内容用于 AI 训练，长期卖家称将离开。
+- CrowdStrike 洽谈以约 **2650 亿美元**合并市值收购 Zscaler，ZS 盘后涨超 15%。
+- Cognition 拟新融资 **20 亿美元以上**，估值 **750 亿美元**（今年已融超 30 亿，9 月曾以 480 亿估值融资 20 亿）。
+
+### 为什么值得看
+创作者对 AI 训练数据的授权边界第一次出现大规模反弹，而头部 AI 公司的估值仍在上冲。
+
+### 原文引用
+> [12] [Many longtime Etsy sellers say they are leaving](https://www.nytimes.com/2026/11/20/arts/etsy-ai-policy.html)
+> [13] [CrowdStrike is in talks to buy Zscaler](https://www.bloomberg.com/news/articles/2026-11-20/crowdstrike-is-in-talks-to-buy-cybersecurity-firm-zscaler)
+> [14] [Cognition in talks for $75B value with new funding](https://www.bloomberg.com/news/articles/2026-11-20/cognition-in-talks-for-75-billion-value-with-new-funding)
+
+---
+
+## 引用列表
+[1: TML releases Inkling 2 Mini](https://thinkingmachines.ai/news/inkling-2-mini/)
+[2: Inkling 2 Mini matches Qwen3.8 27B](https://artificialanalysis.ai/articles/inkling-2-mini)
+[3: Anthropic's 7 founders cashed out nearly $2B](https://techcrunch.com/2026/11/19/anthropics-7-founders-cashed-out-nearly-2b-in-record-breaking-ipo/)
+[4: Nvidia's 7-week losing streak](https://www.cnbc.com/2026/11/20/nvidias-7-week-losing-streak-is-longest-since-2008-financial-crisis.html)
+[5: Jensen Huang's 'lying' alarmed Nvidia board](https://www.wired.com/story/jensen-huangs-lying-alarmed-nvidia-board-ahead-of-his-resignation/)
+[6: SEC's Nvidia probe](https://www.reuters.com/world/us/secs-nvidia-probe-is-examining-potential-accounting-issues-sources-say-2026-11-20/)
+[7: California AG subpoenas Nvidia](https://techcrunch.com/2026/11/20/california-ag-subpoenas-nvidia-over-worries-about-huangs-ties-with-china/)
+[8: AI claimed a solution to the Riemann hypothesis](https://techcrunch.com/2026/11/20/ai-claimed-a-solution-to-the-167-year-old-riemann-hypothesis-and-a-human-did-too/)
+[9: Apple may be developing its own AI agent](https://techcrunch.com/2026/11/19/apple-may-be-developing-its-own-ai-agent-that-runs-your-mac/)
+[10: Anthropic rival says companies can skip pricey models](https://techcrunch.com/2026/11/19/anthropic-rival-says-companies-can-mostly-skip-the-pricey-models/)
+[11: The most misunderstood graph in AI just got a major update](https://www.technologyreview.com/2026/11/20/1149399/the-most-misunderstood-graph-in-ai-just-got-a-major-update/)
+[12: Many longtime Etsy sellers say they are leaving](https://www.nytimes.com/2026/11/20/arts/etsy-ai-policy.html)
+[13: CrowdStrike is in talks to buy Zscaler](https://www.bloomberg.com/news/articles/2026-11-20/crowdstrike-is-in-talks-to-buy-cybersecurity-firm-zscaler)
+[14: Cognition in talks for $75B value](https://www.bloomberg.com/news/articles/2026-11-20/cognition-in-talks-for-75-billion-value-with-new-funding)
+
+---
+
+## 💰 生财有术日报 · 2026-11-20
+
+> 以下内容由生财有术 MCP (scys-mcp) 抓取。
+
+### 今日信号
+- 给水管工、保洁公司做社媒帖子的 AI 工具累计收入 **102.4 万美元**、460 个订阅，近 30 天收入 16,079 美元（环比 -27.3%），正在挂牌出售。
+- 有人卖 **5000 个 AI Skill 集合**，199 元一份卖了一年：从闲鱼买爆款选题与话术，用豆包、DeepSeek、Gemini Flash 重做再卖。
+- Gemini 4 视频制作获好评，淘宝 89 元开年 Pro 会员做 5 条 1 分钟视频额度充足；用 codex 解决了"视频烧心、图片降智"问题。
+- 元旦手抄报线稿合集去年 11 月就火（六千~八千赞），今年 2027 羊年版刚发只有几十赞 —— 同主题热度落差明显。
+
+### 今日精华
+- **三次"同题不同命"的对比**：手抄报（去年火今年不火）、Neon vs Fable 5.2（评论区体验分裂：补盲点但干活粗枝大叶）、低价 Google 账号（几十元一年 vs 代充掉订阅）。
+
+### 圈友在讨论
+- 写代码选 carbon、追速度选 neon extra：Gemini（含 Antigravity/agy）编程可对标 Claude，agy 的 teamwork 好过 swarm，但仍有幻觉，重要任务建议双模型交叉审核。
+- 先用 Neon 出详细方案、再交 Codex CLI 执行，比让 Codex 独立规划更稳；纯语音口述需求也能完成规划。
+- Claude 换号不必导入旧备份：工具目录与项目目录彻底分开，项目内只放上下文，Git 初始化、每完成一个功能就提交一次。
+
+### 外部在关注
+- Google AI Ultra 每月白嫖 1000 分钟视频云渲染，作者把云渲染搬上谷歌云并做成 skill。
+- Suno 的 MCP 对所有人开放，可在 ChatGPT、Claude 里直接做歌做画面。
+- 令牌欺诈让一位独立开发者一年损失数万美元（免费试用被循环注册薅走最贵模型），已取消免费试用。
+
+### 群聊精选
+- **项目与变现** — 数字人视频租 5090 约 2~3 元/小时，用 MiniMax H3 中文配音较自然；heygen 闲鱼 99 元买号，600 积分约做 8~10 个 3 分钟视频；用他人形象或声音需取得授权。
+- **AI 工具实战** — Gemini 订阅家庭组共用额度：Ultra 100 美元档每月 2000 美元 token、每周 500 美元 token + 25 美元 Cloud；低价代充有掉订阅/封号风险。
+
+### SkillHub
+- 热门：2026年11月航海实战学习（685 人安装）、小红书指南笔记全链路生成（614 人）、小红书虚拟产品选品助手（403 人）。
+- 新上架：PPT课件文字特效、AI生成读书视频（macOS + Codex）、贴图（3:4 公众号贴图）、用户增长运营策划师。
+
+### 同城聚会
+- 11月22日 12:30 / 13:45 / 14:00 · 北京（多场）
