@@ -1,0 +1,215 @@
+---
+title: 2026-11-22 - 每日简报
+description: Signal封杀截图 · 英伟达双叙事 · AI路由密钥泄露 · Instinct百亿估值 · 亚马逊75亿收购Decart · 中国AI资本开支1390亿 · AI代充变现 · 追本之箭
+---
+
+# 2026-11-22 - 每日简报
+
+> 本报告基于 TechCrunch 与 Techmeme 整理，覆盖 2026-11-22 AI 行业关键动态；后半部分附生财有术日报（2026-11-21）。
+
+---
+
+## 1. Signal 对抗 AI 监控：限制移动端截图
+
+### 核心要点
+- Signal 在 Android 与 iOS 端默认限制应用内截图，延续此前对 Windows 版的做法
+- 触发原因：Windows / Android / macOS / iOS 的 OS 级 agentic AI 可「扫描」屏幕，把敏感数据交给本地数据库或远端服务器
+- 总裁 Meredith Whittaker 称这是独立保证隐私的「存在性威胁」，但同时承认这是「不完整」的方案
+
+### 为什么值得看
+隐私战场已从「数据在不在服务器」转移到「数据有没有被操作系统截屏」。任何做 Agent 的团队都必须重新回答：我们的上下文从哪里来、谁能看见。
+
+### 原文引用
+> [1] [Signal restricts mobile screenshots as it confronts 'existential threat' of AI surveillance](https://techcrunch.com/2026/11/21/signal-restricts-mobile-screenshots-as-it-confronts-existential-threat-of-ai-surveillance/)
+
+---
+
+## 2. 一个英伟达，两个故事
+
+### 核心要点
+- 财报端：营收大涨，管理层称「我们搞得定」
+- 市场端：马斯克等人公开呼吁黄仁勋回归，公司股价下跌说明华尔街并不被安抚
+- 政策端：H200 停止对华销售，境外（马来西亚等）机房远程访问路径同步收紧
+
+### 为什么值得看
+AI 芯片生意的变量已经不只是性能与产能，而是地缘与治理。「谁在掌舵」和「能不能卖到中国」正在主导估值。
+
+### 原文引用
+> [2] [A tale of two Nvidias](https://techcrunch.com/2026/11/21/a-tale-of-two-nvidias/)
+
+---
+
+## 3. AI 路由供应链正在大规模泄露用户密钥
+
+### 核心要点
+- 研究者在发往 OpenRouter、Vercel 等 AI 路由的请求中埋入 200 万枚「诱饵凭据」
+- 即使在 ZDR（零数据保留）策略下，隐私承诺仍被多层转发系统性打破，密钥被窃取
+- 漏洞位置不在模型层，而在「代理 / 路由层」
+
+### 为什么值得看
+企业接入第三方模型网关时，ZDR 是主要合规话术。本次实测说明该承诺在多层 relay 下不成立，需要自建审计与脱敏层。
+
+### 原文引用
+> [3] [A leaky AI supply chain is exposing secret user data at an alarming rate (Ars Technica)](https://arstechnica.com/security/2026/11/a-leaky-ai-supply-chain-is-exposing-secret-user-data-at-an-alarming-rate/)
+
+---
+
+## 4. AI 代理住进短信：Instinct 估值 100 亿美元
+
+### 核心要点
+- Instinct 最新 10 亿美元融资后估值达 100 亿美元
+- 不下载 App、直接发短信即可调用：预约、日程整理、行程调研、发邮件、预订、网购、几天后提醒
+- 盘点显示已有通用助理及面向家庭、旅行、工作的多类代理
+
+### 为什么值得看
+Agent 的分发路径正在从「App 商店」转向「已有通信软件」。这意味着入口竞争的对象变成了手机号和聊天窗口，而不是图标。
+
+### 原文引用
+> [4] [Here are the top AI agents that can live in your text messages](https://techcrunch.com/2026/11/21/all-the-ai-agents-that-can-live-in-your-text-messages/)
+
+---
+
+## 5. 亚马逊接近 75 亿美元收购 Decart
+
+### 核心要点
+- 据 FT：谈判已进入高级阶段，最快下周达成协议
+- 目的为让 AWS 在算力竞赛中直接对上 Nvidia
+- 同期 Oracle 宣布已为 OpenAI 合同完成全部融资
+
+### 为什么值得看
+云计算厂商开始直接买「模型/推理能力」公司，而不是全部自研。绑定大客户的推理层正在被资本化定价。
+
+### 原文引用
+> [5] [Amazon is nearing a $7.5B deal to buy AI startup Decart (FT)](https://www.techmeme.com/261121/p8)
+
+---
+
+## 6. AI 投资热潮降温：纳指 100 一周跌 10.4%
+
+### 核心要点
+- 纳斯达克 100 周五单日下跌 5.6%，全周跌幅 10.4%，为六年多来最差周表现
+- Anthropic 与 Nvidia 同步重挫，市场担忧 AI 资本开支周期放缓
+- 从「买一切 AI」转向审视资本开支回报率
+
+### 为什么值得看
+估值锚从「增长叙事」切到「现金流叙事」。对做 To B 工具的人，这反而是好事：客户开始认真算 ROI。
+
+### 原文引用
+> [6] [Nasdaq 100 fell 5.6% on Friday, worst run in more than six years (FT)](https://www.techmeme.com/261121)
+
+---
+
+## 7. 中国科技巨头 2026 年资本开支将翻倍至 1390 亿美元
+
+### 核心要点
+- Rhodium 测算：头部科技公司 2026 年 capex 翻倍至 1390 亿美元
+- 但 AI 实验室收入占比不足 8%
+- 该缺口可能比芯片管制更值得警惕
+
+### 为什么值得看
+国内 AI 投入的可持续性不取决于算力供给，而取决于应用变现速度。8% 这个数字意味着大部分投入仍需靠非 AI 业务补贴。
+
+### 原文引用
+> [7] [China's biggest tech companies are set to double capex to $139B in 2026 (NYT/Rhodium)](https://www.techmeme.com/261121/p7)
+
+---
+
+## 8. AI 微短剧：把面孔授权给算法
+
+### 核心要点
+- 以色列演员 Aki Avni 把面孔授权给微短剧创业公司 Shortical
+- 最新剧集《Inevitable》全 AI 生成，上周在洛杉矶首映
+- AI 内容制作成本显著低于真人，利润空间更高；该模式在中国已流行
+
+### 为什么值得看
+数字人 IP 授权已从「换脸争议」进入「正规授权+规模化生产」阶段。内容产业的成本结构正在被重写。
+
+### 原文引用
+> [8] [Is selling an AI version of your face to this microdrama startup the future of Hollywood?](https://techcrunch.com/2026/11/21/is-selling-an-ai-version-of-your-face-to-this-microdrama-startup-the-future-of-hollywood/)
+
+---
+
+## 9. 附加：AI 辅助证明 Navier-Stokes 爆破问题
+
+### 核心要点
+- NYU 教授 Tristan Buckmaster 与 Anthropic 员工 Levent Alpöge 发布 AI 辅助证明，称其修补了 OpenAI 解法中的漏洞
+- 距 OpenAI 抢先发布仅两个月
+
+### 为什么值得看
+AI 辅助数学证明进入「可被同行检验并迭代」的阶段，工具化程度接近真实科研协作。
+
+### 原文引用
+> [9] [AI-aided proof of Navier-Stokes blowup (Scientific American)](https://www.techmeme.com/261121/p4)
+
+---
+
+## 💰 生财有术日报 · 2026-11-21
+
+> 以下内容由生财有术 MCP (scys-mcp) 抓取，为 2026-11-21（周六）日报。
+
+### 今日信号
+- 跨境轻医美如何引流，每天稳定引流 500+ — 截流同行账号和评论区几乎不用广告预算；泛粉先沉淀到 WhatsApp、Line 再分层转化
+- Google AI Ultra 5x 会员 24.99 刀/月可开启，附操作方法 — 让 workbuddy 或 opencode 读该 GitHub 仓库照做，需装 mumu 模拟器；另附字节渠道
+- 发现一个成交规律：问得越多，成交概率反而越小
+- 亦仁推荐做【AI 自媒体】 — 所举账号每篇阅读过千、更新频率不高，作者保守估一条广告 1000+，变现还有卖课、社群拉新
+- 结合 workbuddy 课，用 AI 生成贴图在公众号引流，成本低还能一鱼多吃 — 号主在阅读高的贴图评论区让读者扣 666 领资料；作者称公众号近期对贴图有流量扶持
+
+### 今日精华
+- 小红书 AI 虚拟产品全流程：从选品到运营，普通人也能做的实操指南 — 作者认为 AI 虚拟产品适合一个人当 OPC 项目做，小红书用户愿为一份资料、一个工具付费
+- 43 天，11.36 万营收：我如何从 0 到 1 搭建一门 AI 会员代充生意？ — B 站累计播放超 9 万、高峰期一天成交 40 多单，11 月 6 日决定停止这门业务
+- 一毛钱的资料，1 个月帮我赚到四位数：闲鱼＋网盘拉新全流程复盘 — 选品改成先上架、有人拍再去同行那买资料；搜同类链接看是否已售 100+ 判断需求
+
+### 圈友在讨论
+- 模型榜 — 多人用 deepseek-flash 跑重复任务和写文章（便宜），策划类才上大参数模型；有人嫌 Claude 成本高
+- Gemini 4 Neon 使用方法因敏感词发不出去 — 帖子被下架后换文档链接重提可上线；也有人把链接丢给 workbuddy 存进知识库
+- TokenRank 工具使用排行榜 — Codex 仍居首，WorkBuddy、Antigravity 势头猛；接入 Claude Code 的 deepseek、grok 也计入 CC
+- 个人 AI 助理（2026 年 11 月实战活动） — 新交 367 份作业；提问集中在 lark-cli 怎么装、规范要求的同步回读没执行到位
+- 微信贴图号 - 流量主（2026 年 11 月实战活动） — 新交 96 份作业
+
+### 外部在关注
+- 日发 5000+ 单，终于有人把 AI+出海玩明白了 — 国内玩法已泛滥，出海要避开烂大街标品，做个性化定制产品
+- WorkBuddy 每天消耗超 100 万亿 Token，腾讯的 AI 账该怎么算？ — 追问替用户做完一件事能收多少钱、又得花多少钱
+- DeepSeek Harness + Magpie 王炸组合 — 聚合所有 AI 会员，像魔改安卓一样 DIY 工作台
+- CzzzzzzJ/mdldm-maitian — 自媒体多平台发布中控与数据监控，覆盖 B 站、抖音、小红书、视频号、YouTube、X
+- 谷歌黑五提前开了，只给老用户 — 已订阅 Google AI 或存储的老用户，到 11 月 26 日 AI Plus 与年付 Pro 最高减半
+
+### 群聊精选
+- **AI 工具实战** — Google AI 订阅别追低价旧 SKU：Ultra 20X 有圈友称 9000 里拉购入、折合不到 1200 元；用掉 80% 约 34 亿 token；黑五五折只针对 Plus/Pro；19.99 美元旧 SKU 易被标记
+- **AI 工具实战** — Antigravity 额度少，少用编排模式：orchestrator 会反复读取、更耗额度；Carbon 消耗比 Neon 多；Antigravity 可直接用 Opus 5.5 但额度很少
+- **AI 工具实战** — Claude KYC 别代办，真实持证人验证更稳：主要看网络环境是否被判异常和支付卡权重；美卡权重更高、港卡不建议；被封后申诉有一次机会
+- **AI 工具实战** — Codex 人最多，WorkBuddy 升第二：Codex 靠历史惯性但评价争议最多；Antigravity 从不在榜升到第四，是上升最快工具
+- **AI 工具实战** — 编程用 Opus 5.5，文案用 Neon：Neon 聪明快、全模态强、文案「说人话」，但前端偶尔会飘
+- **AI 工具实战** — AI 订阅按月买，年卡容易砸手里：模型领先位置轮换快，已买年卡可找客服按剩余时间退款，Kimi 年费有圈友已退款
+- **其他** — 回放切片用 Gemini 4，视频放 COS 桶：文件放云端 COS 存储桶、页面只做引用，多人同时在线播放也不易卡
+
+### SkillHub
+- 热门技能 — 2026 年 11 月航海实战学习（456 人安装）、小红书指南笔记全链路生成（390 人）、知识点图解 skill（290 人）
+- 新上架 — 跨学科圆桌会议、PDF 转小红书封面和拼图、小红书虚拟资料电商图生成器、飞书电子指南易读性优化、小学英语说课资料五件套生产线
+
+### 同城聚会
+- 11 月 28 日 13:45 · 北京
+- 11 月 28 日 09:30 · 北京
+- 11 月 22 日 14:00 · 北京（2 场）
+
+---
+
+## 🌊 深度思考 · 追本之箭
+
+### 看见之后，手为什么还不松（2026-11-21）
+
+「知道自己在讨好却停不下来」其实是两件事：看见旧模式 ≠ 有了新解法。旧解法仍在替你付一笔账（避免冲突、保住联结、换取安全），看见只是让你有资格问「我拿它换什么、这笔账究竟是多少、有没有别的付法」。替代动作必须在同一个触发情境里承担旧行为所付账的核心部分——不需要完全等价，但必须可承受。下一步是在低风险场景做一次最小偏离，事前写下预期、事后核对，用落差校准这笔账的真实金额。
+
+🔗 https://think.x.fish/看见之后手为什么还不松.html
+
+---
+
+## 引用列表
+[1: Signal restricts mobile screenshots](https://techcrunch.com/2026/11/21/signal-restricts-mobile-screenshots-as-it-confronts-existential-threat-of-ai-surveillance/)
+[2: A tale of two Nvidias](https://techcrunch.com/2026/11/21/a-tale-of-two-nvidias/)
+[3: A leaky AI supply chain](https://arstechnica.com/security/2026/11/a-leaky-ai-supply-chain-is-exposing-secret-user-data-at-an-alarming-rate/)
+[4: Top AI agents that can live in your text messages](https://techcrunch.com/2026/11/21/all-the-ai-agents-that-can-live-in-your-text-messages/)
+[5: Amazon nears $7.5B deal for Decart](https://www.techmeme.com/261121/p8)
+[6: Nasdaq 100 fell 5.6%](https://www.techmeme.com/261121)
+[7: China capex to $139B](https://www.techmeme.com/261121/p7)
+[8: Selling an AI version of your face](https://techcrunch.com/2026/11/21/is-selling-an-ai-version-of-your-face-to-this-microdrama-startup-the-future-of-hollywood/)
+[9: AI-aided proof of Navier-Stokes blowup](https://www.techmeme.com/261121/p4)
