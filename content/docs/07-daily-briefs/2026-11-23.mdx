@@ -1,0 +1,186 @@
+---
+title: 2026-11-23 - 每日简报
+description: OpenAI 困惑度限速 · Anthropic IPO 防泄密 · AI 服务器涨价 · 英伟达中国业务风暴 · 黎曼猜想形式化验证 · Tesla FSD v15 · 工控网络攻击 · AI 品味护城河 · 生财有术日报
+---
+
+# 2026-11-23 - 每日简报
+
+> 本报告基于 TechCrunch + Techmeme 整理，覆盖 2026-11-23 AI 行业关键动态；后半部分为生财有术日报（2026-11-21 周末合辑）。
+
+---
+
+## 1. OpenAI 公开模型「困惑度」，呼吁据此限速
+
+### 核心要点
+- OpenAI 首席科学家 Jakub Pachocki 公开各模型的困惑度（perplexity，即对数据的预测能力），并建议以该指标作为「AI 发展限速」的度量基准。
+- 官方同时预警：2027 年可能出现一次「AI 能力洪流」（avalanche of AI gains）。
+- OpenAI 自列困惑度指标的三点缺陷：跨实验室难以直接比较、与可执行的评测脱节、未计入预训练之外的技术进步。
+
+### 为什么值得看
+限速争论长期缺一个可量化锚点。OpenAI 主动把自己的核心指标公开，是把「该不该踩刹车」变成可测量问题的关键一步——也把外部监管与竞争者的质疑压力给到了自己身上。
+
+### 原文引用
+> [1] OpenAI's chief scientist has thoughts on how to limit AI development (TechCrunch, 约 2 小时前)
+> [2] OpenAI shares its models' perplexity, and urges pacing limits based on such metrics (OpenAI)
+
+---
+
+## 2. Anthropic IPO 银行被切成四人小组：防泄密代价极高
+
+### 核心要点
+- 据 Reuters 报道，Anthropic 在 IPO 过程中对部分承销银行只开放四人小组权限。
+- 使用带访问日志（view-logging）的文件分发平台，要求承销商不得向竞争对手提供建议六个月。
+- 背景是今年第二次创纪录 IPO，银行与律师团队拿到巨额费用。
+
+### 为什么值得看
+当一家 AI 公司用投行流程当作情报战防线，说明模型能力本身已成为可交易的核心资产。类似机制未来很可能成为 AI 行业常态——也提示创业团队：核心路线图的保密级别正在向国防工业看齐。
+
+### 原文引用
+> [3] Anthropic limited some IPO banks to four-person teams, used a view-logging file platform (Reuters)
+
+---
+
+## 3. AI 服务器供应商集体涨价：签完合同还要加钱
+
+### 核心要点
+- FT 报道 Dell、HPE、联想、Supermicro 在合同签署数月后，向买方要求「大幅更高的价格」。
+- 成本上涨直接传导到 GPU 算力交易商（trading firms）等中间环节。
+
+### 为什么值得看
+这是算力紧缺从「芯片短缺」演变为「整机合同也不保价」的信号。对国内做算力/智算中心的人而言，出海采购、租赁 GPU 的人应当重新审视长约与点价结构——供应商单方涨价条款正在成为常态。
+
+### 原文引用
+> [4] AI server suppliers like Dell, HPE, Lenovo, and Supermicro are demanding substantially higher prices from buyers (Financial Times)
+
+---
+
+## 4. 英伟达中国业务双重风暴：MSS 秘密行动 + 贝森特施压黄仁勋去留
+
+### 核心要点
+- NYT 披露中国国家安全部（MSS）持续秘密行动，帮助中国企业获取先进 AI 芯片。
+- WSJ/FT 调查黄仁勋伴侣 Alice Huang 关联人李明（2025 年被新加坡控欺诈），以及涉事的数百家空壳公司网络；李明被指是东南亚向中国走私受限芯片的关键人物。
+- 美国财长贝森特表示，黄仁勋是否回归 CEO 应取决于对其中国芯片销售的调查结果，已要求英伟达给出解释。
+
+### 为什么值得看
+一家公司同时面对「出口管制是否被规避」和「最高管合规」两条战线，且两条线互相强化。对国产算力链而言，MSS 协助获取芯片意味着管制压力下仍有灰色通道存在，值得持续跟踪。
+
+### 原文引用
+> [5] The Chinese spy agency MSS' campaign to help Chinese companies acquire advanced AI chips (NYT)
+> [6] Scott Bessent says Jensen Huang's return should depend on probes of its China chip sales (NYT)
+> [7] Alice Huang had ties to... hundreds of shell companies in a network moving Nvidia chips to China (FT)
+
+---
+
+## 5. 黎曼猜想证明获 Lean/Mathlib 社区确认：AI 与人类同时给出解法
+
+### 核心要点
+- Lean 社区与 Mathlib 社区联合声明：「我们对 Alpöge 的黎曼猜想证明有完全信心」，并由 Lean FRO 与 Mathlib Initiative 背书。
+- TechCrunch 同期报道，AI 与人类数学家分别独立给出了这一 167 年难题的解法，数学界评价「心智被炸开」。
+- 核心价值在于证明已被完全形式化、可机器验证，而非仅仅口头的论证。
+
+### 为什么值得看
+「AI 解题」与「机器验证」同时出现，才第一次让 AI 参与基础数学研究具备可复现的信任基础。这是形式化数学 + LLM 结合路线最有分量的一次背书。
+
+### 原文引用
+> [8] Joint statement: "we have full confidence that Alpöge's proof of the Riemann Hypothesis is correct" (Lean community blog)
+> [9] AI claimed a solution to the 167-year-old Riemann hypothesis — and a human did, too (TechCrunch)
+
+---
+
+## 6. Tesla FSD v15：实时 AI 视频生成渲染车周环境
+
+### 核心要点
+- FSD v15 已于周六向部分车辆推送。
+- 可视化系统是最大亮点：照片级渲染车周环境；马斯克称其为实时 AI 视频生成，不使用游戏引擎。
+
+### 为什么值得看
+端侧实时视频生成替代传统 3D 渲染管线，是自动驾驶感知栈的一次架构级替换。对做仿真、具身智能、端侧多模态的人，这比功能发布本身更有参考价值。
+
+### 原文引用
+> [10] Tesla rolls out FSD v15, featuring a photorealistic rendering of car surroundings (Gizmodo)
+
+---
+
+## 7. 专家警告：AI 让针对工业设备的网络攻击规划提速
+
+### 核心要点
+- FT 报道，AI 显著加快了针对工业设备（如制冷、控制系统）的攻击规划：攻击者借 AI 快速阅读设备手册、检索历史事故案例。
+- 报道以「冷库战争」为切口，预演 2027 年基础设施大面积不可用的场景。
+
+### 为什么值得看
+攻击面从 IT 转向 OT，且门槛在下降。对虚拟电厂、储能、数据中心这类关键基础设施的运营者，设备手册与事故档案的公开可检索性本身就是风险项。
+
+### 原文引用
+> [11] Experts say AI has made planning cyberattacks on industrial equipment faster (Financial Times)
+
+---
+
+## 8. Jony Ive：硅谷把「品味」当作对抗 AI 垃圾内容的护城河
+
+### 核心要点
+- NYT 专题讨论 Jony Ive、前 OpenAI 产品设计师 Joey Flynn 等人对「品味」（taste）的看法。
+- 核心命题：当内容生产被 AI 拉平后，审美判断力成为稀缺资源；争议在于 AI 能否习得品味。
+
+### 为什么值得看
+当生成能力趋同，差异化回到审美与取舍。对做内容与产品的人，这是给「AI 同质化」开出的一剂解药：护城河不在能不能生成，而在敢不敢删。
+
+### 原文引用
+> [12] Silicon Valley's obsession with "taste" as a moat against AI slop (NYT)
+
+---
+
+## 💰 生财有术日报 · 2026-11-21
+
+> 以下内容由生财有术 MCP (scys-mcp) 抓取，为 11月21日～11月22日周末合辑。
+
+### 今日信号
+- **成交规律：问得越多，成交概率反而越小** — 作者称能成交的单子很快就能搞定，未展开行业与话术，详情需点开原帖
+- **亦仁推荐做【AI自媒体】** — 几个 AI 号运营时间不长、每篇阅读过千，保守估计一条广告 1000+，还能卖课拉社群
+- **跨境轻医美引流，每天稳定引流 500+** — 把泛护肤、审美科普的泛粉引到 WhatsApp/Line 再分层转化，资金门槛比投流低
+- **跑贴图 + K12 引流玩法** — 有人两天赚 12000，上月有人三天拿 15000，多数人每天稳定小几十；新增视频号分支，建议实名
+
+### 今日精华
+- **43天，11.36万营收：0 到 1 搭建 AI 会员代充生意** — 9月17日 B站发第一条视频测市场，11月6日停掉；B站累计播放超 9 万，高峰一天成交 40 多单
+- **小红书 AI 虚拟产品全流程** — 一个人加一套 AI 工具就能做资料包、知识库、PPT 甚至小程序，线上公开课直播间 600 多人在线
+
+### 圈友在讨论
+- **2026 谷歌 Gemini 4 与反重力攻略** — 评论区路径：iPhone 的 Google One App 先 1.99 美元月付 Pro，再切年付出现 99 美元升级选项
+- **Gemini 4 Neon 使用方法发不出去** — 原帖因敏感词已不可见，建议看星球里刘同学那篇，或从 workbuddy 知识库取文档
+- **模型榜** — 按任务分模型：重复处理用便宜的 deepseek-flash，策划开阔思路才上大参数模型
+- **个人 AI 助理（11月实战活动）** — 325 份作业；提问集中在「手册看不懂只能靠 AI 带着做」以及 codex 与 workbuddy 聊天记录如何沉淀共用
+
+### 外部在关注
+- **小红书售卖 HTML 交互课件** — 近 30 天销售 1000+ 单、总销量近 4000 单，客单价 10 元
+- **在 X 拿到第一笔创作者收益 $927.35** — 下一次发放 12 月 4 日，附新手 5 步开通路径
+- **boringmarketer/boring-marketing-skills** — 给 AI agent 的 32 个免费营销 skill，覆盖研究、定位、文案、落地页、SEO、投放、邮件，MIT 协议
+
+### 群聊精选
+- **AI 工具实战 · AI 订阅别买年卡，按月跟着好用换** — Gemini 当了 9 个月冷板凳、近几个月才起来，AI 产品领先位置换得太快，年卡容易砸手里；已买年卡可找客服按剩余时间退款或二手转出
+- **AI 工具实战 · 编程用 Opus 5.5，文案用 Neon** — Neon 快、文案「说人话」但前端偶尔飘、视频略弱；Carbon 工程纪律更好但消耗多于 Neon；反重力额度重置后优先直连 Neon、避开 orchestrator 更省
+- **AI 工具实战 · 让 AI 别闷头调工具：关键节点先说话** — 关键节点先输出一句正文再调工具：新任务启动先说明意图，从只读排查转动手修改前先讲结论与方案
+
+### SkillHub
+- **热门技能**：2026年11月航海实战学习（789 人安装）· 小红书指南笔记全链路生成（680 人）· 知识点图解 skill（495 人）
+- **新上架**：小红书虚拟产品·笔记选题系统 · 小红书虚拟商品承诺核对 · 航海领队后台生成器 · 跨学科圆桌会议 · 环创素材 A3 打印排版
+
+### 同城聚会（未来 7 天）
+- 11月29日 10:00 · 北京
+- 11月28日 13:45 · 北京
+- 11月28日 09:30 · 北京
+
+---
+
+## 引用列表
+
+[1: OpenAI's chief scientist has thoughts on how to limit AI development](https://techcrunch.com/2026/11/22/openais-chief-scientist-has-thoughts-on-how-to-limit-ai-development/)
+[2: OpenAI shares its models' perplexity, and urges pacing limits](https://openai.com/index/perplexity-and-intelligence)
+[3: Anthropic limited some IPO banks to four-person teams (Reuters)](https://www.reuters.com/world/like-spacex-anthropic-ran-an-unusual-ipo-process-chafing-some-bankers-2026-11-22/)
+[4: AI server suppliers demand substantially higher prices (FT)](https://www.ft.com/content/dd2a6594-6146-4ff1-ac8e-54749c1fc99f)
+[5: MSS campaign to help Chinese companies acquire advanced AI chips (NYT)](https://www.nytimes.com/2026/11/21/world/asia/china-nvidia-spy-chips-state-security.html)
+[6: Bessent presses Nvidia on China chip probes (NYT)](https://www.nytimes.com/2026/11/22/business/scott-bessent-jensen-huang-nvidia.html)
+[7: Alice Huang and the shell company network (FT)](https://www.ft.com/content/f3ad8a81-3890-4a8a-8853-ff0a94b08ba9)
+[8: Lean and Mathlib joint statement on the Riemann Hypothesis](https://leanprover-community.github.io/blog/posts/riemann-hypothesis/)
+[9: AI claimed a solution to the Riemann hypothesis — and a human did too (TechCrunch)](https://techcrunch.com/2026/11/20/ai-claimed-a-solution-to-the-167-year-old-riemann-hypothesis-and-a-human-did-too/)
+[10: Tesla rolls out FSD v15 (Gizmodo)](https://gizmodo.com/its-like-gta-musk-touts-video-game-like-update-to-tesla-fsd-2000843584)
+[11: AI speeds up planning cyberattacks on industrial equipment (FT)](https://www.ft.com/content/3cf882c6-0be6-43f5-b01e-b6f765686c8b)
+[12: Silicon Valley's obsession with "taste" (NYT)](https://www.nytimes.com/2026/11/20/magazine/ai-slop-taste-aesthetic-silicon-valley.html)
