@@ -1,0 +1,221 @@
+---
+title: 2026-11-26 - 每日简报
+description: OpenAI 合并 Chat 与 Work 统一计量 · Anthropic Messages API 迁移 Rust · SpaceX 太空数据中心获 FCC 批准 · Character.AI 用户聊天拍卖被州 AG 起诉 · 美国芯片限制冻结数据中心贷款 · ElevenLabs 330亿估值 · 纽约禁售 AI 玩具五年 · a16z 募资 200亿 · 生财日报 · 贴图号与公众号流量主
+---
+
+# 2026-11-26 - 每日简报
+
+> 本报告基于 TechCrunch + Techmeme 整理，覆盖 2026-11-26 AI 行业关键动态；后半部分为生财有术日报（2026-11-25）。
+
+---
+
+## 1. OpenAI 合并 Chat 与 Work，重度用户将更早触顶
+
+### 核心要点
+- OpenAI 将 ChatGPT 的 Chat 与 Work 体验合并，引入**单一用量计量器（single usage meter）**
+- 高频/重度用户比以往更早撞到使用上限
+- 用量口径统一意味着过去在 Chat 与 Work 之间切换"蹭额度"的空间被压缩
+
+### 为什么值得看
+这是 AI 助手产品形态的一次结构性收口：不再区分入口，统一计费。对做 AI 助理/Agent 应用的团队，"入口"不再是护城河，**任务完成质量与单位成本**才是。
+
+### 原文引用
+> [1] [OpenAI says heavy ChatGPT users may hit limits sooner as it merges Chat and Work](https://techcrunch.com/2026/11/25/openai-says-heavy-chatgpt-users-may-hit-limits-sooner-as-it-merges-chat-and-work/)
+
+---
+
+## 2. Anthropic 披露 Messages API 从 Python 迁移到 Rust
+
+### 核心要点
+- Anthropic 公开其 Messages API（客户访问 Claude 的主通道）从 **Python 迁移到 Rust** 的完整过程
+- 迁移期间用旧的 Python 服务做交叉验证（verify the migration）
+- 属官方工程博客而非产品发布
+
+### 为什么值得看
+LLM API 的性能与并发天花板越来越取决于网关层而非模型本身。Anthropic 愿意公开这类底层迁移细节，说明"API 层工程"已从脏活变成竞争点——**同样的模型，网关实现不同，吞吐和延迟可以差数倍**。
+
+### 原文引用
+> [2] [Anthropic details migrating its Messages API from Python to Rust](https://www.anthropic.com/research/migrating-api-to-rust)
+
+---
+
+## 3. FCC 批准 SpaceX「Starmind」：100 万颗卫星承载太空数据中心
+
+### 核心要点
+- FCC 正式授权 SpaceX 部署名为 **Starmind** 的卫星星座，用于**在太空中建设数据中心**
+- 规模达 **100 万颗卫星**
+- FCC 驳回了反对者关于"威胁科学研究"等关键反对意见，理由是这些问题不在其监管权限范围内
+
+### 为什么值得看
+把算力搬离电网与水资源约束，是继"核能/地热供电"之后的新叙事。100 万颗卫星的授权规模空前，但也把**太空碎片与轨道治理**问题推到台前。对国内算力/电力从业者，这是"算力地理约束"这条主线的一个激进分支。
+
+### 原文引用
+> [3] [FCC approves SpaceX plan to put AI data centers in space](https://techcrunch.com/2026/11/25/fcc-approves-spacex-plan-to-put-ai-data-centers-in-space/)
+> [4] [US authorizes SpaceX to deploy 1 million satellites for data centers in space (Reuters)](https://www.reuters.com/business/media-telecom/us-authorizes-spacex-deploy-1-million-satellites-data-centers-space-2026-11-25/)
+
+---
+
+## 4. Character.AI 破产拍卖用户私人聊天，被多州总检察长挑战
+
+### 核心要点
+- 州总检察长（state AGs）反对 Character.AI 在破产程序中拍卖用户私人聊天记录
+- 拟出售的数据涉及美国 **超过 2100 万个账户**，其中 **210 万个注册于未成年人**
+- 涉及 Character.AI 的破产出售方案
+
+### 为什么值得看
+陪伴类 AI 的商业化困境（高成本、低付费）正在把用户数据推向资产化处置。**隐私数据的破产可变现性**是一个此前少见的风险类别，值得在产品设计阶段就考虑"用户数据在倒闭时归谁"。
+
+### 原文引用
+> [5] [Character.AI's plan to auction off users' private chats challenged by state AGs](https://techcrunch.com/2026/11/25/state-ags-fight-character-ais-plan-to-auction-off-users-private-chats/)
+
+---
+
+## 5. 美国芯片限制卡住数十亿美元数据中心贷款，ByteDance/阿里/腾讯在列
+
+### 核心要点
+- 美国限制中国企业的 AI 芯片远程访问后，与 **ByteDance、阿里巴巴、腾讯** 相关的数据中心交易大面积停滞
+- 部分贷款机构推迟了 **Bridge Data Centres 一笔 66 亿美元**的贷款
+- 大量高端 GPU（含数千张 B300）因远程访问限制涌入市场
+
+### 为什么值得看
+芯片管制正在从"技术封锁"升级为**金融层面的传导**：算力资产无法变现 → 数据中心融资受阻 → 建设周期拉长。这是国内 IDC、智算中心与跨境算力贸易最需要盯的二级传导链。
+
+### 原文引用
+> [6] [US chip curbs stall billions in data center loans tied to ByteDance, Alibaba, and Tencent (Bloomberg)](https://www.techmeme.com/261125/p38)
+> [7] [An unusually high volume of Nvidia GPUs, including thousands of B300s, hit the market after the US curbed Chinese companies' remote access (CNBC)](https://www.techmeme.com/261125/p29)
+
+---
+
+## 6. ElevenLabs 洽谈 2027 年融资，目标估值 330 亿美元
+
+### 核心要点
+- ElevenLabs 早期洽谈 2027 年融资轮，目标估值 **330 亿美元**（9 月时为 220 亿）
+- 其年度经常性收入（ARR）已达 **7 亿美元**
+- 相比半年前，估值上调 50% 而 ARR 基数已站稳
+
+### 为什么值得看
+语音/音频模型正从"AI 功能"变成独立的基础设施层。ARR 7 亿对一家模型公司是相当扎实的商业化证明，语音是当前少有的"每用户高频刚需 + 付费意愿明确"的应用形态。
+
+### 原文引用
+> [8] [ElevenLabs is in early talks for 2027 funding at a $33B target valuation (Bloomberg)](https://www.techmeme.com/261125/p30)
+
+---
+
+## 7. a16z 拟募集约 200 亿美元新基金
+
+### 核心要点
+- a16z 正在洽谈为下一批基金募集 **约 200 亿美元**
+- 上一批基金 1 月公布时为 150 亿美元+，后经三次增资增长到 200 亿美元+
+
+### 为什么值得看
+顶级 VC 单基金规模达到 200 亿美元，意味着 AI 基础设施与模型层项目的**单笔资本需求量级**在上升。同期 Anthropic 股价跌破 IPO 价、ElevenLabs 估值却在涨——**一级二级市场定价正在撕裂**。
+
+### 原文引用
+> [9] [a16z is in talks to raise ~$20B across its next set of funds (Axios)](https://www.techmeme.com/261125/p33)
+
+---
+
+## 8. 纽约州签署法案：AI 聊天机器人玩具禁售五年
+
+### 核心要点
+- 纽约州州长 Kathy Hochul 签署法案，**五年内禁止销售 AI 聊天机器人玩具**，自 2 月起执行
+- 加州州长 Newsom 已于 9 月签署 **四年**禁令
+- Common Sense Media 研究显示这类产品存在不当内容暴露与情感发展风险
+
+### 为什么值得看
+从"打补丁式内容审核"走向**产品形态层面的准入禁令**。对做儿童向 AI 陪伴/硬件玩具的团队，这已经不是合规成本问题，而是**市场准入问题**。
+
+### 原文引用
+> [10] [Want to buy your kid an AI toy this Christmas? Not in New York](https://techcrunch.com/2026/11/25/want-to-buy-your-kid-an-ai-toy-this-christmas-not-in-new-york/)
+> [11] [NY Gov. Kathy Hochul signs a bill banning AI chatbot toys for five years (NBC News)](https://www.techmeme.com/261125/p37)
+
+---
+
+## 9. 其他值得一看
+
+- **S&P 考虑下调英伟达信用评级至 AA-**（治理风险 + "关键人"风险）— [TechCrunch](https://techcrunch.com/2026/11/25/sp-considers-nvidia-credit-downgrade-over-governance-and-key-man-risks/)
+- **Amazon 与 Meta 洽谈解除对 AI Agent Muse 的两个月封锁** — [TechCrunch](https://techcrunch.com/2026/11/25/amazon-and-meta-reportedly-in-talks-to-lift-blockade-on-ai-agent-muse/)
+- **英伟达同意支付 2.9 亿美元和解 2018 年集体诉讼**（涉当年挖矿推高 GPU 销售的误导指控）— [Reuters via Techmeme](https://www.techmeme.com/261125/p36)
+- **Anthropic CEO Dario Amodei 反驳"交出人类控制权"指控**，称对手是"凭感觉站队" — [TechCrunch](https://techcrunch.com/2026/11/25/anthropics-dario-amodei-calls-accusations-of-surrendering-human-control-to-ai-absurd/)
+- **Even the best AI agents struggle with everyday life**：新基准显示最强模型在日常任务上仍不可靠且引入新问题 — [TechCrunch](https://techcrunch.com/2026/11/24/even-the-best-ai-agents-struggle-with-everyday-life/)
+
+---
+
+## 引用列表
+
+[1: OpenAI says heavy ChatGPT users may hit limits sooner as it merges Chat and Work](https://techcrunch.com/2026/11/25/openai-says-heavy-chatgpt-users-may-hit-limits-sooner-as-it-merges-chat-and-work/)
+[2: Anthropic details migrating its Messages API from Python to Rust](https://www.anthropic.com/research/migrating-api-to-rust)
+[3: FCC approves SpaceX plan to put AI data centers in space](https://techcrunch.com/2026/11/25/fcc-approves-spacex-plan-to-put-ai-data-centers-in-space/)
+[4: US authorizes SpaceX to deploy 1 million satellites for data centers in space](https://www.reuters.com/business/media-telecom/us-authorizes-spacex-deploy-1-million-satellites-data-centers-space-2026-11-25/)
+[5: Character.AI's plan to auction off users' private chats challenged by state AGs](https://techcrunch.com/2026/11/25/state-ags-fight-character-ais-plan-to-auction-off-users-private-chats/)
+[6: US chip curbs stall billions in data center loans (Bloomberg)](https://www.techmeme.com/261125/p38)
+[7: Thousands of B300s hit the market after US curbed Chinese remote access (CNBC)](https://www.techmeme.com/261125/p29)
+[8: ElevenLabs in early talks for 2027 funding at $33B valuation (Bloomberg)](https://www.techmeme.com/261125/p30)
+[9: a16z is in talks to raise ~$20B across its next set of funds (Axios)](https://www.techmeme.com/261125/p33)
+[10: Want to buy your kid an AI toy this Christmas? Not in New York](https://techcrunch.com/2026/11/25/want-to-buy-your-kid-an-ai-toy-this-christmas-not-in-new-york/)
+[11: NY Gov. Hochul signs a bill banning AI chatbot toys for five years (NBC News)](https://www.techmeme.com/261125/p37)
+[12: S&P considers Nvidia credit downgrade over governance and 'key man' risks](https://techcrunch.com/2026/11/25/sp-considers-nvidia-credit-downgrade-over-governance-and-key-man-risks/)
+[13: Amazon and Meta in talks to lift blockade on AI agent Muse](https://techcrunch.com/2026/11/25/amazon-and-meta-reportedly-in-talks-to-lift-blockade-on-ai-agent-muse/)
+[14: Nvidia agrees to pay $290M to settle 2018 class action (Reuters)](https://www.techmeme.com/261125/p36)
+[15: Dario Amodei calls accusations of surrendering human control to AI 'absurd'](https://techcrunch.com/2026/11/25/anthropics-dario-amodei-calls-accusations-of-surrendering-human-control-to-ai-absurd/)
+[16: Even the best AI agents struggle with everyday life](https://techcrunch.com/2026/11/24/even-the-best-ai-agents-struggle-with-everyday-life/)
+
+---
+
+## 💰 生财有术日报 · 2026-11-25
+
+> 以下内容由生财有术 MCP (scys-mcp) 抓取，日期为 **2026-11-25（周三）**。
+
+### 今日信号
+
+- **[新玩法] 公众号贴贴图分享各省支柱性产业，每天数据都不错** — AI 生成文字转图片发公众号，手机端点发布即可，每篇几千到几万阅读，可延伸做特色美食、风景、历史名人
+- **[新玩法] AI 全自动做清单类内容，收藏转发是赞的五倍多** — 旅行社账号做爬山排行榜、米其林餐厅汇总，作者称可顺势接卖团、代订机票酒店
+- **[新玩法] 会"查岗"的 AI 陪伴小手机，评论区三千人求同款** — 角色按日程主动报备、感知时间地点、打电话发红包，作者称将免费公开，可做订阅制 App
+- **[新玩法] 历史知识点做成闯关小游戏，按年级拆分卖** — 按"七上"等年级单独定价 9.9 元，设试听章节，"七下"约 2 周后上线
+- **[市场洞察] 公众号做产业名单图，单篇七千多阅读，还能延伸做资料包** — 选题如《中国卫星核心供应商TOP8》《中国半导体20城》，点赞少转发多，后续可卖资料包
+
+### 今日精华
+
+- **深夜福利！11 月没能开成的第 16 条船，手册今天开放啦！🎁** — X 中文 AI 自媒体手册向所有圈友开放，含算法玩法、推文写法、限流排查与变现方式
+- **B站好物深海圈两期成果：百万 GMV 账号占比超两成** — 618 百万 GMV 榜 130 多个账号中 30 多个是圈友账号，第三期报名 11 月 26 日截止
+
+### 圈友在讨论
+
+- **亦仁"关门弟子"首场直播：单价 5 位数的超级 AI 助理，从 0 到 1 实战拆解** — 评论多为致谢，有圈友追问阶段 7 是否让 AI 自主决策，未见回答
+- **24 岁做中老年实拍贴图，单号连续 6 天日收益过千** — 作者答：不标 AI 生成、手搓去 AI 感；选题文案优先，实拍图写大字，满 3 条评论才出广告
+- **在 X 上终于写出了 10 万曝光量的帖子** — 发帖人回复"敢多花 token 才能试出花样"
+- **个人 AI 助理（11 月实战活动）** — 11 月 25 日新交作业 327 份，有圈友称搭好的助理和理想中不太一样
+- **小红书虚拟产品（AI 赋能，11 月实战活动）** — 11 月 25 日新交作业 131 份，提问区暂无内容
+
+### 外部在关注
+
+- **Antigravity 生图 + 浏览器自动化 + 本地脚本，从 0 跑通小红书和微信贴图号亲子科普账号** — 没写一行业务代码
+- **iamajmeena/neonclipping** — 粘贴链接约 2 分钟生成带字幕 9:16 切片，免费本地运行的开源剪辑引擎
+- **Anthropic 免费公开企业 AI 落地课** — FDE 方向，含模型能力与选型等基础内容
+- **MAGI-2 全模态视频模型发布，480B 参数** — 作者称 1080P 画质每秒 0.5
+- **INK-Q/agy-fast** — Google Antigravity 的 MCP 加速插件，作者称减少 34% LLM 轮次、31% token 配额
+
+### 群聊精选
+
+- **项目与变现 — 小红书选品：古法手搓 + 利润倒推跑闭环** — 放下 AI 选品工具，复制产品名到小红书搜"可加购"，每半天搜 30 个词，靠手动搜索练判断、找低粉爆款；留三成利润覆盖抽成快递退换，用利润表倒推最高进货价，1688 搜不到同款直接排除。测品一个品打两周、一周只打一个人群。
+- **项目与变现 — FDE 报价按价值不按成本：省 6 万可报 1 万** — 成果帮客户每月省 5000 元人工、一年 6 万元，报价 1 万元对方也可能接受；替老板本人每天省 4 小时，价值高于员工 4 小时。可到 BOSS 直聘查对应城市岗位工资估算节省金额；不要因为做的人多就降价。
+- **项目与变现 — 公众号流量主：选题细到人群，单价看画像** — 选题决定流量主成败，单价由读者画像而非赛道决定；不动赛道、改同赛道里的题材和标题关键词，让系统推给广告价值更高的人群（医美、滋补、植发、加盟出价高）。
+- **AI 工具实战 — 写小说别用带编程预设的 Agent，AI 味重先换模型** — Codex、Claude Code、Workbuddy 自带大量编程预设，写软件是优点、写小说反而拉低效果；同一份导语实测发糕比 Codex 更有人味，AI 味重时优先换模型而不是反复调提示词。
+- **AI 工具实战 — 多 Agent 跑本地：内存 64G 起步，项目多上 128G** — 做 AI 编程和多 Agent 实战，16G 笔记本多开明显吃力，64G 可同时跑 ts、node、Python、electron；新手先把一个项目做精。
+
+### SkillHub
+
+- **热门技能** — 2026 年 11 月航海实战学习（283 人安装）、小红书指南笔记全链路生成（224 人）、知识点图解 skill（189 人）
+- **新上架** — 测评商品介绍助手、标题仿写、教材课件策划与审核、虚拟资料商品与笔记配图导出、虚拟资料整理与上架前检查
+
+### 同城聚会
+
+- 11月29日 14:00 · 北京 — AI+OPC 打通流量×涨粉×获客×变现闭环（12/20，报名最多）
+- 11月29日 14:00 · 北京 — 知识库 + AI 助理（8/20，较热）
+- 11月28日 14:00 · 北京 — AI 赋能自然流 CPS（3/30）
+- 11月28日 14:00 · 深圳 — 制造业 FDE 交流分享局（7/10，最紧俏）
+- 11月29日 14:00 · 上海 — FDE 项目售前需求评估与聊单（6/16）
+
+---
+
+*数据来源：TechCrunch · Techmeme · 生财有术 MCP | 生成时间 2026-11-26 07:00 CST*
